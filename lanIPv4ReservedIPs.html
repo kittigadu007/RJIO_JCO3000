@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">                   
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmlanIPv4ReservedIPs" id="tf1_frmlanIPv4ReservedIPs" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="lanIPv4ReservedIPs.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>LAN IPv4 Reserved IP Configuration</h1>
+        
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label>
+            Computer Name
+          </label>
+          <input type="text" value="" name="Cname" maxlength="32" id="tf1_hostName">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            IP Address
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" value="" name="startAddr" maxlength="15" id="tf1_ipAddr">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            MAC Address
+          </label>
+          <input type="text" onkeydown="return macAddrVerify (event, this, true, 'Invalid MAC address:', '')" onkeypress="return numericValueCheck (event,'abcdefABCDEF:')" value="" name="macAddr" id="tf1_macAddr" maxlength="17">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return pageValidate()" value="Save" class="btnSubmit" name="button.config.lanIPv4ReservedIPs.lanIPv4ReservedIPs.-1">                    
+      </div>                
+      <!-- (end) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>LAN IPv4 Reserved IPs</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        Computer Name
+                      </th>
+                      <th>
+                        IP Address
+                      </th>
+                      <th>
+                        MAC Address
+                      </th>
+                    </tr>
+                  </thead>                                        
+                  
+                  <tr class="gradeA" id="lanIPv4ReservedIPs1">
+                    <td class="gradeA">admin</td>
+                    <td class="gradeA">192.168.29.123</td>
+                    <td class="gradeA">10:15:A4:C7:D9:1E</td>
+                  </tr>
+                  <tr class="gradeA" id="lanIPv4ReservedIPs2">
+                    <td class="gradeA">John</td>
+                    <td class="gradeA">192.168.29.123</td>
+                    <td class="gradeA">20:4e:ff:ff:ff:30</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="lanIPv4ReservedIPs4">
+                    <td class="gradeA">testLab</td>
+                    <td class="gradeA">192.168.29.222</td>
+                    <td class="gradeA">60:be:ff:ff:ff:e0</td>
+                  </tr>
+                  <tr class="gradeA" id="lanIPv4ReservedIPs5">
+                    <td class="gradeA">rjio</td>
+                    <td class="gradeA">192.168.29.111</td>
+                    <td class="gradeA">00:04:ff:ff:ff:a6</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+              <input type="button"
+              name="button.add.lanipv4reservedips.lanIPv4ReservedIPs.-1"
+              class="btnSubmit" title="Add" value="Add New DHCP Reserved IP" id="btAdd" 
+              
+              onClick="openForm('button.add.lanIPv4ReservedIPs.lanIPv4ReservedIPs','-1','tf1_dialog','lanIPv4ReservedIPs','lanIPv4ReservedIPs.html');"
+              >                                
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/macValidations.js"></script>
+  <script src="js/lanIPv4ReservedIPs.js"></script>        
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.lanIPv4ReservedIPs.lanIPv4ReservedIPs',rowId,'tf1_dialog','lanIPv4ReservedIPs','lanIPv4ReservedIPs.html');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.lanIPv4ReservedIPs.lanIPv4ReservedIPs', 'tf1_frmlanIPv4ReservedIPs', rowId, 'optionSelectAll', 'tf1_dialog', 'lanIPv4ReservedIPs', 'lanIPv4ReservedIPs');
+        }                        
+      }                
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers",
+      "columnDefs": [
+        { type: 'ip-address', targets: 1 }
+      ]
+    });  
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";
+    });    
+    
+    /* Help Section variables */
+    helpSection = "dhcpReservedIps";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(7);
+    
+  });</script>            
+</body>
+</html>

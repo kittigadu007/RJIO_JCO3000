@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/table.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+  <script src="js/jquery-1.8.0.min.js"></script>
+  <meta http-equiv="X-Frame-Options" content="deny">
+  
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>VLAN Membership</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_portVlan" id="tf1_portVlan" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage"  value="portVlan.html">
+                  
+                  
+                  <h2>LAN Port 1</h2>
+                  
+                  <div class="configRow">
+                    <label>
+                      VLAN Association
+                    </label>
+                    <img class="enable-disable" alt="" id="tf1_lan1Association" src="images/button_on.png" /> <input type="hidden" value="1" name="portAssoc1">
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan1Member_div">
+                    
+                    <label>
+                      VLAN Member(s)
+                    </label>
+                    <select size="6" class="six" name="portMembers1" id="tf1_lan1Member" multiple>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" >2</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_lan1Member_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan1Default_div">
+                    <label>
+                      Default VLAN Association
+                    </label>
+                    <select size="1" class="two" name="portDefault1" id="tf1_lan1Default" onChange="defaultCheck(this,1)">
+                      <option  value="0">None</option>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" >2</option>
+                      
+                    </select>
+                    <input type="hidden" id="tf1_hidlan1Default" value="1">
+                    
+                  </div>
+                  <div class="break" id="break_lan1Default_div">
+                    &nbsp;
+                  </div>
+                  
+                  
+                  
+                  <h2>LAN Port 2</h2>
+                  
+                  <div class="configRow">
+                    <label>
+                      VLAN Association
+                    </label>
+                    <img class="enable-disable" alt="" id="tf1_lan2Association" src="images/button_on.png" /> <input type="hidden" value="1" name="portAssoc2">
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan2Member_div">
+                    
+                    <label>
+                      VLAN Member(s)
+                    </label>
+                    <select size="6" class="six" name="portMembers2" id="tf1_lan2Member" multiple>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" SELECTED>2</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_lan2Member_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan2Default_div">
+                    <label>
+                      Default VLAN Association
+                    </label>
+                    <select size="1" class="two" name="portDefault2" id="tf1_lan2Default" onChange="defaultCheck(this,2)">
+                      <option  value="0">None</option>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" >2</option>
+                      
+                    </select>
+                    <input type="hidden" id="tf1_hidlan2Default" value="1">
+                    
+                  </div>
+                  <div class="break" id="break_lan2Default_div">
+                    &nbsp;
+                  </div>
+                  
+                  
+                  
+                  <h2>LAN Port 3</h2>
+                  
+                  <div class="configRow">
+                    <label>
+                      VLAN Association
+                    </label>
+                    <img class="enable-disable" alt="" id="tf1_lan3Association" src="images/button_on.png" /> <input type="hidden" value="1" name="portAssoc3">
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan3Member_div">
+                    
+                    <label>
+                      VLAN Member(s)
+                    </label>
+                    <select size="6" class="six" name="portMembers3" id="tf1_lan3Member" multiple>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" SELECTED>2</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_lan3Member_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_lan3Default_div">
+                    <label>
+                      Default VLAN Association
+                    </label>
+                    <select size="1" class="two" name="portDefault3" id="tf1_lan3Default" onChange="defaultCheck(this,3)">
+                      <option  value="0">None</option>
+                      
+                      <option value="1" SELECTED>1</option>
+                      
+                      <option value="2" >2</option>
+                      
+                    </select>
+                    <input type="hidden" id="tf1_hidlan3Default" value="1">
+                    
+                  </div>
+                  <div class="break" id="break_lan3Default_div">
+                    &nbsp;
+                  </div>
+                  
+                  
+                  
+                  <div class="submitRow">
+                    <input type="submit" name="button.config.portVlan.portVlan" class="btnSubmit" 
+                    value="Save" title="Save" onClick="return validatePortValan('tf1_portVlan')">                                         	
+                    <input type="reset" class="btnSubmit" value="Cancel" title="Cancel" onClick="PortValanOnReset('tf1_portVlan');"> 
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+                
+                <input type="hidden" id="tf1_rows" value="3">	
+                
+              </div>
+            </div>
+            
+            
+            
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/mis.js"></script>
+  <script src="js/mgmt.js"> </script>
+  <script src="js/menu.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  
+  <script language="javascript">
+  
+  function PortValanOnReset(frmId) {
+    
+    document.getElementById(frmId).reset();
+    
+    resetImgOnOff(frmId);
+    
+    var totalRecords = $("#tf1_rows").val();
+    
+    for (i = 1; i<=totalRecords; i++) {
+      
+      enableTextFieldByImageClick('tf1_lan'+i.toString()+'Association','tf1_lan'+i.toString()+'Member tf1_lan'+i.toString()+'Default','break_lan'+i.toString()+'Member break_lan'+i.toString()+'Default');
+    }
+    
+    
+    
+  }
+  
+  function validatePortValan(frmId) {
+    
+    var totalRecords = $("#tf1_rows").val();
+    var imageId;
+    var i;
+    for (i = 1; i<=totalRecords; i++) {
+      
+      imageId = "tf1_lan"+i.toString()+"Association";
+      
+      var imgObj = document.getElementById(imageId);		 
+      var imgObjVal = imgObj.src;
+      var imageName = imgObjVal.substring(imgObjVal.lastIndexOf('/') + 1);
+      
+      if (imageName == ON_IMAGE) {
+        
+        var loopObj = document.getElementById("tf1_lan"+i.toString()+"Member");
+        
+        if (memberCheck(loopObj,i) == false) {
+          
+          alert("Please make sure that VLAN member is selected for the default selector");
+          return false;
+        }
+        
+      }
+      
+    }
+    setHiddenChks(frmId);
+    return true;
+    
+  }
+  
+  function memberCheck(thisSelObj,rowId) {
+    
+    var lanDefaultObj = document.getElementById("tf1_lan"+rowId.toString()+"Default");
+    var defaultSelected = false;
+    var j;
+    for (j=0; j < thisSelObj.length; j++) {
+      
+      if ( thisSelObj.options[j].selected && (thisSelObj.options[j].value == lanDefaultObj.value || lanDefaultObj.value == 0)) {
+        defaultSelected = true;
+        break;
+      }			
+    }			
+    if (defaultSelected == false) {				 
+      return false;
+    }  
+    
+  }
+  
+  function defaultCheck(thisSelObj,rowId) {
+    
+    var selValue = thisSelObj.value;
+    selValue = selValue.toString();
+    
+    if (selValue == "0") {
+      return;
+    }
+    
+    var lanMemberObj = document.getElementById("tf1_lan"+rowId.toString()+"Member");			
+    var hidDefaultObj = document.getElementById("tf1_hidlan"+rowId.toString()+"Default");
+    
+    var memberSelected = false;
+    
+    for (i=0; i < lanMemberObj.length; i++) {
+      
+      if ( lanMemberObj.options[i].selected && lanMemberObj.options[i].value == selValue) {
+        
+        memberSelected = true;
+        break;
+      }
+      
+    }
+    
+    if (memberSelected == false) {
+      
+      thisSelObj.value = hidDefaultObj.value;
+      alert("VLAN Member " + selValue.toString() +" is not selected");
+      
+    }
+    
+  }
+  /**
+  * This function for enable or disable fields while clicking on on off image
+  * Onclick event
+  * @method enableTextFieldByImageClick
+  * @param imgId - image Id
+  * @param fieldIds - space separated field names
+  * @param brk - space separated break names
+  */
+  function enableTextFieldByImageClick(imgId,fieldIds,brk){	
+    var imgObjVal = document.getElementById(imgId).src;    
+    var imageName = imgObjVal.substring (imgObjVal.lastIndexOf ('/') + 1);
+    if (imageName == ON_IMAGE) {    	           
+      fieldStateChangeWr ('', '', fieldIds, '');
+      vidualDisplay(fieldIds,'configRow');	   
+      vidualDisplay (brk,'break');
+    }else if (imageName == OFF_IMAGE) {   
+      fieldStateChangeWr (fieldIds, '', '', '');
+      vidualDisplay(fieldIds,'hide');
+      vidualDisplay (brk,'hide');
+    }
+  }
+  
+  function enablePortImg(toggleObj, thisObj) {		
+    onImageToggle(toggleObj);
+    var imgObj = document.getElementById(thisObj.id).src;	 
+    var imageName = imgObj.substring(imgObj.lastIndexOf('/') + 1);
+    
+    var totalRecords = $("#tf1_rows").val();
+    
+    for (i = 1; i<=totalRecords; i++) {
+      
+      var imageId = "tf1_lan"+i.toString()+"Association";
+      
+      
+      if ( thisObj.id == imageId ) {
+        enableTextFieldByImageClick('tf1_lan'+i.toString()+'Association','tf1_lan'+i.toString()+'Member tf1_lan'+i.toString()+'Default','break_lan'+i.toString()+'Member break_lan'+i.toString()+'Default');
+        break;		
+      }
+      
+    }
+    
+    
+    
+  }
+  $(document).ready(function() {
+    
+    onloadCall(enablePortImg, {
+      imageId: '',
+      disableIndividual: '',
+      disableGrp: '',
+      enableIndividual: '',
+      enableGrp: '',
+      hideClass: '',
+      showClass: '',
+      breakDivs: '',
+      breakClass: '',
+      imagesInfo: {
+        disableImages: '',
+        enableImages: '',
+        disableClass: '',
+        enableClass: ''
+      }
+    })
+    
+    var totalRecords = $("#tf1_rows").val();
+    
+    for (i = 1; i<=totalRecords; i++) {
+      
+      enableTextFieldByImageClick('tf1_lan'+i.toString()+'Association','tf1_lan'+i.toString()+'Member tf1_lan'+i.toString()+'Default','break_lan'+i.toString()+'Member break_lan'+i.toString()+'Default');
+      
+    }
+    
+    /* Help Section variables */
+    
+    helpSection = "portVlan";
+    
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(73);
+    
+  });
+  
+  </script>
+</body>
+</html>

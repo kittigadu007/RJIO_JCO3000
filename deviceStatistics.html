@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">
+
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                           
+            <h1>Device Statistics</h1>
+            <a href="javascript:void(0)" class="refresh" onClick="location.reload(true)"><span></span><b>Refresh</b></a>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table border="0" cellpadding="0" cellspacing="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        Port
+                      </th>
+                      <th>
+                        Tx Pkts
+                      </th>
+                      <th>
+                        Rx Pkts
+                      </th>
+                      <th>
+                        Tx B/s
+                      </th>
+                      <th>
+                        Rx B/s
+                      </th>
+                      <th>
+                        Dropped Tx
+                      </th>
+                      <th>
+                        Dropped Rx
+                      </th>                        
+                      <th>
+                        Errors Tx
+                      </th>
+                      <th>
+                        Errors Rx
+                      </th>
+                      <th>
+                        Multicast
+                      </th>
+                      <th>
+                        Uptime
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr class= "gradeA">
+                    <td class="gradeA" title="Internet">WAN</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="upTime ">N/A</td>
+                  </tr>
+                  <tr class= "gradeA">
+                    <td class="gradeA" title="Local">LAN</td>
+                    <td class="gradeA" title="1108">1108</td>
+                    <td class="gradeA" title="927">927</td>
+                    <td class="gradeA" title="1079891">1079891</td>
+                    <td class="gradeA" title="115719">115719</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="1">1</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="56">56</td>
+                    <td class="gradeA" title="upTime ">0 Days 00:07:46</td>
+                  </tr>
+                  <tr class= "gradeA">
+                    <td class="gradeA" title="6to4">6to4 Tunnel</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="0">0</td>
+                    <td class="gradeA" title="upTime ">N/A</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="break">
+              &nbsp;
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>       
+  <script src="js/textValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/deviceStatistics.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  var timerSecs = 120;   
+  var timeoutId;    	
+  
+  function refreshMessage() {
+    if (timerSecs <= 0) {
+      
+      $("#tf1_msgInfo").html("Refreshing...");
+      $("#tf1_btStop").hide();
+      $("#tf1_btStart").hide();
+      $("#tf1_frmdeviceStatistics").submit();
+      clearTimeout(timeoutId);
+      return;
+    } else {
+      $("#tf1_msgInfo").html("This page loads in " + timerSecs + " seconds");
+      timerSecs = timerSecs - 1;
+    }
+  }
+  
+  
+  $(document).ready(function() {
+    
+    $("#tf1_btStart").hide();
+    $("#tf1_pollInterval").attr('readonly','readonly');
+    //timeoutId = setInterval(refreshMessage, 1000);			
+    
+    $("#tf1_btStop").click(function() {
+      
+      clearTimeout(timeoutId);
+      $("#tf1_btStart").show();
+      $("#tf1_pollInterval").removeAttr('readonly','readonly');
+      $(this).hide();
+      $("#tf1_msgInfo").html('');
+      $(".msgInfo").hide();
+      
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI" : true,
+      "bPaginate" : false,
+      "bLengthChange" : false,
+      "bFilter" : false,
+      "bSort" : false,
+      "bInfo" : false,
+      "bAutoWidth" : false
+    });
+    
+    /* Help Section variables */
+    helpSection = "deviceStatistics";				
+    helpConfigFile = "helpStatus.txt";				
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu1");
+    getBreadCrumb(1);
+    
+  });</script>
+</body>
+</html>

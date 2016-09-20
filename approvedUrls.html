@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>    
+<meta http-equiv="X-Frame-Options" content="deny">            
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    Loading ...
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmapprovedUrls" id="tf1_frmapprovedUrls" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="approvedUrls.html">
+    <div class="configDialog" id="tf1_dialog"><!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Approved URL Configuration</h1>
+        
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_txtKeyword_div" class="configRow">
+          <label>
+            URL
+          </label>
+          <input type="text" class="txt1" maxlength="63" id="tf1_txtKeyword" value="" name="KeywordToAllow">
+        </div>
+        <div id="break_txtKeyword_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_schedules_div" class="configRow">
+          <label> Schedules  </label>
+          <select name="ScheduleName" id="tf1_schedules" size="1">
+            
+            <option value="meeting 12 PM">meeting 12 PM</option>
+            
+            <option value="testing Meeting">testing Meeting</option>
+            
+            <option value="testLabs">testLabs</option>
+            
+            <option value="hrGroup">hrGroup</option>
+            
+            <option value="No Schedule">No Schedule</option>
+            
+          </select>
+        </div>
+        <div id="break_schedules_div" class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">                
+        <input type="submit" onclick="return keywordValidate()" value="Save" class="btnSubmit" name="button.config.approvedUrls.approvedUrls.-1">                    
+      </div>
+      <!-- (end) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onclick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Approved URLs</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        URLs
+                      </th>
+                      <th>Schedules</th>
+                    </tr>
+                  </thead>                                        
+                  
+                  <tr class="gradeA" id="approvedUrls1">
+                    <td class="gradeA">www.abc.com</td>
+                    <td class="gradeA">meeting 12 PM</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="approvedUrls2">
+                    <td class="gradeA">www.testing.com</td>
+                    <td class="gradeA">meeting 12 PM</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="approvedUrls3">
+                    <td class="gradeA">www.movies.com</td>
+                    <td class="gradeA">testLabs</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="approvedUrls4">
+                    <td class="gradeA">www.yahoo.com</td>
+                    <td class="gradeA">No Schedule</td>
+                  </tr>
+                  
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+              <input type="button" name="button.add.approvedUrls.approvedUrls.-1" class="btnSubmit" title="Add" value="Add New Approved URL" id="btAdd" onClick="openForm('button.add.approvedUrls.approvedUrls','-1','tf1_dialog','approvedUrls','approvedUrls.html');">                                
+            </div>
+            <div class="break">
+              &nbsp;
+            </div>
+            <h1>Import Approved URLs</h1>
+            <div class="midArea">
+              <div align="left">
+                <div class="break">
+                  &nbsp;
+                </div>
+                <form name="tf1_frmapprovedUrlsImport" id="tf1_frmapprovedUrlsImport" action="cgi-action.html" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="thispage" id="thispage" value="approvedUrls.html">
+                  <div class="configRow">
+                    <label>
+                      Add Approved URLs from File
+                    </label>
+                    <input type="file" id="tf1_txtUploadFile" name="tf1_txtUploadFile">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    <input type="submit" name="button.import.approvedUrls.approvedUrls.-1" class="btnSubmit" title="Add" value="Import" id="btAdd" onClick="return checkImageFile();">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/approvedUrls.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>       
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.approvedUrls.approvedUrls',rowId,'tf1_dialog','approvedUrls','approvedUrls.html');
+        },
+        'deleteMenu': function(t, e, rowId){                        	
+          deleteRows('button.delete.approvedUrls.approvedUrls', 'tf1_frmapprovedUrls', rowId, 'optionSelectAll', 'tf1_dialog', 'approvedUrls', 'approvedUrls');
+          
+        }
+      }
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1"; 
+    }); 
+    
+    /* Help Section variable */
+    helpSection = "approvedUrls";				
+    helpConfigFile = "helpAdvanced.txt";		
+    /* Help Section variables */
+    helpSection = "approvedUrls";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */		
+    menuLoading();
+    mmSel("mainMenu4");
+    getBreadCrumb(38);
+    
+  });</script>
+</body>
+</html>

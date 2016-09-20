@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body onLoad="onloadCall ();">
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                                               
+            
+            <h1>Unauthorized Usage Prevention</h1>
+            <div class="midArea">
+              <div align="left">
+                
+                <form name="tf1_unauthorizedUsage" id="tf1_unauthorizedUsage" action="cgi-action.html" method="post">                                    
+                  <input type="hidden" name="thispage" id="thispage"  value="unauthorizedUsage.html">
+                  
+                  <div class="configRow">
+                    <label>
+                      Unauthorized Usage Prevention
+                    </label>							
+                    
+                    <img class="enable-disable" alt="" src="images/button_off.png" id="tf1_unauthorized"/>
+                    <input type="hidden" name="tf1_unauthorized" value="0">
+                  </div>
+                  <div class="break">&nbsp; </div>
+                  <div class="submitRow">
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.unauthorizedUsage.unauthorizedUsage" onClick="setHiddenChks('tf1_unauthorizedUsage')" >
+                    <input type="button" class="btnSubmit" title="Cancel" value="Cancel" onClick="document.tf1_unauthorizedUsage.reset(); resetImgOnOff('tf1_unauthorizedUsage');">  
+                    
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "unauthorizedUsage";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */	 
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(81);
+    
+  });</script>
+</body>
+</html>

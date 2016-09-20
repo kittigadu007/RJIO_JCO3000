@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">            
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Export Web Filter</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmexportApprovedWebFilter"  id="tf1_frmexportApprovedWebFilter" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="exportWebFilter.html">
+                  <div class="configRow">
+                    <label>
+                      Export Approved URLs
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" class="btnSubmit" value="Export" title="Export"> 
+                    </div>
+                  </div>
+                </form>
+                <div class="break">
+                  &nbsp;
+                </div>
+                <form name="tf1_frmexportBlockedWebFilter" id="tf1_frmexportBlockedWebFilter" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="exportWebFilter.html">
+                  <div class="configRow">
+                    <label>
+                      Export Blocked Keywords
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" class="btnSubmit" value="Export" title="Export">
+                    </div>
+                  </div>
+                </form>
+                <div class="break">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  function startPageLoadTimer () {   
+  }
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "exportWebFilter";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */	    
+    menuLoading();
+    mmSel("mainMenu4");
+    getBreadCrumb(39);
+  });</script>
+</body>
+</html>

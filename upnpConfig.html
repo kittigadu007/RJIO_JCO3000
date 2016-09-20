@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>UPnP Configuration</h1>
+            <div class="midArea">
+              <div align="left">
+                
+                <form name="tf1_frmUpnpConfig" id="tf1_frmUpnpConfig" action="cgi-action.html" method="post">                                    
+                  <input type="hidden" name="thispage" id="thispage"  value="upnpConfig.html">
+                  
+                  <div class="configRow">
+                    <label>
+                      Do you want to enable UPnP?
+                    </label>
+                    
+                    <img class="enable-disable" src="images/button_off.png" id="tf1_enableUpnp"/>
+                    <input type="hidden" name="upnpEnable" value="0" >                                                
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_txtAdvPeriod_div">
+                    <label>
+                      Advertisement Period
+                    </label>
+                    <input type="text" name="advPeriod" value="1800" class="one" maxlength="5" id="tf1_txtAdvPeriod" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 86400, true, 'Invalid advertisement period:', ' in seconds');}">
+                    <dl>
+                      [Range: 1 - 86400] In Secs
+                    </dl>
+                  </div>
+                  <div class="break" id="break_txtAdvPeriod_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_txtAdvTime_div">
+                    <label>
+                      Advertisement Time To Live
+                    </label>
+                    <input type="text" name="advTimeToLive" value="4" class="one" maxlength="3" id="tf1_txtAdvTime" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 255, true, 'Invalid advertisement TTL value:', ' in hops');}">
+                    <dl>
+                      [Range: 1 - 255] In Hops
+                    </dl>
+                  </div>
+                  <div class="break" id="break_txtAdvTime_div">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.upnp.upnpConfig" onClick="return upnpConfValidate('tf1_frmUpnpConfig')" >
+                    <input type="button" class="btnSubmit" title="Cancel" value="Cancel" onClick="document.tf1_frmUpnpConfig.reset(); upNpOnReset('tf1_frmUpnpConfig');">  
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+            <h1>UPnP Port Map Rules</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        Active
+                      </th>
+                      <th>
+                        Protocol
+                      </th>
+                      <th>
+                        Int. Port
+                      </th>
+                      <th>
+                        Ext. Port
+                      </th>
+                      <th>
+                        IP Address
+                      </th>
+                    </tr>
+                  </thead>                                        
+                  
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow">
+              <input type="button" class="btnSubmit" title="Refresh" value="Refresh" onClick="location.reload(true);">                                
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/upnp.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    setOnclickDialogs('tf1_btnShowModal', 'btnClose', 'tf1_dialog', 'tf1_overlay');
+    
+    /* Help Section variables */
+    helpSection = "upnp";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(23);
+  });</script>
+</body>
+</html>

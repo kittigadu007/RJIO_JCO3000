@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->     
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">           
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmportForwarding" id="tf1_frmportForwarding" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="portForwarding.html">
+    <div class="configDialog" id="tf1_dialog">    <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Port Forwarding Configuration</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                    
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_selFwAction_div" class="configRow">
+          <label>
+            Action
+          </label>
+          <select onchange="dropFieldSelectSrcAction()" id="tf1_selFwAction" class="txt1" name="Action">
+            <option value="DROP">Block Always</option>
+            <option value="ACCEPT">Allow Always</option>
+          </select>
+        </div>
+        <div id="break_selFwAction_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_services_div" class="configRow">
+          <label>
+            Services
+          </label>
+          <select id="tf1_services" name="ServiceName" class="txt1">
+            
+            <option value="HTTP">HTTP</option>
+            
+            <option value="DNS">DNS</option>
+            
+            <option value="FTP">FTP</option>
+            
+            <option value="HTTPS">HTTPS</option>
+            
+            <option value="ICQ">ICQ</option>
+            
+            <option value="IRC">IRC</option>
+            
+            <option value="IMAP2">IMAP2</option>
+            
+            <option value="IMAP3">IMAP3</option>
+            
+            <option value="NFS">NFS</option>
+            
+            <option value="POP3">POP3</option>
+            
+            <option value="PPTP">PPTP</option>
+            
+            <option value="REAL-AUDIO">REAL-AUDIO</option>
+            
+            <option value="SSH">SSH</option>
+            
+            <option value="TELNET">TELNET</option>
+            
+            <option value="TFTP">TFTP</option>
+            
+            <option value="RIP">RIP</option>
+            
+            <option value="SIP-UDP">SIP-UDP</option>
+            
+            <option value="SIP-TCP">SIP-TCP</option>
+            
+            <option value="DNS-TCP">DNS-TCP</option>
+            
+            <option value="testLabs">testLabs</option>
+            
+            <option value="hrGroup">hrGroup</option>
+            
+            <option value="JioLabs">JioLabs</option>
+            
+          </select>
+        </div>
+        <div id="break_services_div" class="break">
+          &nbsp;
+        </div>
+        
+        <div id="tf1_addFwSrcUser_div" class="configRow">
+          <label>
+            Source IP
+          </label>
+          <select id="tf1_addFwSrcUser" onchange="dropFieldSelectSrc()" name="SourceAddressType">
+            <option value="0">Any</option>
+            <option value="1">Single Address</option>
+            <option value="2">Address Range</option>
+          </select>
+        </div>
+        <div id="break_addFwSrcUser_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtFwSrcUserStart_div" class="hide">
+          <label>
+            Start
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" maxlength="15" id="tf1_txtFwSrcUserStart" value="" name="SourceAddressStart" disabled="">
+        </div>
+        <div id="break_txtFwSrcUserStart_div" class="hide">
+          &nbsp;
+        </div>
+        <div id="tf1_txtFwSrcUserFinish_div" class="hide">
+          <label>
+            Finish
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" id="tf1_txtFwSrcUserFinish" maxlength="15" value="" name="SourceAddressEnd" disabled="">
+        </div>
+        <div id="break_txtFwSrcUserFinish_div" class="hide">
+          &nbsp;
+        </div>
+        <div id="tf1_txtFwSrcUserDestination_div" class="configRow">
+          <label>
+            Destination IP
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" id="tf1_txtFwSrcUserDestination" maxlength="15" value="" name="DNATAddress">
+        </div>
+        <div id="break_txtFwSrcUserDestination_div" class="break">
+          &nbsp;
+        </div>
+        
+        <div id="tf1_portType_div" class="configRow">
+          <label>
+            Internal Port Type
+          </label>
+          <select onchange="portTypeChange()" id="tf1_portType" name="DestinationAddressType">
+            <option value="0">Single</option>
+            <option value="2">Internal Port Range</option>
+          </select>
+          
+        </div>
+        <div id="break_portType_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtinternalPort_div" class="configRow">
+          <label>
+            Internal Port
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 65535, true, '', '');}" onkeypress="return numericValueCheck (event)" maxlength="5" id="tf1_txtinternalPort" value="" name="DNATPort" class="one">
+          <dl>
+            [Range: 1 - 65535] 
+          </dl>
+        </div>
+        <div id="break_txtinternalPort_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_portRange_div" class="hide">
+          <label>
+            Internal Port Length
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 10, true, '', '');}" onkeypress="return numericValueCheck (event)" maxlength="5" id="tf1_portRange" value="" name="DnatPortRangeLength" class="one" disabled="">
+          <dl>
+            [Range: 1 - 10] 
+          </dl>
+        </div>
+        <div id="break_portRange_div" class="hide">
+          &nbsp;
+        </div>
+        
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return pageValidate()" value="Save" class="btnSubmit" name="button.config.portForwarding.portForwarding.-1">                    
+      </div>
+      <!-- loading onload form scripts -->
+      
+      <!-- (end) add or edit form -->
+      <!-- (start) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit enable disable');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="enable">
+        Enable
+      </li>
+      <li id="disable">
+        Disable
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                            
+            
+            <h1>Port Forwarding</h1>
+            <div align="center">
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          Action
+                        </th>
+                        <th>
+                          Service 
+                        </th>
+                        <th>
+                          Status 
+                        </th>
+                        <th>
+                          Source IP
+                        </th>
+                        <th>
+                          Destination IP
+                        </th>
+                        <th>
+                          Internal Port Range
+                        </th>
+                      </tr>
+                    </thead>                                            
+                    
+                    <tr class="gradeA" id="portForwarding5" status="1">
+                      <td class="gradeA">Block Always</td>
+                      <td class="gradeA">HTTP</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ANY</td>
+                      <td class="gradeA">192.168.29.12</td>
+                      <td class="gradeA">88
+                        
+                      </td>
+                      
+                    </tr>
+                    
+                    <tr class="gradeA" id="portForwarding6" status="1">
+                      <td class="gradeA">Block Always</td>
+                      <td class="gradeA">HTTP</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ANY</td>
+                      <td class="gradeA">192.168.29.131</td>
+                      <td class="gradeA">123
+                        
+                      </td>
+                      
+                    </tr>
+                    
+                    <tr class="gradeA" id="portForwarding7" status="1">
+                      <td class="gradeA">Block Always</td>
+                      <td class="gradeA">ICQ</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ANY</td>
+                      <td class="gradeA">192.168.10.156</td>
+                      <td class="gradeA">900
+                        
+                      </td>
+                      
+                    </tr>
+                    
+                    <tr class="gradeA" id="portForwarding8" status="1">
+                      <td class="gradeA">Allow Always</td>
+                      <td class="gradeA">IMAP2</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ANY</td>
+                      <td class="gradeA">192.168.29.139</td>
+                      <td class="gradeA">456
+                        
+                      </td>
+                      
+                    </tr>
+                    
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow" id="tf1_btnShowModal">
+                <input type="button" name="button.add.portForwarding.portForwarding.-1" class="btnSubmit" title="Add" value="Add New Port Forwarding Rule" id="btAdd" onClick="openForm('button.add.portForwarding.portForwarding','-1','tf1_dialog','portForwarding','portForwarding.html');">                                    
+              </div>
+              <div class="break">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/portForwarding.js"></script>        
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.portForwarding.portForwarding',rowId,'tf1_dialog','portForwarding','portForwarding.html');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.portForwarding.portForwarding', 'tf1_frmportForwarding', rowId, 'optionSelectAll', 'tf1_dialog', 'portForwarding', 'portForwarding');
+        },
+        'disableMenu': function(t, e, rowId){
+          changeRowStauts('disable', 'tf1_frmportForwarding', rowId, 'tf1_dialog', 'portForwarding', 'portForwarding', 'portForwarding.portForwarding');
+        },
+        'enableMenu': function(t, e, rowId){
+          changeRowStauts('enable', 'tf1_frmportForwarding', rowId, 'tf1_dialog', 'portForwarding', 'portForwarding', 'portForwarding.portForwarding');
+        }
+      },
+      onShowMenu: function(e,menu,rowId) {
+        if ($("#"+rowId).attr("status") == "1"){
+          $('#enableMenu', menu).remove();
+        } else {
+          $('#disableMenu', menu).remove();
+        }
+        return menu;
+      }
+    });
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers",
+      "columnDefs": [
+        { type: 'ip-address', targets: 3 },
+        { type: 'ip-address', targets: 4 }
+      ]
+    });
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";  
+    });            
+    
+    
+    /* Help Section variables */
+    
+    helpSection = "portForwardingHGW";
+    
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu4");
+    getBreadCrumb(33);
+    
+  });</script>
+  
+</body>
+</html>

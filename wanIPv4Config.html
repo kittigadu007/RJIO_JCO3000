@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                                                       
+            
+            <h1>WAN IPv4 Configuration</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmwanIPv4Config" id="tf1_frmwanIPv4Config" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="wanIPv4Config.html">
+                  <input type="hidden" id="tf1_splitTunnel" value="0" name="Wan.SplitTunnel">
+                  <h2 id="ispHeadingLabel">ISP Connection Type</h2>
+                  <div class="configRow" id="tf1_ispType_div">
+                    <label>ISP Connection Type</label>
+                    <select id="tf1_ispType" name="ConnectionType" onChange="checkISPType ()">
+                      <option  value="1">Static IP</option>
+                      <option SELECTED value="0">Dynamic IP (DHCP)</option>
+                      <option  value="2">PPPoE (Username/Password)</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_ispType_div">
+                    &nbsp; 
+                  </div>
+                  <!-- Start Static IP -->
+                  <div class="configRow" id="tf1_stIpAddr_div">
+                    <label>
+                      IP Address
+                    </label>
+                    <input type="text" id="tf1_stIpAddr" maxlength="15" name="StaticIp" value="" class="txt1" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_stIpAddr_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_stIpSnetMask_div">
+                    <label>
+                      IP Subnet Mask
+                    </label>
+                    <input type="text" id="tf1_stIpSnetMask" maxlength="15" name="NetMask" value="" class="txt1" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return validNetMask (this.id);}">
+                  </div>
+                  <div class="break" id="break_stIpSnetMask_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_stGwIpAddr_div">
+                    <label>
+                      Gateway IP Address
+                    </label>
+                    <input type="text" name="Gateway" value="" id="tf1_stGwIpAddr" maxlength="15" class="txt1">
+                  </div>
+                  <div class="break" id="break_stGwIpAddr_div">
+                    &nbsp; 
+                  </div>
+                  <!-- End Static IP --><!-- start PPP, PPTP, L2TP -->
+                  <div class="configRow" id="tf1_ipAddr_div">
+                    <label>
+                      IP Address
+                    </label>
+                    <input type="text" name="MyIPAddress" value=""  id="tf1_ipAddr" maxlength="15" class="txt1" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_ipAddr_div">
+                    &nbsp; 
+                  </div>
+                  
+                  <div class="configRow" id="tf1_serverAddr_div">
+                    <label>
+                      Server Address
+                    </label>
+                    <input type="text" name="ServerIp" maxlength="15" value="" id="tf1_serverAddr" class="txt1">
+                  </div>
+                  <div class="break" id="break_serverAddr_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_username_div">
+                    <label>
+                      Username
+                    </label>
+                    <input type="text" name="UserName" value="" id="tf1_username" maxlength="64" class="txt1">
+                  </div>
+                  <div class="break" id="break_username_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_password_div">
+                    <label>
+                      Password
+                    </label>
+                    <input type="password" name="Password" value="" id="tf1_password" maxlength="64" class="txt1" onKeyPress="if (event.keyCode != 9) { this.value = ''; this.onkeypress=''; }">
+                  </div>
+                  <div class="break" id="break_password_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_service_div">
+                    <label>
+                      Service
+                    </label>
+                    <input type="text"
+                    name="ServiceName" value='' id="tf1_service" maxlength="64" class="txt1" onKeyPress="if (event.keyCode != 9) { this.value = ''; this.onkeypress=''; }">
+                    (Optional)
+                    
+                  </div>
+                  <div class="break" id="break_service_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_authenticationType_div">
+                    <label>
+                      Authentication Type
+                    </label>
+                    <select name="AuthOpt" class="txt1" id="tf1_authenticationType">
+                      <option SELECTED value="1">Auto-negotiate</option>
+                      <option  value="2">PAP</option>
+                      <option  value="3">CHAP</option>
+                      <option  value="4">MS-CHAP</option>
+                      <option  value="5">MS-CHAPv2</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_authenticationType_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_chkMppe_div">
+                    <label>
+                      MPPE Encryption
+                    </label>
+                    
+                    <img class="enable-disable" alt="" id="tf1_chkMppe" src="images/button_off.png"/>
+                    <input type="hidden" name="mppe" value="0">
+                  </div>
+                  <div class="break" id="break_chkMppe_div">
+                    &nbsp; 
+                  </div>
+                  
+                  <div class="configRow" id="tf1_l2tpSecret_div">
+                    <label>Secret</label>
+                    <input type="Password" name="Secret" value="" id="tf1_l2tpSecret" maxlength="15" class="txt1">(Optional)
+                  </div>
+                  <div class="break" id="break_l2tpSecret_div">&nbsp; </div>
+                  
+                  
+                  <div class="configRow" id="tf1_reConnectMode_div">
+                    <label>
+                      Reconnect Mode
+                    </label>
+                    <p>
+                      <input type="radio" name="IdleDisconnect"   value="0" onClick="idleTimeOutCheck ()" id="tf1_reConnectMode1"> Always On
+                      <input type="radio" name="IdleDisconnect"    value="1" onClick="idleTimeOutCheck ()" id="tf1_reConnectMode2">On Demand
+                    </p>
+                  </div>
+                  <div class="break" id="break_reConnectMode_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_maximumIdleTime_div">
+                    <label>
+                      Maximum Idle Time
+                    </label>
+                    <input type="text" name="IdleDisconnectTime" value="" id="tf1_maximumIdleTime" maxlength="3" class="one" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 5, 999, true, 'Invalid idle timeout value:', 'minutes');}">
+                    <dl>
+                      [Range: 5 - 999]
+                    </dl>
+                  </div>
+                  <div class="break" id="break_maximumIdleTime_div">&nbsp; </div>
+                  <h2 id="domainNameHeading">Domain Name System (DNS) Servers</h2>
+                  <div class="configRow" id="tf1_dnsServerSource_div">
+                    <label>
+                      DNS Server Source
+                    </label>
+                    <select name="GetDnsFromIsp" class="txt1" id="tf1_dnsServerSource" onChange="dnsServerCheck ()">
+                      <option SELECTED value="1">Get Dynamically from ISP</option>
+                      <option  value="0">Use These DNS Servers</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_dnsServerSource_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_primaryDns_div">
+                    <label>
+                      Primary DNS Server
+                    </label>
+                    <input type="text" name="PrimaryDns" value="0.0.0.0" id="tf1_primaryDns" maxlength="15" class="txt1" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_primaryDns_div">
+                    &nbsp; 
+                  </div>
+                  <div class="configRow" id="tf1_secDns_div">
+                    <label>
+                      Secondary DNS Server
+                    </label>
+                    <input type="text" name="SecondaryDns" value="0.0.0.0" id="tf1_secDns" maxlength="15" class="txt1" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', true, true, 'Invalid IP address', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_secDns_div">&nbsp;</div>
+                  <div class="submitRow">
+                    <input type="submit" name="button.config.wanIPv4Config" class="btnSubmit" value="Save" title="Save" onClick="return wanSetupValidate('tf1_frmwanIPv4Config')">
+                    <input type="reset" class="btnSubmit" value="Cancel" title="Cancel" onClick="this.form.reset(); wanIPv4ConfigOnReset('tf1_frmwanIPv4Config');">                                            
+                  </div>
+                  <div class="break">
+                    &nbsp; 
+                  </div>
+                  
+                  <input type="hidden" name="lanIpAddress" id="tf1_lanIpAddress" value="192.168.29.1">
+                  <input type="hidden" name="lanSubnetMask" id="tf1_lanSubnetMask" value="255.255.255.0">
+                  
+                  <input type="hidden" id="isLoadBal" value="0">
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script   src="js/macValidations.js"></script>
+  <script   src="js/wan1Setup.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "wan1Setup";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(11);
+    
+  });</script>
+</body>
+</html>

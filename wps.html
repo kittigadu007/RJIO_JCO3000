@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<script>
+var wpsSessionStatus = '0';
+var wpsStatusTimer;
+function ajaxWpsStatus()
+
+{
+  dataString = "button.wpsStatus.wps=status&thispage=wps.html";
+  $.ajax({
+    type: "POST",
+    url: "platform.cgi",
+    data: dataString,
+    success: function(dataHTML){
+      
+      var dataSplit = dataHTML.split(",");
+      if (dataSplit[0] == "0") {									
+        clearInterval(wpsStatusTimer);
+        $("#tf1_btnViaPin").removeAttr("disabled");
+        $("#tf1_btnViaPbc").removeAttr("disabled");
+        $("#tf1_sessionMessage").html(dataSplit[1]);
+      } else {
+        $("#tf1_sessionMessage").html(dataSplit[1]);
+      }
+      
+      
+    },
+    dataType:'html'
+  });
+}			</script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                           
+            
+            <h1>WPS</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmWps" id="tf1_frmWps" action="cgi-action.html" method="post">                                    
+                  <input type="hidden" name="thispage" id="thispage"  value="wps.html">
+                  
+                  <h2>WPS Configuration</h2>
+                  <div class="configRow" id="tf1_dot11WPS_div">
+                    <label>
+                      Select VAP
+                    </label>
+                    <select name="tf1_dot11WPS_vaps" size="1" id="tf1_dot11WPS_vaps">
+                      
+                      <option  value="ap2">ap2</option>
+                      
+                      <option  value="ap4">ap4</option>
+                      
+                      <option SELECTED value="ap1">ap1</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_dot11WPS_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_enableWPSStatus_div">
+                    <label>
+                      WPS Status
+                    </label>
+                    
+                    <img class="enable-disable" alt="" src="images/button_on.png" id="tf1_enableWPSStatus"/>                                               
+                    <input type="hidden" name="enableDisableWPS"  value="1">
+                    
+                  </div>
+                  <div class="break" id="break_enableWPSStatus_div">
+                    &nbsp;
+                  </div>
+                  <h2>WPS Current Status</h2>
+                  <div class="configRow" id="tf1_security_div">
+                    <label>
+                      Security
+                    </label>
+                    <p>
+                      WPA+WPA2
+                    </p>
+                  </div>
+                  <div class="break" id="break_security_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_authentication_div">
+                    <label>
+                      Authentication
+                    </label>
+                    <p>
+                      PSK
+                    </p>
+                  </div>
+                  <div class="break" id="break_authentication_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_encryption_div">
+                    <label>
+                      Encryption
+                    </label>
+                    <p>
+                      TKIP+AES
+                    </p>
+                  </div>
+                  <div class="break" id="break_encryption_div">
+                    &nbsp;
+                  </div>
+                  <h2>WPS Setup Method</h2>
+                  <div class="configRow" id="tf1_txtPINNum_div">
+                    <label>
+                      Station PIN
+                    </label>
+                    <input type="text" class="txt1" name="tf1_txtPINNum" maxlength="8" id="tf1_txtPINNum" onkeypress="return numericValueCheck (event)">
+                  </div>
+                  <div class="break" id="break_txtPINNum_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_wpsSetupSubmit_div">
+                    <label>
+                      &nbsp;
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" name="button.ConfViaPin.wps.wps.-1" id="tf1_btnViaPin"
+                      class="btnSubmit" value="Via PIN" title="Via PIN" 
+                      
+                      onclick="return pageValidate()"
+                      
+                      >
+                      <input type="submit" id="tf1_btnViaPbc" name="button.ConfViaPcb.wps.wps.-1"  
+                      class="btnSubmit" value="Via PBC" title="Via PBC"
+                      
+                      >       
+                    </div>
+                  </div>
+                  <div class="break" id="break_wpsSetupSubmit_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_sessionStatus_div">
+                    <label>
+                      Session Status
+                    </label>
+                    <p id="tf1_sessionMessage">
+                      Click on PIN/PBC to start a new WPS session
+                    </p>
+                  </div>
+                  <div class="break" id="break_sessionStatus_div">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.wps.wps" onclick="setHiddenChks('tf1_frmWps')" >
+                    <input type="button" class="btnSubmit" title="Cancel" value="Cancel" onclick="document.tf1_frmWps.reset(); wpsOnReset('tf1_frmWps');">  
+                    
+                    
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/wps.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){	 		
+    /* Help Section variables */
+    helpSection = "wps";				
+    helpConfigFile = "helpAdvanced.txt";			
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(28);	
+    if ( wpsSessionStatus == "1" ) {
+      wpsStatusTimer = setInterval(ajaxWpsStatus,2000);				
+    }			
+  });</script>
+</body>
+</html>

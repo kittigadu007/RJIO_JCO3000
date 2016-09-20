@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>  
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmVlanSettings" id="tf1_frmVlanSettings" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="vlanSettings.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>VLAN Configuration</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                    
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label> VLAN ID </label>
+          <input type="text" name="vlanID" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 2, 4094, true, 'Invalid VLAN ID.', '');}" maxlength="4" id="tf1_vlanId" value="" class="one">
+          <dl>
+            [Range: 2 - 4094]
+          </dl>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return validateVlanSettingsConfig()" value="Save" class="btnSubmit" name="button.config.vlanSettings.vlanSettings.-1">                    
+      </div>         
+      <!-- (end) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>VLAN List</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th> VLAN ID </th>
+                    </tr>
+                  </thead>
+                  
+                  <tr class="gradeA" id="1">
+                    <td class="gradeA">1</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="2">
+                    <td class="gradeA">2</td>
+                  </tr>
+                  <tr class="gradeA" id="3">
+                    <td class="gradeA">3</td>
+                  </tr>
+                  <tr class="gradeA" id="4">
+                    <td class="gradeA">4</td>
+                  </tr>
+                  <tr class="gradeA" id="5">
+                    <td class="gradeA">5</td>
+                  </tr>
+                  <tr class="gradeA" id="6">
+                    <td class="gradeA">6</td>
+                  </tr>                                                                         
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+              <input type="button" class="btnSubmit" title="Add" value="Add New VlAN" id="btAdd" onClick="openForm('button.add.vlanSettings.vlanSettings','-1','tf1_dialog','vlanSettings','vlanSettings.html');" >                                
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/vlanSettings.js"></script>        
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.vlanSettings.vlanSettings',rowId,'tf1_dialog','vlanSettings','vlanSettings.html');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.vlanSettings.vlanSettings', 'tf1_frmVlanSettings', rowId, 'optionSelectAll', 'tf1_dialog', 'vlanSettings', 'vlanSettings');
+        }                        
+      }                
+    });
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "bPaginate": false,
+      "bInfo" : false,
+      "bFilter" : false
+    });  
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";
+    });    
+    
+    /* Help Section variables */
+    helpSection = "vlanSettings";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(72);
+    
+  });</script>
+</body>
+</html>

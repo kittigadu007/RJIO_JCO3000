@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>   
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmTrafficSelectors" id="tf1_frmTrafficSelectors" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="trafficSelectors.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Traffic Selector Configuration</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                    
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_selProfile_div" class="configRow">
+          <label>
+            Available Profiles
+          </label>
+          <select id="tf1_selProfile" name="QueueName">
+            
+            <option value="testing">testing</option>
+            
+            <option value="admin">admin</option>
+            
+            <option value="hrGroup">hrGroup</option>
+            
+            <option value="testLabs">testLabs</option>
+            
+          </select>
+        </div>
+        <div id="break_selProfile_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selServ_div" class="configRow">
+          <label>
+            Service
+          </label>
+          <select id="tf1_selServ" name="serviceName">
+            
+            <option value="ANY">ANY</option>
+            
+            <option value="HTTP">HTTP</option>
+            
+            <option value="DNS">DNS</option>
+            
+            <option value="FTP">FTP</option>
+            
+            <option value="HTTPS">HTTPS</option>
+            
+            <option value="ICQ">ICQ</option>
+            
+            <option value="IRC">IRC</option>
+            
+            <option value="IMAP2">IMAP2</option>
+            
+            <option value="IMAP3">IMAP3</option>
+            
+            <option value="NFS">NFS</option>
+            
+            <option value="POP3">POP3</option>
+            
+            <option value="PPTP">PPTP</option>
+            
+            <option value="REAL-AUDIO">REAL-AUDIO</option>
+            
+            <option value="SSH">SSH</option>
+            
+            <option value="TELNET">TELNET</option>
+            
+            <option value="TFTP">TFTP</option>
+            
+            <option value="RIP">RIP</option>
+            
+            <option value="SIP-UDP">SIP-UDP</option>
+            
+            <option value="SIP-TCP">SIP-TCP</option>
+            
+            <option value="DNS-TCP">DNS-TCP</option>
+            
+            <option value="testLabs">testLabs</option>
+            
+            <option value="admin">admin</option>
+            
+            <option value="JioLabs">JioLabs</option>
+            
+          </select>
+        </div>
+        <div id="break_selServ_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selMatchType_div" class="configRow">
+          <label>
+            Traffic Selector Match Type
+          </label>
+          <select onchange="optionCheck ();" id="tf1_selMatchType" name="MatchType">
+            <option value="1">IP Subnet</option>
+            <option value="2">MAC Address</option>
+          </select>
+        </div>
+        <div id="break_selMatchType_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtIpAddr_div" class="configRow">
+          <label>
+            IP Address 
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" id="tf1_txtIpAddr" value="" name="startIP" maxlength="15">
+        </div>
+        <div id="break_txtIpAddr_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtPrefixLength_div" class="configRow">
+          <label>
+            Mask Length or Prefix Length
+          </label>
+          <input type="text" class="one" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 32, true, 'Invalid Prefix Length', '');}" onkeypress="return numericValueCheck (event, '')" id="tf1_txtPrefixLength" value="" name="endIP" maxlength="2"><dl>[Range: 1 - 32]</dl>
+        </div>
+        <div id="break_txtPrefixLength_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtMacAddr_div" class="hide">
+          <label>
+            MAC Address 
+          </label>
+          <input type="text" onkeydown="return macAddrVerify (event, this, true, '', '')" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:')" id="tf1_txtMacAddr" value="" name="MAC" maxlength="17" disabled="">
+        </div>
+        <div id="break_txtMacAddr_div" class="hide">
+          &nbsp;
+        </div>
+        <div id="tf1_txtDscpVal_div" class="hide">
+          <label>
+            DSCP Value 
+          </label>
+          <input type="text" class="one" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 63, true, 'Invalid DSCP value:', '');}" onkeypress="return numericValueCheck (event)" id="tf1_txtDscpVal" value="" name="" maxlength="2" disabled=""><dl>[Range: 0 - 63]</dl>
+        </div>
+        <div id="break_txtDscpVal_div" class="hide">
+          &nbsp;
+        </div>
+        <div id="tf1_txtSsid_div" class="hide">
+          <label>
+            SSID 
+          </label>
+          <input type="text" class="one" onkeypress="return numericValueCheck (event)" id="tf1_txtSsid" value="" name="" maxlength="2" disabled=""><dl>[Range: 0 - 99]</dl>
+        </div>
+        <div id="break_txtSsid_div" class="hide">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="hidden" value="0" name="DisableFastForwardingStatus">
+        <input type="hidden" id="hdClassificationKey" value="" name="ClassificationKey">
+        
+        <input type="hidden" id="hdQueueEnabled_testing" value="1" name="QueueEnabled">
+        
+        <input type="hidden" id="hdQueueEnabled_admin" value="1" name="QueueEnabled">
+        
+        <input type="hidden" id="hdQueueEnabled_hrGroup" value="0" name="QueueEnabled">
+        
+        <input type="hidden" id="hdQueueEnabled_testLabs" value="0" name="QueueEnabled">
+        
+        <input type="submit" onclick="return trafficSelectorsPageValidate('tf1_frmTrafficSelectors')" value="Save" class="btnSubmit" name="button.config.trafficSelectors.trafficSelectors.-1">                    
+      </div>   
+      
+      <!-- (end) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>List of Traffic Selectors</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        Service
+                      </th>
+                      <th>
+                        Traffic Selector Match Type
+                      </th>
+                      <th>
+                        Bandwidth Profile
+                      </th>
+                    </tr>
+                  </thead>                                        
+                  
+                  <tr class="gradeA" id="trafficSelectors3">
+                    <td class="gradeA">ANY</td>
+                    <td class="gradeA">IP Subnet</td>
+                    <td class="gradeA">testing</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="trafficSelectors4">
+                    <td class="gradeA">DNS</td>
+                    <td class="gradeA">MAC Address</td>
+                    <td class="gradeA">admin</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="trafficSelectors5">
+                    <td class="gradeA">PPTP</td>
+                    <td class="gradeA">MAC Address</td>
+                    <td class="gradeA">testing</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="trafficSelectors6">
+                    <td class="gradeA">IRC</td>
+                    <td class="gradeA">IP Subnet</td>
+                    <td class="gradeA">hrGroup</td>
+                  </tr>
+                  
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+              <input type="button" class="btnSubmit" title="Add" value="Add New TrafficSelectors" id="btAdd" 
+              
+              onClick="openForm('button.add.trafficSelectors.trafficSelectors','-1','tf1_dialog','trafficSelectors','trafficSelectors.html');"
+              
+              >                                
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/macValidations.js"></script>
+  <script src="js/trafficSelectors.js"></script>        
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.trafficSelectors.trafficSelectors',rowId,'tf1_dialog','trafficSelectors','trafficSelectors.html');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.trafficSelectors.trafficSelectors', 'tf1_frmTrafficSelectors', rowId, 'optionSelectAll', 'tf1_dialog', 'trafficSelectors', 'trafficSelectors');
+        }                        
+      }                
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });  
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";  
+    });    
+    
+    /* Help Section variables */
+    helpSection = "trafficSelectors";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(71);
+    
+  });</script>
+</body>
+</html>

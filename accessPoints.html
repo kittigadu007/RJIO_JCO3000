@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmaccessPoints" id="tf1_frmaccessPoints" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="accessPoints.html">
+    <div class="configDialog" id="tf1_dialog">            	<!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Wireless AccessPoint Configuration</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                   
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_txtAPName_div" class="configRow">
+          <label>
+            AP Name
+          </label>
+          <input type="text" value="ap2" disabled="" id="tf1_txtAPName" name="dot11VAP.vapName" maxlength="16">
+          <input type="hidden" value="ap2" name="dot11VAP.vapName">
+        </div>
+        <div id="break_txtAPName_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_profileName_div" class="configRow">
+          <label>
+            Profile Name
+          </label>
+          <select id="tf1_profileName" name="dot11VAP.profileName">
+            <option value="Jio_1">Jio_1</option>
+            <option value="Jio_2" selected="">Jio_2</option>
+            <option value="Jio_3">Jio_3</option>
+            <option value="Jio_4">Jio_4</option>
+            <option value="Jio_5">Jio_5</option>
+            <option value="Jio_6">Jio_6</option>
+          </select>
+        </div>
+        <div id="break_profileName_div" class="break">
+          &nbsp;
+        </div>
+        
+        <div id="tf1_txtMaxAssClnt_div" class="configRow">
+          <label>
+            Max Associated Clients
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 22, true, '', '');}" onkeypress="return numericValueCheck (event)" id="tf1_txtMaxAssClnt" value="1" name="dot11VAP.maxClients" class="one" maxlength="2">
+          <dl>
+            [Range: 1 - 22]
+          </dl>
+        </div>
+        <div id="break_txtMaxAssClnt_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_wlanPartition_div" class="configRow">
+          <label>
+            WLAN Partition
+          </label>
+          <img id="tf1_wlanPartition" src="images/button_off.png" alt="" class="enable-disable">
+          <input type="hidden" value="0" name="dot11VAP.apIsolation"> 
+        </div>
+        <div id="break_wlanPartition_div" class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" title="Save" onclick="return vapConfigValidate('tf1_frmaccessPoints')" value="Save" class="btnSubmit" name="button.config.accessPoints.accessPoints.2">
+      </div>
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li id="edit">
+        Edit
+      </li>                
+      <li id="enable">
+        Enable
+      </li>
+      <li id="disable">
+        Disable
+      </li>
+      <li id="macFilter">
+        MAC Filter
+      </li>
+      <li id="status">
+        Connected Clients
+      </li>
+    </ul>
+  </div>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">	
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                          
+            <h1>Access Points</h1>
+            <div align="center">
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+                          Virtual AP Name
+                        </th>
+                        <th>
+                          SSID
+                        </th>
+                        <th>
+                          Broadcast SSID
+                        </th>
+                        <th>
+                          Profile Name
+                        </th>
+                      </tr>
+                    </thead>                                        
+                    <tr class="gradeA" id="1" status="1">
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ap1</td>
+                      <td class="gradeA">JioFiber-mRWyg</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_1</td>
+                    </tr>
+                    <tr class="gradeA" id="2" status="0">
+                      <td class="gradeA">Disabled</td>
+                      <td class="gradeA">ap2</td>
+                      <td class="gradeA">Jio_2</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_2</td>
+                    </tr>
+                    <tr class="gradeA" id="3" status="0">
+                      <td class="gradeA">Disabled</td>
+                      <td class="gradeA">ap3</td>
+                      <td class="gradeA">Jio_3</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_3</td>
+                    </tr>
+                    <tr class="gradeA" id="4" status="1">
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">ap4</td>
+                      <td class="gradeA">JioFiber-mRWyg</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_4</td>
+                    </tr>
+                    <tr class="gradeA" id="5" status="0">
+                      <td class="gradeA">Disabled</td>
+                      <td class="gradeA">ap5</td>
+                      <td class="gradeA">Jio_2</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_5</td>
+                    </tr>
+                    <tr class="gradeA" id="6" status="0">
+                      <td class="gradeA">Disabled</td>
+                      <td class="gradeA">ap6</td>
+                      <td class="gradeA">Jio_3</td>
+                      <td class="gradeA">Enabled</td>
+                      <td class="gradeA">Jio_6</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow" id="tf1_btnShowModal">
+              </div>
+              <div class="break">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>        
+  <script src="js/accessPointConfig.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.accessPoints.accessPoints',rowId,'tf1_dialog','accessPoints','accessPoints.html');
+        },
+        'disableMenu': function(t, e, rowId){    
+          changeRowStauts('disable', 'tf1_frmaccessPoints', rowId, 'tf1_dialog', 'accessPoints', 'accessPoints', 'accessPoints.accessPoints');
+        },
+        'enableMenu': function(t, e, rowId){        
+          changeRowStauts('enable', 'tf1_frmaccessPoints', rowId, 'tf1_dialog', 'accessPoints', 'accessPoints', 'accessPoints.accessPoints');
+        },
+        'macFilterMenu': function(t, e, rowId){
+          rowId = rowId.replace("accessPointsMacFilter","");
+          $("#tf1_dialog").append('<input type="hidden" name="button.configACL.accessPointsMacFilter.accessPointsMacFilter" value="goto">');
+          $("#tf1_dialog").append('<input type="hidden" name="ConfigRowId" value="'+rowId+'">');
+          $("#thispage").val('accessPointsMacFilter.html');
+          $("#tf1_frmaccessPoints").submit();
+        },
+        'statusMenu': function(t, e, rowId){
+          $("#tf1_dialog").html('Loading Please wait..!');
+          rowId = rowId.replace("accessPointsStatus","");
+          $("#tf1_dialog").append('<input type="hidden" name="button.config.accessPointsStatus.accessPointsStatus" value="goto">');
+          $("#tf1_dialog").append('<input type="hidden" name="ConfigRowId" value="'+rowId+'">');
+          $("#thispage").val('accessPointsStatus.html');
+          $("#tf1_frmaccessPoints").submit();
+        }
+      },
+      onShowMenu: function(e,menu,rowId) {
+        if ($("#"+rowId).attr("status") == "1"){
+          $('#enableMenu', menu).remove();
+        } else {
+          $('#disableMenu', menu).remove();
+        }
+        return menu;
+      }
+    });
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "bPaginate": false,
+      "bInfo" : false,
+      "bFilter" : false
+    });
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+    });   
+    
+    /* Help Section variable */
+    helpSection = "accessPoints";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */		
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(24);    		
+    
+  });</script>
+</body>
+</html>

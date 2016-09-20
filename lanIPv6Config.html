@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>        
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts lanIPv6Config -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form method="post" action="cgi-action.html" id="tf1_frmLanIPv6PoolConfig" name="tf1_frmLanIPv6PoolConfig">
+    <input type="hidden" value="lanIPv6Config.html" id="thispage" name="thispage">
+    <div class="configDialog" id="tf1_dialog"><!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>IPv6 Address Pools Configuration</h1>                     
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                     
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label>
+            Start IPv6 Address
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" maxlength="40" id="tf1_txtIpv6StAddr" value="" name="startAddr">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            End IPv6 Address
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" maxlength="40" id="tf1_txtIpv6EndAddr" value="" name="endAddr">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Prefix Length
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 128, true, 'Invalid Prefix Length.', ''); }" onkeypress="return numericValueCheck (event)" class="one" maxlength="3" id="tf1_txtIpv6PrefLen" value="" name="prefixLength">
+          <dl>
+            [Range: 1 - 128]
+          </dl>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return ipv6AddressPoolsValidate()" value="Save" class="btnSubmit" name="button.config.lanIPv6Config.lanIPv6Config.-1">                    
+      </div>
+      <!-- (end) add or edit form -->
+      
+    </div>
+    
+    <div class="configDialog" id="tf1_dialog2"><!-- Section for Pop up IPv6 Prefix Length dialog starts -->	 	
+      
+      <!-- Prefix form start --> 
+      <div class="topBg">
+        <h1>IPv6 Prefix Length Configuration</h1>
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                    
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label>Client Identifier </label>
+          <input type="text" maxlength="59" name="clientIdentifier" id="tf1_clientIdentifier" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" value="">
+        </div>
+        <div class="break">&nbsp;</div>
+        <div class="configRow">
+          <label>
+            Prefix
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" maxlength="40" id="tf1_prefix" value="" name="delegationPrefix">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Prefix Length
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 128, true, 'Invalid IPv6 Prefix Length.', '');}" onkeypress="return numericValueCheck (event)" maxlength="3" class="one" id="tf1_ipv6PreLen" value="" name="delegationPrefixLen">
+          <dl>
+            [Range: 1 - 128]
+          </dl>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return prefixValidate()" value="Save" class="btnSubmit" name="button.prefixConfig.lanIPv6Config.lanIPv6Config.-1">                	
+        
+      </div>
+      
+      <!-- Prefix form end --> 
+      <!-- Section for Pop up IPv6 Prefix Length dialog ends -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends -->       
+  <!-- Right click Div Start for lanIPv6Config lanIPv6Config-->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End lanIPv6Config-->   
+  
+  
+  <!-- Right click IPv6 PrefixDiv Start -->
+  <div class="contextMenu" id="contextMenuPrefix">
+    <ul>
+      <li>
+        <input id="optionSelectAllPrefix" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click IPV6 PrefixLength End --> 
+  
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>IPv6 LAN Configuration</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmLanIPv6Config" id="tf1_frmLanIPv6Config" method="post" action="cgi-action.html">
+                  <input type="hidden" name="thispage" value="lanIPv6Config.html">
+                  <h2>LAN TCP/IP Setup</h2>
+                  <div class="configRow">
+                    <label>
+                      IPv6 Address
+                    </label>
+                    <input type="text" name="StaticIp" value="fd00::1" id="tf1_ipv6_addr" maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow">
+                    <label>
+                      IPv6 Prefix Length
+                    </label>
+                    <input type="text" name="PrefixLength" value="64" class="one" maxlength="3" id="tf1_ipv6_maxlength" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 128, true, 'Invalid IPv6 Prefix Length.', ''); }">
+                    <dl>
+                      [Range: 1 - 128]
+                    </dl>
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <h2>DHCPv6 Setup</h2>
+                  <div class="configRow">
+                    <label>
+                      DHCPv6 Mode 
+                    </label>
+                    <select name="dhcpv6Mode" onChange="dhcpCheck();" id="tf1_dhcpModel">
+                      <option  value="0">None</option>
+                      <option SELECTED value="1">DHCPv6 Server</option>
+                      <option  value="2">DHCPv6 Relay</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break1_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_stateless_div">
+                    <label>
+                      Server Mode
+                    </label>
+                    <p>
+                      <input type="radio" checked name="dhcpMode" id="tf1_stateless" CHECKED  value="1" onClick="modeChange();"> Stateless
+                    </p>
+                    <p>
+                      <input type="radio" name="dhcpMode" id="tf1_stateful"   value="0" onClick="modeChange();"> Stateful
+                    </p>
+                  </div>
+                  <div class="break" id="break2_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_ipv6_DomName_div">
+                    <label>
+                      Domain Name
+                    </label>
+                    <input type="text"  value="" name="DomainName" id="tf1_ipv6_DomName" maxlength="32" onKeyDown="if (event.keyCode == 9) { return checkHostName ('tf1_ipv6_DomName', true, 'Invalid Domain name: ', false); }">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_serpre_div">
+                    <label>
+                      Server Preference
+                    </label>
+                    <input type="text" name="preference" value="255" maxlength="3" id="tf1_serpre" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 255, true, 'Invalid Server Preference', '');}" class="one">
+                    <dl>
+                      [Range: 0 - 255]
+                    </dl>
+                  </div>
+                  <div class="break" id="break3_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_DnsSvrs_div">
+                    <label>
+                      DNS Servers
+                    </label>
+                    <select size="1" name="DNSServers"  id="tf1_DnsSvrs" onchange = "dnsServerChange();">
+                      <option value="1" >Use DNS Proxy</option>
+                      <option value="2" SELECTED>Use DNS from ISP</option>
+                      <option value="3" >Use Below</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break4_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_ipv6_PriDnsServer_div">
+                    <label>
+                      Primary DNS Server
+                    </label>
+                    <input type="text" name="PrimaryDns" value="" id="tf1_ipv6_PriDnsServer" maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                  </div>
+                  <div class="break" id="break5_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_ipv6_SecDnsServer_div">
+                    <label>
+                      Secondary DNS Server
+                    </label>
+                    <input type="text" name="SecondaryDns" value="" id="tf1_ipv6_SecDnsServer" maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                  </div>
+                  <div class="break" id="break6_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_sipServerType_div">
+                    <label>SIP Server Type </label>
+                    <select size="1" name="sipServerType" id="tf1_sipServerType" onChange="sipServerTypeCheck();">
+                      <option  value="0" SELECTED>None</option>
+                      <option  value="1" >Domain Name</option>
+                      <option value="2"  >IPv6 Address</option>
+                    </select> </div>
+                    <div class="break" id="break10_div">&nbsp; </div>
+                    <div class="configRow" id="tf1_sipServer_div">
+                      <label>SIP Server</label>
+                      <input type="text" id="tf1_sipServer" name="sipServer" maxlength="127" value=""onKeyDown="if (event.keyCode == 9) { return keyDownSipServerValidate(this) }" onKeyPress="return keyPressSipServerValidate(event)">
+                    </div>
+                    <div class="break" id="break11_div">&nbsp; </div>
+                    <div class="configRow" id="tf1_ipv6_leasetime_div">
+                      <label>
+                        Lease / Rebind Time
+                      </label>
+                      <input class="one" type="text" name="dhcpLeaseTime" value="86400" id="tf1_ipv6_leasetime" maxlength="6" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 604800, true, 'Invalid Lease / Rebind Time', 'Seconds');}">
+                      <dl>
+                        [Range: 0 - 604800] Seconds
+                      </dl>
+                    </div>
+                    <div class="break" id="break7_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_prefixDel_div">
+                      <label>
+                        Prefix Delegation
+                      </label>
+                      
+                      
+                      
+                      <img class="enable-disable" alt="" id="tf1_prefixDel" src="images/button_on.png" />                                                                                                   
+                      <input type="hidden" name="prefixDelegation" value="1">                                             
+                    </div>
+                    <div class="break" id="break8_div">&nbsp;</div>
+                    <div class="configRow" id="tf1_dhcpRelayGw_div">
+                      <label>Relay Gateway </label>
+                      <input type="text" name="relayGw" value="" id="tf1_dhcpRelayGw"  maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                    </div> 
+                    <div class="break" id="break9_div">&nbsp;</div>
+                    
+                    
+                    <div class="submitRow">
+                      <input    type="submit"   class="btnSubmit" title="Save" value="Save" name="button.ipv6Config.lanIPv6Config.lanIPv6Config"   onclick="return lanSetupValidate('tf1_frmLanIPv6Config')"  >
+                      <input type="reset" class="btnSubmit" title="Cancel" value="Cancel" onClick="this.form.reset(); changeDhcpStatusReset('tf1_frmLanIPv6Config');">
+                    </div>
+                    <div class="break">
+                      &nbsp;
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="break">
+                &nbsp;
+              </div>
+              <!-- Address Pools Start --><h1>IPv6 Address Pools</h1>
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          Start Address
+                        </th>
+                        <th>
+                          End Address
+                        </th>
+                        <th>
+                          Prefix Length
+                        </th>
+                      </tr>
+                    </thead>
+                    
+                    <tr class="gradeA" id="lanIPv6Config1">
+                      <td class="gradeA">fd00::2</td>
+                      <td class="gradeA">fd00::100</td>
+                      <td class="gradeA">64</td>
+                    </tr>
+                    <tr class="gradeA" id="lanIPv6Config1">
+                      <td class="gradeA">FA25::5</td>
+                      <td class="gradeA">FA25::400</td>
+                      <td class="gradeA">64</td>
+                    </tr>
+                    <tr class="gradeA" id="lanIPv6Config2">
+                      <td class="gradeA">2001::4</td>
+                      <td class="gradeA">2001::400</td>
+                      <td class="gradeA">128</td>
+                    </tr>
+                    <tr class="gradeA" id="lanIPv6Config3">
+                      <td class="gradeA">2012::3</td>
+                      <td class="gradeA">2012::300</td>
+                      <td class="gradeA">50</td>
+                    </tr>
+                    <tr class="gradeA" id="lanIPv6Config4">
+                      <td class="gradeA">F00a::2</td>
+                      <td class="gradeA">F00a::200</td>
+                      <td class="gradeA">32</td>
+                    </tr>
+                    <tr class="gradeA" id="lanIPv6Config5">
+                      <td class="gradeA">2009::1</td>
+                      <td class="gradeA">2009::100</td>
+                      <td class="gradeA">8</td>
+                    </tr>         
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow">
+                <input type="button" name="button.add.lanIPv6Config.lanIPv6Config.-1" class="btnSubmit" title="Add" value="Add New Address Pool" id="btAdd" 
+                
+                
+                onClick="openForm('button.add.lanIPv6Config.lanIPv6Config','-1','tf1_dialog','lanIPv6Config','lanIPv6Config.html')"
+                
+                
+                >                                
+              </div>
+              <!-- Address Pools End -->
+              <div class="break">
+                &nbsp;
+              </div>
+              <!-- Prefix Length Start --><h1>IPv6 Prefix Length</h1>
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsDataPrefixLength">
+                    <thead>
+                      <tr>
+                        <th>
+                          Client Identifier
+                        </th>
+                        <th>
+                          Prefix Address
+                        </th>
+                        <th>
+                          Prefix Length
+                        </th>
+                      </tr>
+                    </thead>
+                    
+                    <tr class="gradeA" id="prefixLength1">
+                      <td class="gradeA">10:AC:54:F4:A4:44</td>
+                      <td class="gradeA">2014::</td>
+                      <td class="gradeA">25</td>
+                    </tr>
+                    <tr class="gradeA" id="prefixLength1">
+                      <td class="gradeA">00:04:ff:ff:ff:a6</td>
+                      <td class="gradeA">fd00::1</td>
+                      <td class="gradeA">12</td>
+                    </tr>
+                    <tr class="gradeA" id="prefixLength2">
+                      <td class="gradeA">00:1f:ff:ff:ff:9c</td>
+                      <td class="gradeA">fd00::2</td>
+                      <td class="gradeA">25</td>
+                    </tr>
+                    <tr class="gradeA" id="prefixLength3">
+                      <td class="gradeA">bc:f5:ff:ff:ff:93</td>
+                      <td class="gradeA">fd12::3</td>
+                      <td class="gradeA">26</td>
+                    </tr>
+                    <tr class="gradeA" id="prefixLength4">
+                      <td class="gradeA">20:4e:ff:ff:ff:30</td>
+                      <td class="gradeA">fd02::2</td>
+                      <td class="gradeA">125</td>
+                    </tr>
+                    <tr class="gradeA" id="prefixLength5">
+                      <td class="gradeA">a0:b3:ff:ff:ff:7e</td>
+                      <td class="gradeA">fd20::1</td>
+                      <td class="gradeA">100</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              
+              <div class="buttonsRow">
+                <input type="button" name="button.prefixAdd.lanIPv6Config.prefixLength.-1" class="btnSubmit" title="Add" value="Add New Prefix Length" id="btAdd" 
+                
+                onClick="openForm('button.prefixAdd.lanIPv6Config.prefixLength','-1','tf1_dialog2','prefixLength','lanIPv6Config.html')" >                                
+              </div>
+              <!-- Prefix Length End -->
+              <div class="break">
+                &nbsp;
+              </div>                           
+              
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+    
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/contextMenu.js"></script>
+    <script src="js/mis.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/mgmt.js"></script>
+    <script src="js/textValidations.js"></script>
+    <script src="js/ipv4AddrValidations.js"></script>
+    <script src="js/ipv6AddrValidations.js"></script>        
+    <script src="js/lanIPv6Setup.js"></script>
+    <script src="js/menuSearchList.js"></script>
+    <script src="js/menuSearch.js"></script>
+    <script  charset="utf-8">
+    $(document).ready(function(){
+      $('#recordsData .gradeA').contextMenu('contextMenu', {
+        bindings: {
+          'editMenu': function(t, e, rowId){
+            openForm('button.edit.lanIPv6Config.lanIPv6Config',rowId,'tf1_dialog','lanIPv6Config','lanIPv6Config.html');
+          },
+          'deleteMenu': function(t, e, rowId){
+            deleteRows('button.delete.lanIPv6Config.lanIPv6Config', 'tf1_frmLanIPv6PoolConfig', rowId, 'optionSelectAll', 'tf1_dialog', 'lanIPv6Config', 'lanIPv6Config');
+          } 
+          
+        }
+      });    		
+      
+      $('#recordsDataPrefixLength .gradeA').contextMenu('contextMenuPrefix', {
+        bindings: {
+          
+          'editMenu': function(t, e, rowId){
+            openForm('button.prefixEdit.lanIPv6Config.lanIPv6Config',rowId,'tf1_dialog','prefixLength','lanIPv6Config.html');
+          },
+          'deleteMenu': function(t, e, rowId){
+            deleteRows('button.prefixDelete.lanIPv6Config.lanIPv6Config', 'tf1_frmLanIPv6PoolConfig', rowId, 'optionSelectAllPrefix', 'tf1_dialog', 'prefixLength', 'prefixLength');
+          }
+          
+        }
+      });  
+      oTable = $('#recordsData').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers"
+      });
+      
+      oTable = $('#recordsDataPrefixLength').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers"
+      });
+      
+      $("#btnClose").live("click",function(e){
+        HideDialog('tf1_dialog', 'tf1_overlay');
+        HideDialog('tf1_dialog2', 'tf1_overlay');
+        e.preventDefault();
+        /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+        document.cookie = "recordModified=1";
+      });
+      /* Help Section variables */
+      helpSection = "lanConfigIpv6";				
+      helpConfigFile = "helpAdvanced.txt";
+      
+      /* Header section javascript bindings */
+      menuLoading();
+      mmSel("mainMenu2");
+      getBreadCrumb(8);
+      
+    });</script>
+  </body>
+  </html>

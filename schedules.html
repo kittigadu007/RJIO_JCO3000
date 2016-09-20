@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/dateTimePicker.css" />        
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form  action="cgi-action.html" method="post" name="tf1_schedules" id="tf1_schedules">
+    <input type="hidden" name="thispage" id="thispage" value="schedules.html">           
+    <div class="configDialog" id="tf1_dialog">
+      
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Schedule Configuration</h1>
+        <close>
+          <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        </close>
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_scheduleName_div" class="configRow">
+          <label>
+            Schedule Name
+          </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) { return alphaNumericValueCheck('tf1_scheduleName', '', 'Invalid Schedule Name'); }" onkeypress="return alphaNumericCheckSpace (event, '')" maxlength="64" id="tf1_scheduleName" value="" name="ScheduleName"> 
+        </div>
+        <div id="break_scheduleName_div" class="break">
+          &nbsp;
+        </div>
+        <h2>Time of Day</h2>
+        <div id="tf1_timeSelect_div" class="configRow">
+          <label>
+            Time of Day
+          </label>
+          <select onchange="selectTime()" id="tf1_timeSelect" size="1" name="TimeType">
+            <option value="1">
+              Entire Day
+            </option>
+            
+            <option value="2">
+              Morning (5 AM - 11 AM)
+            </option>
+            
+            <option value="3">
+              Afternoon (11 AM - 4 PM)
+            </option>
+            
+            <option value="4">
+              Evening (4 PM - 7 PM)
+            </option>
+            
+            <option value="5">
+              Night (7 PM - 11 PM)
+            </option>
+            
+            <option value="6">
+              Custom
+            </option>                            
+          </select>
+        </div>
+        <div id="break9_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_startTime_div" class="hide">
+          <h2>Start Time</h2>
+          <div id="tf1_dateTimePickerStartValue_div" class="configRow">
+            <label> Start Time </label>
+            <input type="text" readonly="" value="" name="DatePickerStartTime" id="tf1_dateTimePickerStartValue" disabled="">
+          </div>
+          <div class="break">&nbsp;</div>
+          
+          <div id="tf1_dateTimePickerStart_div" class="configRow">
+            <label>&nbsp; </label>
+            <input type="hidden" readonly="" onchange="onchangeValueStart()" id="tf1_dateTimePickerStart" disabled="" value="">
+            <div id="tf1_dateTimePickerStart"></div>
+          </div>
+          <div id="break12_div" class="break">
+            &nbsp;
+          </div>
+        </div>
+        
+        <div id="tf1_endTime_div" class="hide">
+          <h2>End Time</h2>
+          <div id="tf1_dateTimePickerEndValue_div" class="configRow">
+            <label> End Time </label>
+            <input type="text" readonly="" value="" name="DatePickerEndTime" id="tf1_dateTimePickerEndValue" disabled="">
+          </div>
+          <div class="break">&nbsp;</div>
+          
+          <div id="tf1_dateTimePickerEnd_div" class="configRow">
+            <label>&nbsp; </label>
+            <input type="hidden" readonly="" onchange="onchangeValueEnd()" id="tf1_dateTimePickerEnd" disabled="" value="">
+            <div id="tf1_dateTimePickerEnd"></div>
+          </div>
+          <div id="break13_div" class="break">
+            &nbsp;
+          </div>
+        </div>
+        
+        <h2>Days of Week</h2>
+        <div id="tf1_daySelect_div" class="configRow">
+          <label>
+            Days of Week
+          </label>
+          <select onchange="selectDay()" id="tf1_daySelect" size="1" name="DaysType">
+            <option value="1">
+              Entire Week
+            </option>
+            
+            <option value="2">
+              Weekends
+            </option>                            
+            
+            <option value="3">
+              Weekdays 
+            </option>
+            
+            <option value="4">
+              Custom
+            </option>
+          </select>
+        </div>
+        <div id="break1_div" class="break">
+          &nbsp;
+        </div>
+        
+        <div id="tf1_monday_div" class="hide">
+          <label> &nbsp; </label>
+          <p class="five">
+            <span>Monday</span>
+            
+            <img src="images/button_off.png" class="enable-disable">
+            <input type="hidden" id="tf1_monday" value="0" name="DayOfWeek.monday" disabled="">
+          </p>
+          <p class="five">
+            <span>Tuesday</span>
+            
+            <img src="images/button_off.png" class="enable-disable">
+            <input type="hidden" id="tf1_tuesday" value="0" name="DayOfWeek.tuesday" disabled="">
+          </p>
+        </div>
+        <div id="break3_div" class="break"> &nbsp;</div>
+        
+        <div id="tf1_wednesday_div" class="hide">
+          <label> &nbsp; </label>
+          <p class="five">
+            <span>Wednesday</span>
+            
+            <img src="images/button_off.png" class="enable-disable"> 
+            <input type="hidden" id="tf1_wednesday" value="0" name="DayOfWeek.wednesday" disabled="">
+          </p>
+          <p class="five">
+            <span>Thursday</span>
+            
+            <img src="images/button_off.png" class="enable-disable"> 
+            <input type="hidden" id="tf1_thursday" value="0" name="DayOfWeek.thursday" disabled="">
+          </p>
+        </div>
+        <div id="break5_div" class="break">&nbsp;</div>
+        
+        <div id="tf1_friday_div" class="hide">
+          <label> &nbsp; </label>
+          <p class="five">
+            <span>Friday</span>
+            
+            <img src="images/button_off.png" class="enable-disable"> 
+            <input type="hidden" id="tf1_friday" value="0" name="DayOfWeek.friday" disabled="">
+          </p>
+          <p class="five">
+            <span>Saturday</span>
+            
+            <img src="images/button_off.png" class="enable-disable">
+            <input type="hidden" id="tf1_saturday" value="0" name="DayOfWeek.saturday" disabled="">
+          </p>
+        </div>
+        <div id="break7_div" class="break"> &nbsp;</div>
+        
+        <div id="tf1_sunday_div" class="hide">
+          <label> &nbsp; </label>
+          <p class="five">
+            <span>Sunday</span>
+            
+            <img src="images/button_off.png" class="enable-disable">
+            <input type="hidden" id="tf1_sunday" value="0" name="DayOfWeek.sunday" disabled="">
+          </p>
+        </div>
+        <div id="break8_div" class="break"> &nbsp;</div>
+      </div>
+      
+      <div class="dialogSubmitRow">
+        <input type="submit" name="button.config.schedules.schedules.-1" onclick="return schedulesConfigValidate('tf1_schedules')" value="Save" title="Save" class="btnSubmit">  
+      </div>
+      
+      <!-- (end) add or edit form -->
+      
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Schedules</h1>
+            <div align="center">
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          Name
+                        </th>
+                        <th>
+                          Day of Week
+                        </th>
+                        <th>
+                          Time of Day
+                        </th>
+                      </tr>
+                    </thead>
+                    
+                    <tr class="gradeA" id="schedules1">
+                      <td class="gradeA">meeting 12 PM</td>
+                      <td class="gradeA">Sat,Sun</td>
+                      <td class="gradeA">05:00 AM - 11:00 AM</td>
+                    </tr>
+                    
+                    <tr class="gradeA" id="schedules2">
+                      <td class="gradeA">testing Meeting</td>
+                      <td class="gradeA">Mon,Tue,Wed,Thu,Fri</td>
+                      <td class="gradeA">11:00 AM - 04:00 PM</td>
+                    </tr>
+                    
+                    <tr class="gradeA" id="schedules3">
+                      <td class="gradeA">testLabs</td>
+                      <td class="gradeA">Mon,Tue,Wed,Thu,Fri</td>
+                      <td class="gradeA">07:00 PM - 11:00 PM</td>
+                    </tr>
+                    
+                    <tr class="gradeA" id="schedules4">
+                      <td class="gradeA">hrGroup</td>
+                      <td class="gradeA">Mon,Tue,Wed,Thu,Fri,Sat,Sun</td>
+                      <td class="gradeA">04:00 PM - 07:00 PM</td>
+                    </tr>
+                    
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow" id="tf1_btnShowModal">
+                <input type="button" class="btnSubmit" value="Add New Schedule" id="btAdd" title="Add New Schedule" onClick="openForm('button.add.schedules.schedules','-1','tf1_dialog','schedules','schedules.html');" >
+              </div>
+              <div class="break">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"> </script>
+  <script src="js/menu.js"> </script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/macValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script src="js/schedules.js"></script>
+  <script src="js/dateTimePicker.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.schedules.schedules',rowId,'tf1_dialog','schedules','schedules.html');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.schedules.schedules', 'tf1_schedules', rowId, 'optionSelectAll', 'tf1_dialog', 'schedules', 'schedules');
+        }
+      }
+      
+    });
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";
+    });
+    
+    onloadCall();
+    
+    /* Help Section variable */
+    helpSection = "schedules";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */		
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(62);    		
+    
+    
+  });</script>
+</body>
+</html>

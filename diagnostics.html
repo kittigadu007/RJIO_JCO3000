@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask"></div>
+  <form name="tf1_frmDiagnostics" id="tf1_frmDiagnostics" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="accessPoints.html">
+    <div class="configDialog" id="tf1_dialog"><div class="topBg"><h1>IPv4 Routing Table</h1><close><a title="Close" id="btnClose" href="javascript:void(0)"></a></close></div><div class="dialogMidArea"><div align="center">
+      <div class="statusMsg">
+        Route Display...</div>
+        <div class="configRow">
+          <div class="break">
+            &nbsp;</div>
+            <textarea style="width:700px;" class="one" name="S1">Kernel IP routing table
+              Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+              default         *               0.0.0.0         U     0      0        0 bdg1
+              192.168.29.0    *               255.255.255.0   U     0      0        0 bdg2
+            </textarea>
+            <div class="break">
+              &nbsp;</div>
+            </div>
+          </div>
+          
+          
+        </div></div>
+      </form>
+      <div align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="980px">
+          <tr>
+            <td class="header" valign="top" align="center">
+              <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+            </td>
+          </tr>
+          <tr>
+            <td class="midBg" valign="top" align="center">
+              <div class="midWidth">
+                
+                <h1>Diagnostics</h1>
+                <div class="midArea">
+                  <div align="left">
+                    <h2></h2>
+                    <form name="tf1_frmdiagnostics1" id="tf1_frmdiagnostics" method="post" action="cgi-action.html" onsubmit="return false">
+                      <input type="hidden" name="thispage" value="diagnostics.html">
+                      <h2>Ping</h2>
+                      <div class="break" id="break_div">
+                        &nbsp;
+                      </div>
+                      <div class="configRow">
+                        <label>
+                          IP Address / Domain Name
+                        </label>
+                        <input name="ip" maxlength="40" class="txt1" style="float: left" id="txtIpaddr" onkeydown="if (event.keyCode == 9) { return (ipAddrValidate (this, false, true, '', '', true) || validateFQDN(this.id) || ipv6AddrValidate (this, false, true, '')); }">
+                      </div>
+                      <div class="break" id="break_div"> &nbsp; </div>
+                      <div class="submitRow">
+                        <input type="button" class="btnSubmit" title="Ping" value="Ping" name="button.ping.diagDisplay" onclick="popup('button.ping.diagDisplay','ping','txtIpaddr','Ping')">
+                        <input type="button" class="btnSubmit" title="Traceroute" value="Traceroute" name="button.traceroute.diagDisplay" onclick="popup('button.traceroute.diagDisplay','traceroute','txtIpaddr','Traceroute')"></div>  
+                        <div class="break" id="break_div"> &nbsp;  </div>
+                      </form>
+                      <h2>Perform a DNS Lookup</h2>
+                      <form name="tf1_frmdiagnostics2" id="tf1_frmdiagnostics" method="post" action="cgi-action.html" onsubmit="return false">
+                        <input type="hidden" name="thispage" value="diagnostics.html">
+                        <div class="configRow">
+                          <label>
+                            Internet Name
+                          </label>
+                          <input name="nslookup" maxlength="127" class="txt1" style="float: left" id="txtIntName" onkeydown="if (event.keyCode == 13) { return false; }">
+                        </div>
+                        <div class="break" id="break_div">  &nbsp;  </div>
+                        <div class="submitRow">
+                          <input type="button" class="btnSubmit" title="Lookup" value="Lookup" name="button.dnslookup.diagDisplay" onclick="popup('button.dnslookup.diagDisplay','dnslookup','txtIntName','DNS lookup')">
+                        </div>
+                        <div class="break" id="break_div"> &nbsp; </div>
+                      </form>
+                      <h2>Router Options</h2>
+                      <form name="tf1_frmdiagnostics" id="tf1_frmdiagnostics" method="post" action="cgi-action.html">
+                        <input type="hidden" name="thispage" value="diagnostics.html">
+                        <div class="configRow">
+                          <label>
+                            Display the IPv4 Routing Table
+                          </label>
+                          <div class="submitRow">
+                            <input type="button" class="btnSubmit" title="Display" value="Display" name="button.ipv4RouteDisplay.diagDisplay" onclick="popup('button.ipv4RouteDisplay.diagDisplay','ipv4Routing','','IPv4 Routing Table')">
+                          </div>
+                        </div>
+                        <div class="break" id="break_div"> &nbsp;  </div>
+                        <div class="configRow">
+                          <label>
+                            Display the IPv6 Routing Table
+                          </label>
+                          <div class="submitRow">
+                            <input type="button" class="btnSubmit" title="Display" value="Display" name="button.ipv6RouteDisplay.diagDisplay" onclick="popup('button.ipv6RouteDisplay.diagDisplay','ipv6Route','','IPv6 Routing Table')">
+                          </div>
+                        </div>
+                        <div class="break" id="break_div">  &nbsp;  </div>
+                        <div class="configRow">
+                          <label>
+                            Capture Packets
+                          </label>
+                          <div class="submitRow">
+                            <input type="button" class="btnSubmit" title="Packet Trace" value="Packet Trace" name="button.packetTrace.diagnostics" onclick="cgi-action.html'">                                              
+                          </div>
+                        </div>
+                        <div class="break">   &nbsp; </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+        <script src="js/mis.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/textValidations.js"></script>
+        <script src="js/ipv4AddrValidations.js"></script>
+        <script src="js/ipv6AddrValidations.js"></script>
+        <script src="js/mgmt.js"></script>
+        <script src="js/diagnostics.js"></script>
+        <script src="js/menuSearchList.js"></script>
+        <script src="js/menuSearch.js"></script>
+        <script  >
+        
+        var popUpContent = '<div class="topBg"><h1>@@header@@</h1><close><a href="javascript:void(0)" id="btnClose" title="Close"></a></close></div><div class="dialogMidArea">Please wait...</div>';
+        
+        /* Function open Ping/DNS */
+        function popup(btName,btAction,fieldId,headerText) {        	
+          
+          var loadForm = false;
+          
+          dataString = btName+"="+btAction+"&"+$('#'+fieldId).attr('name')+"="+$('#'+fieldId).val();
+          
+          if (btAction == "ping" || btAction =="traceroute") {
+            
+            loadForm = diagnosticsValidate(1);
+            
+          } else if (btAction == "dnslookup"){
+            
+            loadForm = diagnosticsValidate(3);
+            
+          } else {
+            
+            loadForm = true;
+            dataString = btName+"="+btAction;
+          }
+          
+          
+          if (loadForm) { 
+            
+            $("#tf1_dialog").html($("#tf1_loadingDiv").html());
+            ShowDialog(true,"tf1_dialog", 'tf1_overlay');
+            content= popUpContent.replace('@@header@@',headerText);
+            $("#tf1_dialog").html(content);					            				 
+            
+            $.ajax({
+              type: "POST",
+              url: "platform.cgi",
+              data: dataString+"&thispage=diagnostics.html",
+              success: function(dataHTML){                                 
+                
+                var dialogId = "tf1_dialog";
+                if (dataHTML.search("users.username") != -1)
+                {															
+                  $("#"+dialogId).hide();
+                  $("#"+dialogId).html(dataHTML);
+                  if ($(".midBg div.msgInfo p").length > 0 && $(".midBg div.msgInfo p").html() != '') 
+                  {
+                    window.location="platform.cgi?page=index.html&redirectStatusMessage="+$(".midBg div.msgInfo p").html();																			
+                  } else {								
+                    window.location="platform.cgi?page=index.html";
+                  }				
+                } else {				
+                  $(".dialogMidArea").html(dataHTML);				
+                }                                   
+              },
+              dataType:'html'
+            });
+            
+          }
+          
+        }
+        
+        
+        $(document).ready(function(){
+          
+          $("#btnClose").live("click",function(e){
+            HideDialog('tf1_dialog', 'tf1_overlay');
+            e.preventDefault();
+          });			
+          
+          /* Help Section variables */
+          helpSection = "systemCheck";				
+          helpConfigFile = "helpTools.txt";
+          
+          /* Header section javascript bindings */
+          menuLoading();
+          mmSel("mainMenu5");
+          getBreadCrumb(46);
+          
+        });</script>
+      </body>
+      </html>

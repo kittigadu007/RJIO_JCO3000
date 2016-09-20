@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>   
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmprofiles" id="tf1_frmprofiles" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="profiles.html"> 
+    <div class="configDialog" id="tf1_dialog">            <!--(start) add or edit form -->
+      <div class="topBg">
+        <h1>Wireless Profiles Configuration</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>                   
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_txtProfName_div" class="configRow">
+          <label>
+            Profile Name
+          </label>
+          <input type="text" value="Jio_2" disabled="" id="tf1_txtProfName" name="dot11Profile.profileName" maxlength="16">
+          
+          <input type="hidden" value="Jio_2" name="dot11Profile.profileName">
+          
+          
+        </div>
+        <div id="break_txtProfName_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtSSID_div" class="configRow">
+          <label>
+            SSID
+          </label>
+          <input type="text" value="Jio_2" id="tf1_txtSSID" name="dot11Profile.ssid" maxlength="32">
+          <dl>
+            [Length: 1 - 32]
+          </dl>
+        </div>
+        <div id="break_txtSSID_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_broadcast_div" class="configRow">
+          <label>
+            Broadcast SSID
+          </label>
+          <img id="tf1_broadcast" src="images/button_on.png" alt="" class="enable-disable">
+          <input type="hidden" value="1" name="dot11Profile.broadcastSSID">
+        </div>
+        <div id="break_broadcast_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selSecurityOpt_div" class="configRow">
+          <label>
+            Security
+          </label>
+          <select onchange="profileSecurityCheck ()" id="tf1_selSecurityOpt" name="dot11Profile.security">
+            <option value="OPEN">OPEN</option>
+            <option value="WEP">WEP</option>
+            <option value="WPA">WPA</option>
+            <option value="WPA2">WPA2</option>
+            <option value="WPA+WPA2" selected="">WPA+WPA2</option>
+          </select>
+          <input type="hidden" id="tf1_hid_selSecurity" value="WPA+WPA2">
+        </div>
+        <div id="break_selSecurityOpt_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selEncType_div" class="configRow">
+          <label>
+            Encryption
+          </label>
+          <select id="tf1_selEncType" name="dot11Profile.pairwiseCiphers">
+            
+            <option value="TKIP+CCMP">TKIP+CCMP</option>
+            
+          </select>
+        </div>
+        <div id="break_selEncType_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selAuthType_div" class="configRow">
+          <label>
+            Authentication
+          </label>
+          <select onchange="AuthTypeCheck ()" id="tf1_selAuthType" name="dot11Profile.authMethods">
+            <option value="PSK" selected="" option="">PSK</option>
+            <option value="RADIUS" option="">RADIUS</option>
+            <!--
+            <option option  value="PSK+RADIUS">PSK+RADIUS</option>
+          -->
+        </select>
+      </div>
+      <div id="break_selAuthType_div" class="break">
+        &nbsp;
+      </div>
+      <div id="tf1_txtWPAPasswd_div" class="configRow">
+        <label>
+          WPA Password
+        </label>
+        <input type="password" onkeypress="if (event.keyCode != 9) { this.value = ''; this.onkeypress=''; }" value="****************" id="tf1_txtWPAPasswd" name="dot11Profile.pskPassAscii" maxlength="63">
+      </div>
+      <div id="break_txtWPAPasswd_div" class="break">
+        &nbsp;
+      </div>
+      
+      <div id="tf1_tblWEP_div" class="hide">
+        <h2>WEP Index and Keys</h2>
+        <div id="tf1_selWEPAuthType_div" class="configRow">
+          <label>
+            Authentication
+          </label>
+          <select id="tf1_selWEPAuthType" name="dot11Profile.wepAuth" disabled="">
+            <option value="Open">Open System</option>
+            <option value="Shared">Shared Key</option>
+          </select>
+        </div>
+        <div id="break_selWEPAuthType_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_selWepEncrMethod_div" class="configRow">
+          <label>
+            Encryption
+          </label>
+          <select onchange="wepKeyLenSet ()" id="tf1_selWepEncrMethod" name="dot11Profile.groupCipher" disabled="">
+            <option value="64">64 bit WEP</option>
+            <option value="128">128 bit WEP</option>
+          </select>
+        </div>
+        <div id="break_selWepEncrMethod_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_txtWepPsk_div" class="configRow">
+          <label>
+            WEP Passphrase
+          </label>
+          <input type="text" id="tf1_txtWepPsk" value="" name="dot11Profile.wepkeyPassphrase" maxlength="32" disabled="">
+          <a onclick="return generateWepKeys ()" style="text-decoration: none; margin-top: -2px; padding: 2px 4px" href="javascript:void(0)" class="btnSubmit">
+            <div id="generateKey"> Generate Key </div>
+          </a>                            
+        </div>
+        <div id="break_txtWepPsk_div" class="break">
+          &nbsp;
+        </div>
+        <!-- added changes from V4 to common starts -->
+        <div id="tf1_rdbWepKey1_div" class="configRow">
+          <label>
+            WEP Key 1
+          </label>
+          <p>
+            <input type="radio" onclick="wepKeyIdCheck ();" id="tf1_rdbWepKey1" value="0" name="dot11Profile.defWepkeyIdx" disabled="">
+          </p><input type="text" id="tf1_txtWepKey1" value="" name="dot11Profile.wepkey0" maxlength="32" disabled="">
+        </div>
+        <div id="break_rdbWepKey1_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_rdbWepKey2_div" class="configRow">
+          <label>
+            WEP Key 2
+          </label>
+          <p>
+            <input type="radio" onclick="wepKeyIdCheck ();" id="tf1_rdbWepKey2" value="1" name="dot11Profile.defWepkeyIdx" disabled="">
+            
+          </p><input type="text" id="tf1_txtWepKey2" value="" name="dot11Profile.wepkey1" maxlength="32" disabled="">
+        </div>
+        <div id="break_rdbWepKey2_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_rdbWepKey3_div" class="configRow">
+          <label>
+            WEP Key 3
+          </label>
+          <p>
+            <input type="radio" onclick="wepKeyIdCheck ();" id="tf1_rdbWepKey3" value="2" name="dot11Profile.defWepkeyIdx" disabled="">
+          </p><input type="text" id="tf1_txtWepKey3" value="" name="dot11Profile.wepkey2" maxlength="32" disabled="">
+        </div>
+        <div id="break_rdbWepKey3_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_rdbWepKey4_div" class="configRow">
+          <label>
+            WEP Key 4
+          </label>
+          <p>
+            <input type="radio" onclick="wepKeyIdCheck ();" id="tf1_rdbWepKey4" value="3" name="dot11Profile.defWepkeyIdx" disabled="">
+          </p><input type="text" id="tf1_txtWepKey4" value="" name="dot11Profile.wepkey3" maxlength="32" disabled="">
+        </div>
+        <div id="break_rdbWepKey4_div" class="break">
+          &nbsp;
+        </div>
+      </div>
+      <!-- added changes from V4 to common ends -->
+    </div>
+    <div class="dialogSubmitRow">
+      <input type="submit" onclick="return profileConfValidate('tf1_frmprofiles')" value="Save" class="btnSubmit" name="button.config.profiles.profiles.2">
+    </div>
+    <!--(end) add or edit form -->
+    
+    &nbsp;
+  </div>
+</form>
+<!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+<div class="contextMenu" id="contextMenu">
+  <ul>
+    
+    <li id="edit">
+      Edit
+    </li>
+  </ul>
+</div>
+<!-- Right click Div End -->
+<div align="center">
+  <table border="0" cellpadding="0" cellspacing="0" width="980px">
+    <tr>
+      <td class="header" valign="top" align="center">
+        <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+      </td>
+    </tr>
+    <tr>
+      <td class="midBg" valign="top" align="center">
+        <div class="midWidth">
+          <h1>Profiles</h1>
+          <div align="center">
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        Profile Name
+                      </th>
+                      <th>
+                        SSID
+                      </th>
+                      <th>
+                        Broadcast SSID
+                      </th>
+                      <th>
+                        Security
+                      </th>
+                      <th>
+                        Encryption
+                      </th>
+                      <th>
+                        Authentication
+                      </th>
+                    </tr>
+                  </thead>
+                  
+                  <tr class="gradeA" id="1">
+                    <td class="gradeA">Jio_1</td>
+                    <td class="gradeA">JioFiber-mRWyg</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="2">
+                    <td class="gradeA">Jio_2</td>
+                    <td class="gradeA">Jio_2</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="3">
+                    <td class="gradeA">Jio_3</td>
+                    <td class="gradeA">Jio_3</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="4">
+                    <td class="gradeA">Jio_4</td>
+                    <td class="gradeA">JioFiber-mRWyg</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="5">
+                    <td class="gradeA">Jio_5</td>
+                    <td class="gradeA">Jio_2</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="6">
+                    <td class="gradeA">Jio_6</td>
+                    <td class="gradeA">Jio_3</td>
+                    <td class="gradeA">Enabled</td>
+                    <td class="gradeA">WPA+WPA2</td>
+                    <td class="gradeA">TKIP+CCMP</td>
+                    <td class="gradeA">PSK</td>
+                  </tr>
+                  
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+            </div>
+            <div class="break"> &nbsp; </div>
+          </div>
+          <!-- added changes for making page from V4 to common starts -->
+          
+          <!-- added changes for making page from V4 to common  ends -->
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/contextMenu.js"></script>
+<script src="js/mis.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/textValidations.js"></script>
+<script src="js/ipv4AddrValidations.js"></script>
+<script src="js/mgmt.js"></script>       
+<script src="js/profiles.js"></script>
+<script src="js/md5.js"></script>
+<script src="js/menuSearchList.js"></script>
+<script src="js/menuSearch.js"></script>
+<script  charset="utf-8">
+$(document).ready(function(){
+  $('.gradeA').contextMenu('contextMenu', {
+    bindings: {
+      'editMenu': function(t, e, rowId){
+        /* rowid, dialog Id, config name, page name */
+        openForm('button.edit.profiles.profiles',rowId,'tf1_dialog','profiles','profiles.html');
+      }
+    }
+  });
+  oTable = $('#recordsData').dataTable({
+    "bJQueryUI": true,
+    "sPaginationType": "full_numbers"
+  });
+  $("#btnClose").live("click",function(e){
+    HideDialog('tf1_dialog', 'tf1_overlay');
+    e.preventDefault();
+    /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+    document.cookie = "recordModified=1";
+  });
+  
+  /* Help Section variables */
+  helpSection = "profiles";				
+  helpConfigFile = "helpSetup.txt";
+  
+  /* Header section javascript bindings */
+  menuLoading();
+  mmSel("mainMenu2");
+  getBreadCrumb(25);
+  
+});</script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                           
+            
+            <h1>WAN IPv6 Configuration</h1>
+            <div class="midArea">
+              <div align="left">
+                
+                <form name="tf1_frmWanIpv6Config" id="tf1_frmWanIpv6Config" action="cgi-action.html" method="post">                                    
+                  <input type="hidden" name="thispage" id="thispage"  value="wanIpv6Config.html"> 
+                  
+                  <h2>Internet Address</h2>
+                  <div class="configRow" id="tf1_ispType_div">
+                    <label>
+                      IPv6
+                    </label>
+                    <select name="ConnectionType" class="txt1" id="tf1_ispType" onChange="ipAddrCheck ()">
+                      <option  value="dhcp6c">DHCPv6</option>
+                      <option  value="ifStatic6">Static IPv6</option>
+                    </select>
+                  </div>
+                  <div class="break"id="break_ispType_div">
+                    &nbsp;
+                  </div>
+                  <div id="tf1_staticIPAddressBlock_div">
+                    <h2>Static IP Address</h2>
+                    <div class="configRow" id="tf1_ipV6Addr_div">
+                      <label>
+                        IPv6 Address
+                      </label>
+                      <input type="text" name="StaticIp" value="" id="tf1_ipV6Addr" value="" maxlength="40" class="txt1" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                    </div>
+                    <div class="break" id="break_ipV6Addr_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_ipV6AddrPrefixLength_div">
+                      <label>
+                        IPv6 Prefix Length
+                      </label>
+                      <input type="text" name="PrefixLength" id="tf1_ipV6AddrPrefixLength" value="" maxlength="3" class="one" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 128, true, '', ''); }">
+                      <dl>
+                        [Range: 0 - 128]
+                      </dl>
+                    </div>
+                    <div class="break" id="break_ipV6AddrPrefixLength_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_ipV6AddrGateway_div">
+                      <label>
+                        Default IPv6 Gateway
+                      </label>
+                      <input type="text" name="Gateway" id="tf1_ipV6AddrGateway" value="" maxlength="40" class="txt1" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                    </div>
+                    <div class="break" id="break_ipV6AddrGateway_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_staticPrimaryDns_div">
+                      <label>
+                        Primary DNS Server
+                      </label>
+                      <input type="text" name="PrimaryDns" value="" maxlength="40" class="txt1" id="tf1_staticPrimaryDns" maxlength="40" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                    </div>
+                    <div class="break" id="break_staticPrimaryDns_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_staticSecondaryDns_div">
+                      <label>
+                        Secondary DNS Server
+                      </label>
+                      <input type="text" name="SecondaryDns" value="" maxlength="40" class="txt1" id="tf1_staticSecondaryDns" maxlength="40" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                    </div>
+                    <div class="break" id="break_staticSecondaryDns_div">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <div id="tf1_DHCPV6Block_div">
+                    <h2>DHCPv6</h2>
+                    
+                    <div class="configRow" id="tf1_dhcpV6SatelessMode1_div">
+                      <label>
+                        Stateless Address Auto Configuration
+                      </label>
+                      <p>
+                        <input type="radio" name="StatelessMode" id="tf1_dhcpV6SatelessMode1" CHECKED  value="1" checked="checked">
+                      </p>
+                    </div>
+                    <div class="break" id="break_dhcpV6SatelessMode1_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_dhcpV6SatelessMode2_div">
+                      <label>
+                        Stateful Address Auto Configuration
+                      </label>
+                      <p>
+                        <input type="radio" name="StatelessMode" id="tf1_dhcpV6SatelessMode2"   value="0">
+                      </p>
+                    </div>
+                    <div class="break" id="break_dhcpV6SatelessMode2_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_prefixDeleg_div">
+                      <label>
+                        Enable Prefix Delegation
+                      </label>
+                      
+                      
+                      
+                      <img class="enable-disable" alt="" id="tf1_prefixDeleg" src="images/button_on.png" />                                                                                                   
+                      <input type="hidden"name="prefixDelegation" value="1" >
+                    </div>
+                    <div class="break" id="break_prefixDeleg_div">
+                      &nbsp;
+                    </div>
+                  </div>
+                  
+                  <div class="submitRow">
+                    
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.wanIpv6Config.wanIpv6Config" onclick="return wanSetupValidate('tf1_frmWanIpv6Config')" >
+                    
+                    <input type="reset" class="btnSubmit" title="Cancel" value="Cancel" onclick="document.tf1_frmWanIpv6Config.reset(); wanIpv6ConfigOnReset('tf1_frmWanIpv6Config');">                                              
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <input type="hidden" id="isDisable" value="3">
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/ipv6AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/macValidations.js"></script>
+  <script src="js/wanConfigIpv6.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "wanConfigIpv6";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(12);
+    
+  });</script>
+</body>
+</html>

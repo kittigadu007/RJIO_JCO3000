@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_overlay" class="configDialogMask"> </div>
+  <form name="tf1_frmigmpProxy" id="tf1_frmigmpProxy" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="igmpProxySetup.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>IGMP Proxy Configuration</h1>
+        <close> <a title="Close" id="btnClose" href="javascript:void(0)"></a> </close>
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label> Sender Address </label>
+          <input type="text" id="txtSenderAddr" onkeypress="return numericValueCheck (event, '.')" value="" name="networkAddr" maxlength="15">
+        </div>
+        <div class="break"> &nbsp; </div>
+        <div class="configRow">
+          <label> Mask Length </label>
+          <input type="text" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 32, true, '', '');}" onkeypress="return numericValueCheck (event)" id="txtmaskLength" value="" class="one" name="maskLength" maxlength="2">
+          <dl>
+            [Range: 0 - 32]
+          </dl>
+        </div>
+        <div class="break"> &nbsp; </div>
+      </div>
+      <div class="dialogSubmitRow"> <input type="submit" onclick="return pageValidate ();" title="Save" id="btAdd" value="Save" class="btnSubmit" name="button.igmpConfig.igmpProxySetup.igmpProxySetup.-1">
+      </div>
+      <!-- (end) add or edit form -->
+      
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends -->
+  <!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>
+        Select All </li>
+        <li id="edit"> Edit </li>
+        <li id="delete"> Delete </li>
+      </ul>
+    </div>
+    <!-- Right click Div End -->
+    <div align="center">
+      <table border="0" cellpadding="0" cellspacing="0" width="980px">
+        <tr>
+          <td class="header" valign="top" align="center">
+            <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+          </td>
+        </tr>
+        <tr>
+          <td class="midBg" valign="top" align="center"><div class="midWidth">
+            
+            <h1>IGMP Proxy Setup</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmigmpProxyConfig" id="tf1_frmigmpProxyConfig" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="igmpProxySetup.html">
+                  <div class="configRow">
+                    <label> IGMP Proxy </label>
+                    
+                    <img class="enable-disable" src="images/button_on.png" id="tf1_chkEnable">
+                    <input type="hidden" name="IgmpEnable" value="1">
+                  </div>
+                  <div class="break"> &nbsp; </div>
+                  <div class="configRow" id="tf1_selUpStreamInterface_div">
+                    <label> Upstream Network </label>
+                    <select size="1" id="tf1_selUpStreamInterface" name="upstreamInterface" onChange="onChangeUpstream()" >
+                      
+                      <option SELECTED value="Internet">Internet</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_selUpStreamInterface_div"> &nbsp; </div>
+                  <div class="configRow" id="tf1_selDownStreamInterface_div">
+                    <label> Downstream Network </label>
+                    <select size="1"  id="tf1_selDownStreamInterface" name="downstreamInterface">
+                      
+                      <option  value="Internet">Internet</option>
+                      
+                    </select>
+                  </div>
+                  <div class="break" id="break_selDownStreamInterface_div"> &nbsp; </div>
+                  <div class="configRow" id="tf1_allowAddr_div">
+                    <label> Allow Multicast senders </label>
+                    <select size="1" id="tf1_allowAddr" name="allowUpstreamNetworks">
+                      <option  value="1">ALL</option>
+                      <option  value="2">From Upstream Network</option>
+                      <option SELECTED value="3">From Below Network List</option>
+                    </select> 
+                  </div>
+                  <div class="break"  id="break_allowAddr_div"> &nbsp; </div>
+                  <div class="submitRow"> <input name="button.config.igmpProxySetup" class="btnSubmit" type="submit" title="Save" value="Save" onClick="return validateIgmpSetup('tf1_frmigmpProxyConfig')">
+                    <input class="btnSubmit" type="button" title="Cancel" value="Cancel" onClick="document.tf1_frmigmpProxyConfig.reset(); igmpProxyOnReset('tf1_frmigmpProxyConfig');">
+                  </div>
+                  <div class="break"> &nbsp; </div>
+                </form>
+              </div>
+            </div>
+            <h1>List of allowed sender addresses</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th> Sender address </th>
+                      <th> Mask Length </th>
+                    </tr>
+                  </thead>
+                  
+                  <tr class="gradeA" id="igmpProxySetup1">
+                    <td> 192.168.29.123 </td>
+                    <td> 8 </td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="igmpProxySetup2">
+                    <td> 192.168.26.10 </td>
+                    <td> 4 </td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="igmpProxySetup3">
+                    <td> 192.168.12.110 </td>
+                    <td> 30 </td>
+                  </tr>
+                  
+                  <tr class="gradeA" id="igmpProxySetup4">
+                    <td> 192.168.29.199 </td>
+                    <td> 32 </td>
+                  </tr>
+                  
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal"> <input type="button" class="btnSubmit" value="Add IGMP Proxy" id="btAdd" title="Add IGMP Proxy"  
+              
+              onClick="openForm('button.add.igmpProxySetup.igmpProxySetup','-1','tf1_dialog','igmpProxySetup','igmpProxySetup.html');" 
+              
+              
+              
+              >
+            </div>
+          </div></td>
+        </tr>
+      </table>
+    </div>
+    <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+    
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/contextMenu.js"></script>
+    <script src="js/mis.js"> </script>
+    <script src="js/menu.js"> </script>
+    <script src="js/textValidations.js"></script>
+    <script src="js/macValidations.js"></script>
+    <script src="js/ipv4AddrValidations.js"></script>
+    <script src="js/mgmt.js"></script>
+    <script src="js/menuSearchList.js"></script>
+    <script src="js/menuSearch.js"></script>
+    <script src="js/igmpSetup.js"></script>
+    <script  charset="utf-8">	
+    
+    function onChangeUpstream() {
+      
+      /* Populate downstream options */
+      
+      var downStreamObject = document.getElementById("tf1_selDownStreamInterface");
+      
+      var selDownStreamOption = downStreamObject.options[downStreamObject.selectedIndex].value;
+      
+      var upStreamObject = document.getElementById("tf1_selUpStreamInterface");
+      
+      var selUpStreamOption = upStreamObject.options[upStreamObject.selectedIndex].value;			
+      
+      /* Clear down Stream options */
+      
+      downStreamObject.length = 0;
+      
+      var selDownStreamIndex = 0;
+      
+      for (i=0; i <  upStreamObject.length; i++)
+      {
+        if (selUpStreamOption != upStreamObject[i].value ) {
+          
+          downStreamObject.options[downStreamObject.length] = new Option(upStreamObject[i].text,upStreamObject[i].value);
+          
+        }
+        
+      }
+      
+      
+      downStreamObject.options[downStreamObject.length] = new Option('Local','Local');
+      
+      
+      
+      
+      $("#tf1_selDownStreamInterface").val(selDownStreamOption);
+      
+    }
+    
+    $(document).ready(function(){
+      
+      onChangeUpstream();
+      
+      
+      
+      $('.gradeA').contextMenu('contextMenu', {
+        bindings: {
+          'editMenu': function(t, e, rowId){
+            openForm('button.edit.igmpProxySetup.igmpProxySetup',rowId,'tf1_dialog','igmpProxySetup','igmpProxySetup.html');
+          },
+          'deleteMenu': function(t, e, rowId){
+            deleteRows('button.delete.igmpProxySetup.igmpProxySetup', 'tf1_frmigmpProxy', rowId, 'optionSelectAll', 'tf1_dialog', 'igmpProxySetup', 'igmpProxySetup');
+          }
+        }
+        
+      });
+      
+      
+      oTable = $('#recordsData').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers",
+        "columnDefs": [
+          { type: 'ip-address', targets: 0 }
+        ]
+      });
+      $("#btnClose").live("click",function(e){
+        HideDialog('tf1_dialog', 'tf1_overlay');
+        e.preventDefault();
+      });       
+      
+      /* Help Section variable */
+      helpSection = "igmpProxySetup";				
+      helpConfigFile = "helpSetup.txt";
+      
+      /* Header section javascript bindings */		
+      menuLoading();
+      mmSel("mainMenu7");
+      getBreadCrumb(56);    		
+      
+      
+    });</script>
+  </body>
+  </html>

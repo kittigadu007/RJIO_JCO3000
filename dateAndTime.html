@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script>   
+<meta http-equiv="X-Frame-Options" content="deny">
+
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Date and Time</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmDateAndTime" id="tf1_frmDateAndTime" method="post" action="cgi-action.html">
+                  <input type="hidden" name="thispage" id="thispage" value="dateAndTime.html">
+                  <h2>Date and Time</h2>
+                  <div class="configRow" id="tf1__div">
+                    <label>
+                      Current Router Time
+                    </label>
+                    <p>Tuesday, April 15, 2014, 11:56:00 (GMT +0530) </p>
+                  </div>
+                  <div class="break" id="break__div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_selTimezone_div">
+                    <label>
+                      Time Zone
+                    </label>
+                    <select name="timezone" id="tf1_selTimezone" onchange="timezoneCheck()">
+                      <option  value="0">(GMT) Greenwich Mean Time : Edinburgh, London</option>
+                      <option  value="1">(GMT-12:00) Eniwetok,Kwajalein</option>
+                      <option  value="2">(GMT-11:00) Midway Island,Samoa</option>
+                      <option  value="3">(GMT-10:00) Hawaii</option>
+                      
+                      <option  value="4">(GMT-09:30) Marquesas Is.</option>
+                      <option  value="5">(GMT-09:00) Alaska</option>
+                      <option  value="6">(GMT-08:00) Pacific Time(US); Tijuana</option>
+                      <option  value="10">(GMT-07:00) Mountain Time, Arizona(US)</option>
+                      <option  value="12">(GMT-06:00) Mexico City(US, Canada), CentralTime(USA)</option>
+                      <option  value="13">(GMT-05:00) EasternTime, EasternTime(USA), Lima, Indiana East</option>
+                      <option  value="15">(GMT-04:30) Caracas</option>
+                      <option  value="16">(GMT-04:00) Atlantic Time(Canada)</option>
+                      <option  value="17">(GMT-03:30) Newfoundland</option>
+                      <option  value="18">(GMT-03:00) Brasilia, Buenos Aires</option>
+                      <option  value="19">(GMT-02:00) Mid-Atlantic</option>
+                      <option  value="20">(GMT-01:00) Azores, Cape Verde Is.</option>
+                      <option  value="21">(GMT+01:00) Europe</option>
+                      <option  value="22">(GMT+02:00) Athens, Istanbul, Minsk, Cairo</option>
+                      <option  value="23">(GMT+03:00) Baghdad, Kuwait, Moscow</option>
+                      <option  value="25">(GMT+04:00) Abu Dhabi, Muscat, Baku</option>
+                      <option  value="26">(GMT+04:30) Kabul</option>
+                      <option  value="27">(GMT+05:00) Ekaterinburg, Islamabad, Karachi</option>
+                      <option SELECTED value="28">(GMT+05:30) Bombay, Calcutta, Madras, Delhi</option>
+                      <option  value="29">(GMT+06:00) Almaty, Dhaka, Colombo</option>
+                      <option  value="30">(GMT+06:30) Burma</option>
+                      <option  value="31">(GMT+07:00) Bangkok, Hanoi, Jakarta</option>
+                      <option  value="32">(GMT+08:00) Beijing, Chongqing, Hong Kong</option>
+                      <option  value="33">(GMT+09:00) Osaka, Sapporo, Tokyo, Seoul</option>
+                      <option  value="34">(GMT+09:30) Adelaide, Darwin</option>
+                      <option  value="35">(GMT+10:00) Brisbane, Guam, Port Moresby</option>
+                      <option  value="36">(GMT+10:30) Lord Howe Is.</option>
+                      <option  value="37">(GMT+11:00) Solomon Is, New Caledonia</option>
+                      <option  value="38">(GMT+11:30) Norfolk I.</option>
+                      <option  value="39">(GMT+12:00) Magadan,Auckland, Wellington, New Zealand, Fiji</option>
+                      <option  value="40">(GMT+13:00) Tonga</option>
+                      <option  value="41">(GMT+14:00) Kiribati,Western Samoa</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_selTimezone_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_chkAutoDaylight_div">
+                    <label>
+                      Enable Daylight Saving
+                    </label>
+                    
+                    <img class="enable-disable" alt="" src="images/button_on.png" id="tf1_chkAutoDaylight"   />
+                    <input type="hidden" name="autoDaylight" value="1" id="tf1_chkAutoDaylightValue">
+                  </div>
+                  <div class="break" id="break_chkAutoDaylight_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_radConfigNtpSvr_div">
+                    <label>
+                      Configure NTP Servers
+                    </label>
+                    <p>
+                      <input type="radio" name="enabled" value="1" CHECKED onclick="ntpConfigTypeCheck ();" checked id="tf1_radConfigNtpSvr" checked>
+                    </p>
+                  </div>
+                  <div class="break" id="break_radConfigNtpSvr_div">
+                    &nbsp;
+                  </div>
+                  <div id="tf1_tblNTPSvrs_div">
+                    <h2>NTP Servers Configuration</h2>
+                    <div class="configRow" id="tf1_radNtp1_div">
+                      <label>
+                        Default NTP Server
+                      </label>
+                      <p>
+                        <input type="radio" name="useDefServers" CHECKED value="1" onclick="NtpSvrTypeCheck ();" id="tf1_radNtp1">
+                      </p>
+                    </div>
+                    <div class="break" id="break_radNtp1_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_radDhcpNtp_div">
+                      <label>
+                        NTP Servers via DHCP 
+                      </label>
+                      <p>
+                        N/A 
+                      </p>
+                    </div>
+                    <div class="break" id="break_radDhcpNtp_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_radNtp2_div">
+                      <label>
+                        Custom NTP Server
+                      </label>
+                      <p>
+                        <input type="radio" name="useDefServers"  value="0" onclick="NtpSvrTypeCheck ();" id="tf1_radNtp2">
+                      </p>
+                    </div>
+                    <div class="break" id="break_radNtp2_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_txtCustomNtp1_div">
+                      <label>
+                        Primary NTP Server
+                      </label>
+                      <input type="text" name="server1" value="0.pool.ntp.org" id="tf1_txtCustomNtp1" onkeydown="if (event.keyCode == 9) { return (ipaddrValidate (this.id) || validateFQDN(this.id)); }">
+                    </div>
+                    <div class="break" id="break_txtCustomNtp1_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_txtCustomNtp2_div">
+                      <label>
+                        Secondary NTP Server
+                      </label>
+                      <input type="text" name="server2" value="1.pool.ntp.org" id="tf1_txtCustomNtp2" onkeydown="if (event.keyCode == 9) { return (ipaddrValidate (this.id) || validateFQDN(this.id)); }">
+                    </div>
+                    <div class="break" id="break_txtCustomNtp2_div">
+                      &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_txtReSync_div">
+                      <label>
+                        Time to re-synchronize (in minutes)
+                      </label>
+                      <input type="text" maxlength="4" name="reSyncNtpVal" class="one" id="tf1_txtReSync" value="120" onkeypress="return numericValueCheck (event)" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 5, 1440, true, '', 'Minutes');}">
+                      <dl>
+                        [Range: 5 - 1440] Minutes
+                      </dl>
+                    </div>
+                    <div class="break" id="break_txtReSync_div">
+                      &nbsp;
+                    </div>
+                  </div>
+                  
+                  <div class="submitRow">
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.dateAndTime" onclick="return timeZoneValidate('tf1_frmDateAndTime')">
+                    
+                    <input type="button" class="btnSubmit" title="Cancel" value="Cancel" onclick="this.form.reset(); dateAndTimeOnReset('tf1_frmDateAndTime');">           
+                    
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/dateAndTime.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "dateAndTime";				
+    helpConfigFile = "helpTools.txt";	
+    
+    /* Header section javascript bindings */	    
+    menuLoading();
+    mmSel("mainMenu5");
+    getBreadCrumb(47);
+    
+  });</script>
+</body>
+</html>

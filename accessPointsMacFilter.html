@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>  
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo">
+      <p>Loading ...</p>
+    </div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmaccessPointsMacFilter" id="tf1_frmaccessPointsMacFilter" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="accessPointsMacFilter.html">
+    <input type="hidden" value="5" name="ConfigRowId">
+    <div class="configDialog" id="tf1_dialog">            	<!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>MAC Filter Configuration</h1>
+        <close>
+          <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        </close>
+      </div>
+      <div class="dialogMidArea">
+        <div id="tf1_fromZone_div" class="configRow">
+          <label>
+            MAC Address
+          </label>
+          <input type="text" onkeydown="return macAddrVerify (event, this, true, '', '')" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:')" value="" name="dot11ACL.macAddress" maxlength="17" id="txtMacAddr" class="txt1">
+          <input type="hidden" name="dot11ACL.vaprowId" value="5">
+        </div>
+        <div id="break1_div" class="break">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return pageValidate()" value="Save" class="btnSubmit" name="button.configMAC.accessPointsMacFilter.accessPointsMacFilter.-1">                    
+      </div>
+      <!-- (start) add or edit form -->
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends -->
+  <!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onclick="setSelectAll (this.id, '');"/>Select All
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                          
+            <div class="msgInfo">
+              <p>Operation succeeded</p>
+            </div>
+            <h1>MAC Filter</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmAccessPointMacFilter" id="tf1_frmAccessPointMacFilter" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="accessPointsMacFilter.html">                                   							<input type="hidden" value="5" name="ConfigRowId"> 
+                  <div class="configRow">
+                    <label>
+                      AP Name
+                    </label>
+                    <p>
+                      ap5
+                    </p>
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow">
+                    <label>
+                      ACL Policy Status
+                    </label>
+                    <select id="selSecurityOpt" name="dot11VAP.defACLPolicy" size="1">
+                      <option SELECTED value="Disable">Disable</option>
+                      <option  value="Allow">Allow</option>
+                      <option  value="Deny">Deny</option>
+                    </select>
+                    <input type="hidden" name="dot11VAP._ROWID_" value="5">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    <input type="submit" name="button.config.accessPointsMacFilter.accessPointsMacFilter.5" class="btnSubmit" value="Save"> 
+                    <input type="reset" class="btnSubmit" value="Cancel"> 
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+                <div class="break">
+                  &nbsp;
+                </div>
+              </div>
+            </div>
+            <h1>MAC Address</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>
+                        MAC Address
+                      </th>
+                    </tr>
+                  </thead>
+                  <tr class="gradeA" id="1">
+                    <td>
+                      10:10:10:10:10:10
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="buttonsRow" id="tf1_btnShowModal">
+              <input type="button" name="button.add.accessPointsMacFilter.accessPointsMacFilter.-1" class="btnSubmit" title="Add" value="Add New MAC Address" id="btAdd" onClick="openForm('button.add.accessPointsMacFilter.accessPointsMacFilter',5,'tf1_dialog','accessPointsMacFilter','accessPointsMacFilter.html');">
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/macValidations.js"></script>
+  <script src="js/accessPointsMacFilter.js"></script>       
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  function openForm(buttonPrefix, rowId, dialogId, rowPrefix, pageName){
+    /* added changes for pop up resiza + loading message coming correctly starts */
+    var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;
+    leftPx = Math.round(leftPx);
+    $(".configDialog").css('left',leftPx+'px');
+    var loadingDiv = '<div id="tf1_popUpLoadingMsg"><p style="line-height:60px;text-align:center;"> Loading Please wait..! </p></div>';
+    $("#"+dialogId).html(loadingDiv);
+    /* added changes for pop up resiza + loading message coming correctly ends */
+    ShowDialog(true, dialogId, 'tf1_overlay');    
+    
+    dataString = buttonPrefix + "=add&thispage="+pageName+"&id="+rowId;
+    $.ajax({
+      type: "POST",
+      url: "platform.cgi",
+      data: dataString,
+      success: function(dataHTML){
+        $("#"+dialogId).html(dataHTML);
+      },
+      dataType:'html'
+    });
+  }
+  
+  $(document).ready(function(){
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'deleteMenu': function(t, e, rowId){                           
+          deleteRows('button.delete.accessPointsMacFilter.accessPointsMacFilter', 'tf1_frmaccessPointsMacFilter', rowId, 'optionSelectAll', 'tf1_dialog', 'accessPointsMacFilter', 'accessPointsMacFilter');
+        }
+      }
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+    });
+    
+    /* Help Section variables */
+    helpSection = "accessPointsMacFilter";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */	
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(51);
+    
+  });</script>
+</body>
+</html>

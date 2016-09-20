@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<title>Reliance Industries Limited : </title>
+	<!--
+	Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+	All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+	
+	<div align="center">
+		<table border="0" cellpadding="0" cellspacing="0" width="980px">
+			<tr>
+				<td class="header" valign="top" align="center">
+					<!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+				</td>
+			</tr>
+			<tr>
+				<td class="midBg" valign="top" align="center">
+					<div class="midWidth">
+						
+						<h1>P2P Session Limitation</h1>
+						<div class="midArea">
+							<div align="left">
+								<form name="tf1_frmP2pSessionLimitation" id="tf1_frmP2pSessionLimitation" action="cgi-action.html" method="post">
+									<input type="hidden" name="thispage" id="thispage" value="p2pSessionLimitation.html">
+									<div class="configRow">
+										<label>P2P Session Limiting</label>
+										
+										
+										<img class="enable-disable" alt="" src="images/button_off.png" id="tf1_p2pSessionLimitating">
+										<input type="hidden" name="enable" value="0" id="tf1_hd_P2P">
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+									<div class="configRow" id="tf1_p2pSessionLanHost_div">
+										<label>P2P Sessions Per LAN Host </label>
+										<input type="text" class="one"
+										maxlength="5" name="p2pSessionLimit" value="100" id="tf1_p2pSessionLanHost" onKeyPress="return numericValueCheck (event);" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, 1, 'Invalid Syslog server port', 1, 31960, true, '', '');}">
+										<dl>
+											[Range: 1 - 31960]
+										</dl>
+									</div>
+									<div class="break" id="break_p2pSessionLanHost_div">
+										&nbsp;
+									</div>
+									
+									<div class="submitRow">
+										<input name="button.config.p2pSessionLimitation" class="btnSubmit" type="submit" title="Save" value="Save" onClick="return pageValidate('tf1_frmP2pSessionLimitation')">
+										<input class="btnSubmit" type="button" title="Cancel" value="Cancel" onClick="document.tf1_frmP2pSessionLimitation.reset(); p2pSessionLimitationOnReset('tf1_frmP2pSessionLimitation');">
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+								</form>
+							</div>
+						</div>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+		<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+		<script src="js/mis.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/textValidations.js"></script>
+		<script src="js/mgmt.js"></script>
+		<script src="js/menuSearchList.js"></script>
+		<script src="js/menuSearch.js"></script>
+		<script src="js/p2pSessionLimitation.js"></script>
+		<script  charset="utf-8">
+		$(document).ready(function() {
+			
+			/* Help Section variable */
+			helpSection = "p2pSessionLimitation";
+			helpConfigFile = "helpAdvanced.txt";
+			
+			/* Header section javascript bindings */
+			menuLoading();
+			mmSel("mainMenu4");
+			getBreadCrumb(82);
+		});
+		</script>
+		
+	</body>
+	</html>

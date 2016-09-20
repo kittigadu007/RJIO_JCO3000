@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js">		</script>        
+<meta http-equiv="X-Frame-Options" content="deny">  
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>LAN IPv4 Configuration</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmlanIPv4Config" id="tf1_frmlanIPv4Config" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="lanIPv4Config.html">
+                  <h2>LAN TCP/IP Setup</h2>
+                  <div class="configRow" id="tf1_ipAddr_div">
+                    <label>
+                      IP Address
+                    </label>
+                    <input type="text" class="txt" id="tf1_ipAddr" maxlength="15" name="StaticIp" value="192.168.29.1" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_ipAddr_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_subnetmask_div">
+                    <label>
+                      Subnet Mask
+                    </label>
+                    <input type="text" id="tf1_subnetmask" maxlength="15" name="NetMask" value="255.255.255.0" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return validNetMask (this.id) }">
+                  </div>
+                  <div class="break" id="break_subnetmask_div">
+                    &nbsp;
+                  </div>
+                  <h2>DHCP Setup</h2>
+                  <div class="configRow" id="tf1_dhcpModel_div">
+                    <label>
+                      DHCP Mode
+                    </label>
+                    <select name="dhcpMode" id="tf1_dhcpModel" onchange="dhcpCheck();">
+                      <option  value="0">None</option>
+                      <option SELECTED value="1">DHCP Server</option>
+                      <option  value="2">DHCP Relay</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_dhcpModel_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_dhcpStartIp_div">
+                    <label>
+                      Starting IP Address
+                    </label>
+                    <input type="text" id="tf1_dhcpStartIp" maxlength="15" name="dhcpStartIP" value="192.168.29.2" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_dhcpStartIp_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_dhcpEndIp_div">
+                    <label>
+                      Ending IP Address
+                    </label>
+                    <input type="text" id="tf1_dhcpEndIp" maxlength="15" name="dhcpStopIP" value="192.168.29.254" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_dhcpEndIp_div">
+                    &nbsp;
+                  </div>
+                  
+                  <div class="configRow" id="tf1_DnsSvrs_div">
+                    <label>
+                      DNS Servers
+                    </label>
+                    <select size="1" name="DNSServers"  id="tf1_DnsSvrs" onchange = "dnsServerChange();">
+                      <option value="1" >Use DNS Proxy</option>
+                      <option value="2" SELECTED>Use DNS from ISP</option>
+                      <option value="3" >Use Below</option>
+                    </select>
+                  </div>
+                  <div class="break" id="break_DnsSvrs_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_priDnsServer_div">
+                    <label>
+                      Primary DNS Server
+                    </label>
+                    <input type="text" id="tf1_priDnsServer" maxlength="15" name="PrimaryDns" value="" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', true, true, 'Invalid IP address.', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_priDnsServer_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_secDnsServer_div">
+                    <label>
+                      Secondary DNS Server
+                    </label>
+                    <input type="text" id="tf1_secDnsServer" size="20" maxlength="15" name="SecondaryDns" value="" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', true, true, 'Invalid IP address.', 'for octet ', true); }">
+                  </div>
+                  <div class="break" id="break_secDnsServer_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_dhcpDomainName_div">
+                    <label>
+                      Domain Name
+                    </label>
+                    <input type="text" id="tf1_dhcpDomainName" maxlength="253" name="DomainName" value="" onkeydown="if (event.keyCode == 9) { return validateDomainName(this,''); }">
+                  </div>
+                  <div class="break" id="break_dhcpDomainName_div">
+                    &nbsp;
+                  </div>
+                  <div class="configRow" id="tf1_dhcpLeaseTime_div">
+                    <label>
+                      Lease Time
+                    </label>
+                    <input class="one" type="text" id="tf1_dhcpLeaseTime" maxlength="2"  name="dhcpLeaseTime" value="1" onkeypress="return numericValueCheck (event)" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 24, true, 'Invalid Lease Time.', 'Hours');}">
+                    <dl>
+                      [Range: 1 - 24] Hours
+                    </dl>
+                  </div>
+                  <div id="break_dhcpLeaseTime_div" class="break">
+                    &nbsp;
+                  </div>
+                  <div id="tf1_dhcpRelayGw_div" class="configRow">
+                    <label>
+                      Relay Gateway
+                    </label>
+                    <input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" name="relayGw" value="" onkeypress="return numericValueCheck (event, '.')" maxlength="15" id="tf1_dhcpRelayGw">
+                  </div>
+                  <div class="break" id="break_dhcpRelayGw_div">
+                    &nbsp;
+                  </div>
+                  <input type="hidden" name="wanIpAddress" id="tf1_wanIpAddress" value="">
+                  <input type="hidden" name="wanSubnetMask" id="tf1_wanSubnetMask" value="">
+                  <div class="submitRow">
+                    <input type="submit" name="button.config.lanIPv4Config.lanIPv4Config.-1" class="btnSubmit" 
+                    value="Save" title="Save" onclick="return validateLansettings('tf1_frmlanIPv4Config')">                                         	
+                    <input type="reset" class="btnSubmit" value="Cancel" title="Cancel" onclick="this.form.reset(); lanIPV4SetupOnReset('tf1_frmlanIPv4Config');">                                            
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/lanIPv4Setup.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "lanSetup";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */    
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(6);
+    
+  });</script>        
+</body>
+</html>

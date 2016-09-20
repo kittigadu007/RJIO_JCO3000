@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">                                               
+            <h1>ALG</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_alg" id="tf1_alg" action="cgi-action.html" method="post">                                    
+                  <input type="hidden" name="thispage" id="thispage"  value="alg.html">
+                  <div class="configRow">
+                    <label>
+                      H.323
+                    </label>
+                    <img class="enable-disable" alt="" src="images/button_off.png" id="tf1_enableH323Alg"/>
+                    <input type="hidden" name="H323Status" value="0">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow">
+                    <label>
+                      RTSP
+                    </label>
+                    <img class="enable-disable" alt="" src="images/button_off.png" id="tf1_enableRtspAlg"/>
+                    <input type="hidden" name="RtspStatus" value="0">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow">
+                    <label>
+                      SIP
+                    </label>
+                    <img class="enable-disable" alt="" src="images/button_on.png" id="tf1_enableSipAlg"/>
+                    <input type="hidden" name="SipStatus" value="1">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="configRow">
+                    <label>
+                      TFTP
+                    </label>
+                    <img class="enable-disable" alt="" src="images/button_off.png" id="tf1_enableTftpAlg"/>
+                    <input type="hidden" name="TftpStatus" value="0">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.alg.alg" onclick="setHiddenChks('tf1_alg')" >
+                    <input type="button" class="btnSubmit" title="Cancel" value="Cancel" onclick="document.tf1_alg.reset(); resetImgOnOff('tf1_alg');">  
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    /* Help Section variables */
+    helpSection = "algsHGW";
+    helpConfigFile = "helpAdvanced.txt";
+    /* Header section javascript bindings */	 
+    menuLoading();
+    mmSel("mainMenu4");
+    getBreadCrumb(35);
+    onloadCall (enableDisableFieldsByImageClick, {imageId:'', disableIndividual:'', disableGrp:'', enableIndividual:'', enableGrp:'', hideClass:'hide', showClass:'configRow', breakDivs:'', breakClass:'break', imagesInfo:{disableImages:'', enableImages:'', disableClass:'', enableClass:''}});
+  });
+  function enableDisableFieldsByImageClick(data, thisObj) { 
+    onImageToggle(data);  
+    var imgId=thisObj.id;   
+    switch(imgId){
+      
+      case 'tf1_enableFtpAlg':  
+      var imgSrc = $("#tf1_enableFtpAlg").attr("src");
+      if (imgSrc.indexOf("_off") != -1) /*off is found else on is found */
+      {     	
+        alert("FTP transfers may not work if you disable ftp alg");
+      }
+      break;
+    }
+  }</script>
+</body>
+</html>

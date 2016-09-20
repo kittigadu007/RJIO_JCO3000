@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<title>Reliance Industries Limited : </title>
+	<!--
+	Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+	All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">       
+</head>
+<body>
+	<div align="center">
+		<table border="0" cellpadding="0" cellspacing="0" width="980px">
+			<tr>
+				<td class="header" valign="top" align="center">
+					<!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+				</td>
+			</tr>
+			<tr>
+				<td class="midBg" valign="top" align="center">
+					<div class="midWidth">
+						
+						<h1>Bridge Mode</h1>
+						<div class="midArea">
+							<div align="left">
+								<form name="tf1_frmBridgeMode" id="tf1_frmBridgeMode" action="cgi-action.html" method="post">
+									<input type="hidden" name="thispage" id="thispage" value="bridgeMode.html">
+									<div class="configRow" id="tf1_bridgeMode_div">
+										<label>Bridge Mode</label>
+										
+										<img class="enable-disable" alt="" src="images/button_off.png" id="tf1_bridgeMode">
+										<input type="hidden" name="bridgeModeStatus" value="0">
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+									
+									<div class="configRow" id="tf1_port_div">
+										<label>Port</label>
+										<select size="1"  id="tf1_port" name="portNumber">
+											
+											<option SELECTED value="1">LAN 1</option>
+											<option  value="2">LAN 2</option>
+											<option  value="3">LAN 3</option>
+											
+											
+											
+											
+											
+											
+										</select>
+									</div>
+									<div class="break" id="break_port_div">
+										&nbsp;
+									</div>
+									<div class="configRow" id="tf1_vlanId_div">
+										<label>VLAN ID</label>
+										<input type="text" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 2, 4094, true, 'Invalid VLAN ID.', '');}" onKeyPress="return numericValueCheck (event)" maxlength="4" class="one" id="tf1_vlanId" value="0" name="vlanId">
+										<dl>
+											[Range: 2 - 4094]
+										</dl>
+									</div>
+									<div class="break" id="break_vlanId_div">
+										&nbsp;
+									</div>
+									
+									<div class="submitRow">
+										<input name="button.config.bridgeMode" class="btnSubmit" type="submit" title="Save" value="Save" onClick="return pageValidate('tf1_frmBridgeMode')">
+										<input class="btnSubmit" type="button" title="Cancel" value="Cancel" onClick="document.tf1_frmBridgeMode.reset(); enableBridgeModeOnReset('tf1_frmBridgeMode');">
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+								</form>
+							</div>
+						</div>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+		<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+		
+		<script src="js/mis.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/textValidations.js"></script>
+		<script src="js/mgmt.js"></script>
+		<script src="js/menuSearchList.js"></script>
+		<script src="js/menuSearch.js"></script>
+		<script src="js/bridgeMode.js"></script>
+		<script  charset="utf-8">
+		$(document).ready(function() {
+			
+			/* Help Section variable */
+			helpSection = "bridgeMode";
+			helpConfigFile = "helpSetup.txt";
+			
+			/* Header section javascript bindings */
+			menuLoading();
+			mmSel("mainMenu7");
+			getBreadCrumb(76);
+			
+		});</script>
+	</body>
+	</html>

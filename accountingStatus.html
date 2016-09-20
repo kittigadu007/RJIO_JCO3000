@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center"><div class="midWidth">
+          <h1>Accounting Status</h1>
+          <div class="midArea">
+            <div align="left">
+              <form name="tf1_frmAccountingStatus" id="tf1_frmAccountingStatus" action="cgi-action.html" method="post">
+                <input type="hidden" name="thispage" id="thispage" value="accountingStatus.html">
+                <h2>Accounting Status</h2>
+                <div class="break">&nbsp; </div>
+                <div class="configRow">
+                  <label>Accounts </label>
+                  <select size="1" name="accountName" id="tf1_accountStatus" onChange="getVerticalBarData()" >
+                    <option  value="ALL">ALL</option>
+                  </select>
+                </div>
+                <div class="break">&nbsp; </div>
+                <div class="configRow">
+                  <label>&nbsp; </label>
+                  <section style="display:none; float: left" id="tf1_accountStatusSec" >
+                    <canvas  width="250" height="200" id="accountStatusChart" ></canvas>
+                  </section>
+                  <div class="accountingStatus" style="float: left; margin:54px 0 0 0">
+                    <div class="http">
+                      <div class="leftText"><div>
+                        <div></div>
+                      </div>
+                      HTTP</div>
+                      <div class="rightText" id="tf1_http"><span></span><strong></strong> </div>
+                    </div>
+                    <div class="https">
+                      <div class="leftText">
+                        <div>
+                          <div></div>
+                        </div>HTTPS
+                      </div>
+                      <div class="rightText" id="tf1_https"><span></span><strong> </strong></div>
+                    </div>
+                    <div class="dns">
+                      <div class="leftText">	<div>
+                        <div></div>
+                      </div>
+                      DNS </div>
+                      <div class="rightText" id="tf1_dns"><span></span><strong></strong></div>
+                    </div>
+                    <div class="ftp">
+                      <div class="leftText"><div>
+                        <div></div>
+                      </div>
+                      FTP </div><div class="rightText" id="tf1_ftp"><span></span><strong></strong></div>
+                    </div> 
+                    <div class="other">
+                      <div class="leftText">	<div>
+                        <div></div>
+                      </div>
+                      Other </div>
+                      <div class="rightText" id="tf1_other"><span></span><strong></strong></div>
+                    </div> 
+                  </div>
+                </div>
+                <div class="break">&nbsp; </div>
+              </form>
+            </div>
+          </div>
+        </div></td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/accountingStatus.js"></script>
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"> </script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  
+  /* On page load setting to All */
+  document.getElementById('tf1_accountStatus').selectedIndex=0;
+  
+  var onloadDataFlag = true;
+  
+  var data = {
+    "data": [
+      {"label" : "HTTP", "value" : 3074, "background" : "#698555", "borderouter" : "#698555", "borderinner" : "#ffffff", "toplabel" :3074 },
+      {"label" : "HTTPS", "value" : 0.0, "background" : "#b23398", "borderouter" : "#b23398", "borderinner" : "#ffffff", "toplabel" : 0.0	}, 
+      {"label" : "DNS", "value" : 0.0, "background" : "#6997da", "borderouter" : "#6997da", "borderinner" : "#ffffff", "toplabel" : 0.0}, 
+      {"label" : "FTP", "value" : 0.0, "background" : "#a05d56", "borderouter" : "#a05d56", "borderinner" : "#ffffff", "toplabel" : 0.0}, 
+      {"label" : "Other", "value" : 13.314453, "background" : "#fb8957", "borderouter" : "#fb8957", "borderinner" : "#ffffff", "toplabel" :13.314453}
+    ]
+  };
+  var totalCount=0;
+  var selAccountStatusValue = "";
+  var selAccountStatusTypeObj = document.getElementById("tf1_accountStatus");
+  
+  $(document).ready(function() {
+    getVerticalBarData('accountingStatusChart.txt','bandwidthUsage'); 
+  });</script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    /* Help Section variable */
+    helpSection = "accountingStatus";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */		
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(78);    		
+    
+    
+  });</script>
+</body>
+</html>

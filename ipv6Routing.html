@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/buttons.css" />
+  <link rel="stylesheet" type="text/css" href="css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/table.css" />
+  <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+  <script src="js/jquery-1.8.0.min.js"></script> 
+  <meta http-equiv="X-Frame-Options" content="deny">
+  
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask"></div>
+  <form name="frmipv6Routing" id="frmipv6Routing" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" value="ipv6Routing.html">
+    <div class="configDialog" id="tf1_dialog">        <!-- Section for Pop up dialog starts -->
+      
+      
+      
+      <div class="topBg">
+        <h1>IPv6 Static Route Configuration</h1>
+        <close>
+          <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        </close>
+      </div>
+      <div class="dialogMidArea">
+        <div class="configRow">
+          <label>
+            Route Name
+          </label>
+          <input type="text" id="tf1_txtRouteName" maxlength="64" value="" name="routeName">
+        </div>
+        <div class="break">&nbsp; </div>
+        <div class="configRow">
+          <label>Active</label>
+          
+          <img src="images/button_off.png" alt="" id="tf1_activateStaticRouting" class="enable-disable">
+          <input type="hidden" value="0" name="active">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            IPv6 Destination 
+          </label>
+          <input type="text" id="tf1_txtDestIpAddr" maxlength="40" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }" value="" name="dstIpAddr">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            IPv6 Prefix Length
+          </label>
+          <input type="text" id="tf1_txtPreLen" class="one" maxlength="3" onkeypress="return numericValueCheck (event)" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 128, true, 'Invalid IPv6 Prefix Length.', ''); }" value="" name="PrefixLength"><dl>[Range: 0 - 128]</dl>
+        </div>
+        <div class="break">&nbsp;</div>
+        <div class="configRow">
+          <label>
+            Network
+          </label>
+          <select id="tf1_interfaceName" size="1" name="interfaceName">
+            <option value="Internet">Internet</option>                                
+            <option value="6to4">6to4</option>                                
+            <option value="Local">Local</option>
+          </select>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            IPv6 Gateway
+          </label>
+          <input type="text" id="tf1_txtGwIpAddr" maxlength="40" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onkeydown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }" value="" name="gwIpAddr">
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Metric  
+          </label>
+          <input type="text" class="one" id="tf1_txtMetric" maxlength="2" onkeypress="return numericValueCheck (event)" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 2, 15, true, 'Invalid Metric.', '');}" value="" name="metric"><dl>[Range: 2 - 15]</dl>
+        </div>
+        <div class="break">&nbsp; </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return  ipv6StaticRoutingValidate('frmipv6Routing')" title="Save" value="Save" class="btnSubmit" name="button.config.ipv6Routing.ipv6Routing.-1" id="btSave">
+      </div>
+      <input type="hidden" value="fd00::1" id="hdLanv6IPAddr1">
+      <input type="hidden" value="64" id="hdLanv6Prefix1">
+      <input type="hidden" value="::127.0.0.1" id="hdTunnelv6IPAddr1">
+      <input type="hidden" value="96" id="hdtunnelPrefix1">
+      <input type="hidden" value="::192.168.29.1" id="hdTunnelv6IPAddr2">
+      <input type="hidden" value="96" id="hdtunnelPrefix2">
+      <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+      
+    </div>
+  </form>
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onclick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>IPv6 Static Routes</h1>
+            <div align="center">
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>Name </th>  
+                        <th>
+                          Destination
+                        </th>
+                        <th>
+                          Gateway
+                        </th>
+                        <th>
+                          Network
+                        </th>
+                        <th>
+                          Metric
+                        </th>
+                        <th>Active</th>
+                      </tr>
+                    </thead>
+                    
+                    <tr class="gradeA" id="ipv6Routing1">
+                      <td class="gradeA">6to4-Tunnel</td>
+                      <td class="gradeA">2000::</td>
+                      <td class="gradeA">::192.88.99.1</td>
+                      <td class="gradeA">6to4</td>
+                      <td class="gradeA">15</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                    <tr class="gradeA" id="ipv6Routing1">
+                      <td class="gradeA">Rjio</td>
+                      <td class="gradeA">2000::</td>
+                      <td class="gradeA">::192.88.99.1</td>
+                      <td class="gradeA">6to4</td>
+                      <td class="gradeA">15</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                    <tr class="gradeA" id="ipv6Routing2">
+                      <td class="gradeA">Admin</td>
+                      <td class="gradeA">2000::</td>
+                      <td class="gradeA">::192.125.23.12</td>
+                      <td class="gradeA">Local</td>
+                      <td class="gradeA">8</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                    <tr class="gradeA" id="ipv6Routing3">
+                      <td class="gradeA">John</td>
+                      <td class="gradeA">fd00::</td>
+                      <td class="gradeA">::192.122.56.51</td>
+                      <td class="gradeA">6to4</td>
+                      <td class="gradeA">7</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                    <tr class="gradeA" id="ipv6Routing4">
+                      <td class="gradeA">Mr.Rao</td>
+                      <td class="gradeA">2012::</td>
+                      <td class="gradeA">::192.147.46.71</td>
+                      <td class="gradeA">Internet</td>
+                      <td class="gradeA">9</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                    <tr class="gradeA" id="ipv6Routing5">
+                      <td class="gradeA">testLab</td>
+                      <td class="gradeA">F000::</td>
+                      <td class="gradeA">::192.168.75.71</td>
+                      <td class="gradeA">Local</td>
+                      <td class="gradeA">12</td>
+                      <td class="gradeA">No</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow" id="tf1_btnShowModal">
+                <input id="btSave" class="btnSubmit"
+                type="button" name="button.add.ipv6Routing.ipv6Routing.-1"
+                
+                onClick="openForm('button.add.ipv6Routing.ipv6Routing','-1','tf1_dialog','ipv6Routing','ipv6Routing.html');" 
+                
+                value="Add New Static Route" title="Add New Static Route">                                    
+              </div>
+              <div class="break">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>    
+  <script src="js/ipv6AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>        
+  <script src="js/ipv6Routing.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.ipv6Routing.ipv6Routing',rowId,'tf1_dialog','ipv6Routing','ipv6Routing.html'); 
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.ipv6Routing.ipv6Routing', 'frmipv6Routing', rowId, 'optionSelectAll', 'tf1_dialog', 'ipv6Routing', 'ipv6Routing');
+        }
+      }
+    });
+    
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+      /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+      document.cookie = "recordModified=1";
+    });
+    onloadCall();
+    
+    /* Help Section variables */
+    helpSection = "staticRoutingIPv6";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu2");
+    getBreadCrumb(50);
+    
+  });</script>
+</body>
+</html>

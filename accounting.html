@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<title>Reliance Industries Limited : </title>
+	<!--
+	Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+	All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+	<!-- Section for Pop up dialog starts -->
+	<div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+		<div class="msgInfo">
+			<p>Loading ...</p>
+		</div>
+	</div>
+	<div id="tf1_overlay" class="configDialogMask">
+	</div>
+	<form name="tf1_frmAccounting" id="tf1_frmAccounting" action="cgi-action.html" method="post">
+		<input type="hidden" name="thispage" id="thispage" value="accounting.html">
+		<div id="tf1_dialog" class="configDialog"><!--(start) add or edit form -->
+			<div class="topBg">
+				<h1>Custom Accounting Configuration</h1>
+				<a href="javascript:void(0)" id="btnClose" title="Close"></a></div>
+				<div class="dialogMidArea">
+					<div class="configRow">
+						<label>Account Type </label>
+						<select onchange="accountTypeCheck();" id="tf1_accountType" class="two" size="1" name="accType">
+							<option value="1">IP</option>
+							<option value="2">MAC</option>
+						</select>
+					</div>
+					<div class="break">&nbsp; </div>
+					<div id="tf1_ipAddress_div" class="configRow">
+						<label>IP Address</label>
+						<input type="text" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" onkeypress="return numericValueCheck (event, '.')" id="tf1_ipAddress" value="" name="ipAddr">
+					</div>
+					<div id="break_ipAddress_div" class="break">
+						&nbsp; </div>
+						<div id="tf1_macAddress_div" class="hide">
+							<label>MAC Address</label>
+							<input type="text" maxlength="17" onkeypress="return numericValueCheck (event, 'ABCDEFabcdef:')" onkeydown="return macAddrVerify (event, this, true, '', '')" id="tf1_macAddress" value="" name="macAddr" disabled="">
+						</div>
+						<div id="break_macAddress_div" class="hide">&nbsp; </div>
+					</div>
+					<div class="dialogSubmitRow">
+						<input type="hidden" value="IF2" name="LogicalIfName">
+						<input type="submit" name="button.configPopup.accounting.accounting.-1" class="btnSubmit" value="Save" onclick="return pageValidate('tf1_frmAccounting')">
+					</div>
+					<!--(end) add or edit form -->
+				</div>
+			</form>
+			<!-- Section for Pop up dialog ends -->
+			<!-- Right click Div Start -->
+			<div class="contextMenu" id="contextMenu">
+				<ul>
+					<li>
+						<input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');" />Select 
+						All </li>
+						<li id="edit">Edit </li>
+						<li id="delete">Delete </li>
+					</ul>
+				</div>
+				<!-- Right click Div End -->
+				<div align="center">
+					<table border="0" cellpadding="0" cellspacing="0" width="980px">
+						<tr>
+							<td class="header" valign="top" align="center">
+								<!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+							</td>
+						</tr>
+						<tr>
+							<td class="midBg" valign="top" align="center">
+								<div class="midWidth">
+									<h1>Accounting Setup</h1>
+									<div class="midArea">
+										<div align="left">
+											<form name="tf1_frmAccounting1" id="tf1_frmAccounting1" action="cgi-action.html" method="post">
+												<input type="hidden" name="thispage" id="thispage" value="accounting.html">
+												<div class="configRow">
+													<label>TR-069 Packets Count Enable</label>
+													<img class="enable-disable" alt="" src="images/button_on.png" id="tf1_accounting">
+													<input type="hidden" name="status" value="1">
+												</div>
+												<div class="break">&nbsp; </div>
+												<div class="configRow">
+													<label>Accounting Enable</label>
+													<img class="enable-disable" alt="" src="images/button_on.png" id="tf1_accounting">
+													<input type="hidden" name="enable" value="1">
+												</div>
+												<div class="break">&nbsp; </div>
+												<div class="submitRow">
+													<input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.accounting.accounting" onClick="setHiddenChks('tf1_frmAccounting1')">
+													<input type="reset" class="btnSubmit" title="Cancel" value="Cancel" onclick="document.tf1_frmAccounting1.reset(); resetImgOnOff('tf1_frmAccounting1');">
+												</div>
+												<div class="break">&nbsp; </div>
+											</form>
+										</div>
+									</div>
+									<h1>List of Custom Accounts</h1>
+									<div class="CLR midTblWidth">
+										<div class="demo_jui">
+											<table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+												<thead>
+													<tr>
+														<th>IP Address </th>
+														<th>MAC Address </th>
+													</tr>
+												</thead>
+												<tr class="gradeA" id="accounting1">
+													<td class="gradeA"></td>
+													<td class="gradeA">00:04:ff:ff:ff:d0</td>
+												</tr>
+												<tr class="gradeA" id="accounting2">
+													<td class="gradeA">192.168.29.123</td>
+													<td class="gradeA"></td>
+												</tr>
+												<tr class="gradeA" id="accounting3">
+													<td class="gradeA">192.168.29.110</td>
+													<td class="gradeA"></td>
+												</tr>
+												<tr class="gradeA" id="accounting4">
+													<td class="gradeA"></td>
+													<td class="gradeA">20:4e:ff:ff:ff:30</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+									<div class="buttonsRow"  id="tf1_btnShowModal">
+										<input type="button" name="button.add.accounting.accounting.-1" class="btnSubmit" title="Add" value="Add New Account" id="btAdd" onClick="openForm('button.add.accounting.accounting','-1','tf1_dialog','accounting','accounting.html');"
+										>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+				<script src="js/jquery.dataTables.min.js"></script>
+				<script src="js/mis.js"></script>
+				<script src="js/menu.js"></script>
+				<script src="js/textValidations.js"></script>
+				<script src="js/ipv4AddrValidations.js"></script>
+				<script src="js/mgmt.js"></script>
+				<script src="js/accounting.js"></script>
+				<script src="js/menuSearchList.js"></script>
+				<script src="js/menuSearch.js"></script>
+				<script src="js/macValidations.js"></script>
+				<script src="js/contextMenu.js"></script>
+				<script  charset="utf-8">
+				$(document).ready(function(){
+					
+					$('.gradeA').contextMenu('contextMenu', {
+						bindings: {
+							'editMenu': function(t, e, rowId){
+								openForm('button.edit.accounting.accounting',rowId,'tf1_dialog','accounting','accounting.html')
+							},
+							'deleteMenu': function(t, e, rowId){                        	
+								deleteRows('button.delete.accounting.accounting', 'tf1_frmAccounting', rowId, 'optionSelectAll', 'tf1_dialog', 'accounting', 'accounting')
+							}                       
+						}
+						
+					});
+					
+					
+					
+					$("#btnClose").live("click",function(e){
+						HideDialog('tf1_dialog', 'tf1_overlay');
+						e.preventDefault();
+					});  	
+					
+					oTable = $('#recordsData').dataTable({
+						"bJQueryUI": true,
+						"sPaginationType": "full_numbers"
+					});
+					//  setOnclickDialogs('tf1_btnShowModal', 'btnClose', 'tf1_dialog', 'tf1_overlay');
+					
+					/* Help Section variables */
+					helpSection = "accounting";				
+					helpConfigFile = "helpSetup.txt";
+					
+					/* Header section javascript bindings */
+					menuLoading();
+					mmSel("mainMenu7");
+					getBreadCrumb(79);
+				});</script>
+				
+			</body>
+			
+			</html>

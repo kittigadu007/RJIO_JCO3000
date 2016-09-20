@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>      
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            <h1>WLAN Clients</h1>
+            <a href="javascript:void(0)" class="refresh" onClick="location.reload(true)"><span></span><b>Refresh</b></a>
+            <div class="CLR midTblWidth">
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table border="0" cellpadding="0" cellspacing="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          AP Name
+                        </th>
+                        <th>
+                          MAC Address
+                        </th>
+                        <th>
+                          Security
+                        </th>
+                        <th>
+                          Encryption
+                        </th>
+                        <th>
+                          Authentication
+                        </th>
+                        <th>
+                          Time Connected
+                        </th>
+                      </tr>
+                    </thead>
+                    <!-- start lua loop -->                                       
+                    <tr class="gradeA">
+                      <td class="gradeA">ap1</td>
+                      <td class="gradeA">78:1f:db:68:f2:62</td>
+                      <td class="gradeA">WPA2</td>
+                      <td class="gradeA">CCMP</td>
+                      <td class="gradeA">PSK</td>
+                      <td class="gradeA">0 days, 0 hours, 5 minutes, 16 
+                        seconds</td>
+                      </tr>
+                      <tr class="gradeA">
+                        <td class="gradeA">ap5</td>
+                        <td class="gradeA">00:04:ff:ff:ff:c9</td>
+                        <td class="gradeA">WPA2</td>
+                        <td class="gradeA">CCMP</td>
+                        <td class="gradeA">PSK</td>
+                        <td class="gradeA">3 days, 1 hours, 15 minutes, 
+                          11 seconds</td>
+                        </tr>
+                        <tr class="gradeA">
+                          <td class="gradeA">ap2</td>
+                          <td class="gradeA">00:04:ff:ff:ff:d0</td>
+                          <td class="gradeA">WPA2</td>
+                          <td class="gradeA">CCMP</td>
+                          <td class="gradeA">PSK</td>
+                          <td class="gradeA">22 days, 11 hours, 27 minutes, 
+                            02 seconds</td>
+                          </tr>
+                          <tr class="gradeA">
+                            <td class="gradeA">ap3</td>
+                            <td class="gradeA">20:4e:ff:ff:ff:30</td>
+                            <td class="gradeA">WPA2</td>
+                            <td class="gradeA">CCMP</td>
+                            <td class="gradeA">PSK</td>
+                            <td class="gradeA">0 days, 23 hours, 41 minutes, 
+                              02 seconds</td>
+                            </tr>
+                            <tr class="gradeA">
+                              <td class="gradeA">ap4</td>
+                              <td class="gradeA">60:be:ff:ff:ff:e0</td>
+                              <td class="gradeA">WPA2</td>
+                              <td class="gradeA">CCMP</td>
+                              <td class="gradeA">PSK</td>
+                              <td class="gradeA">5 days, 2 hours, 25 minutes, 
+                                36 seconds</td>
+                              </tr>                                    
+                              
+                            </table>
+                          </div>
+                        </div>
+                        <div class="break">
+                          &nbsp;
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+              <script src="js/mis.js"></script>
+              <script src="js/jquery.dataTables.min.js"></script>
+              <script src="js/textValidations.js"></script>
+              <script src="js/mgmt.js"></script>
+              <script src="js/wirelessClients.js"></script>
+              <script src="js/menuSearchList.js"></script>
+              <script src="js/menuSearch.js"></script>
+              <script src="js/menu.js"></script> 
+              <script  charset="utf-8">
+              
+              var timerSecs = 10;   
+              var timeoutId;    	
+              
+              function refreshMessage() {
+                if (timerSecs <= 0) {
+                  
+                  $("#tf1_msgInfo").html("Refreshing...");
+                  $("#tf1_btStop").hide();
+                  $("#tf1_btStart").hide();
+                  $("#tf1_frmWirelessClients").submit();
+                  clearTimeout(timeoutId);
+                  return;
+                } else {
+                  $("#tf1_msgInfo").html("This page loads in " + timerSecs + " seconds");
+                  timerSecs = timerSecs - 1;
+                }
+              }
+              
+              $(document).ready(function(){
+                
+                $("#tf1_btStart").hide();
+                $("#tf1_pollInterval").attr('readonly','readonly');
+                //timeoutId = setInterval(refreshMessage, 1000);			
+                
+                $("#tf1_btStop").click(function() {
+                  
+                  clearTimeout(timeoutId);
+                  $("#tf1_btStart").show();
+                  $("#tf1_pollInterval").removeAttr('readonly','readonly');
+                  $(this).hide();
+                  $("#tf1_msgInfo").html('');
+                  $(".msgInfo").hide();
+                  
+                });
+                
+                oTable = $('#recordsData').dataTable({
+                  "bJQueryUI": true,
+                  "sPaginationType": "full_numbers"
+                });
+                
+                setOnclickDialogs('tf1_btnShowModal', 'btnClose', 'tf1_dialog', 'tf1_overlay');
+                
+                /* Help Section variables */
+                helpSection = "wirelessClients";				
+                helpConfigFile = "helpStatus.txt";		
+                
+                /* Header section javascript bindings */
+                menuLoading();		
+                mmSel("mainMenu1");
+                getBreadCrumb(5);
+              });</script>
+            </body>
+            </html>

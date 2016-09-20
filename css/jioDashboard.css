@@ -1,0 +1,504 @@
+/*
+ Copyright (c) 2014 TeamF1, Inc. (www.TeamF1.com)
+ All rights reserved.
+ Created on 26th Feb 2014 - Bala Krishna G 
+*/
+
+@charset "utf-8";
+/* reset */
+a, article, audio, body, body, canvas, caption, dd, details, div, dl, dt, em, figcaption, figure, footer, form, h1, h2, h3, h4, h5, header, html, i, iframe, img, label, legend, li, mark, menu, nav, object, ol, p, q, samp, section, small, span, strong, sub, summary, table, tbody, td, textarea, tfoot, th, thead, time, tr, ul, var, video {
+	border: 0 none;
+	font-family: Trebuchet MS, Arial, Verdana, Helvetica, Sans-serif;
+	margin: 0;
+	padding: 0;
+}
+/* reset end */
+
+/* global */
+
+body {
+	background-color: #F4F4F4;
+	/*border: 1px solid #CCCCCC;*/
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.dashboardMidArea {
+	margin: 0 auto;
+	width: 928px;
+}
+.FL {
+	float: left;
+}
+.FR {
+	float: right;
+}
+.CLR {
+	clear: both;
+	overflow: hidden;
+}
+/* ----------------- Footer Styles ----------------- */
+.footer {
+	width: 100%;
+}
+.footer .container p {
+	color: #999999;
+	font-size: 11px;
+	font-family: Trebuchet MS, Arial, Verdana, Helvetica, Sans-serif;
+	letter-spacing: 1px;
+	line-height: 39px;
+	text-align: center;
+}
+/* ----------------- Footer Styles End ----------------- */
+
+.header {
+	min-height: 100px;
+	text-align: left;
+}
+#logo {
+	background: url("../images/dashboardLogo.png") no-repeat scroll 0 0 transparent;
+	color: #333333;
+	font-size: 24px;
+	font-style: italic;
+	line-height: 76px;
+	height: 76px;
+	margin: 13px 0 10px 1px;
+	text-align: right;
+	text-shadow: 1px 1px 0 #CCCCCC;
+	width: 310px;
+}
+h1 {
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 26px;
+	text-align: left;
+	width: 100%;
+}
+h1 > span {
+	float: right;
+	margin-right: 165px;
+}
+h1 > span > a {
+   display: block;
+   color: #fff;
+   height: 14px;
+   float: right;
+   margin: 1px 0 0 0;   
+   text-decoration: none;
+   width: 14px;   
+}
+h2 {
+	color: #4E6981;
+	font-size: 14px;
+	font-style: italic;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 5px 10px 0 0;
+	text-align: left;
+}
+.leftBlock, .middleBlock {
+	border-right: 10px solid #FFFFFF;
+	float: left;
+	width: 258px;
+}
+.deviceStatus {
+	background: #1464B4;
+	background-image: -moz-linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #50A0F0), color-stop(1, #1464B4));
+	background: -webkit-linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
+	background: -o-linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
+	background: -ms-linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
+	background: linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
+	height: 202px;
+	padding: 13px 0 0 13px;
+}
+.deviceStatusOne {
+	background: #1464B4;
+	background-image: -moz-linear-gradient(left top, #50A0F0 -61%, #1464B4 111%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-0.61, #50A0F0), color-stop(1, #1464B4));
+	background: -webkit-linear-gradient(left top, #50A0F0 -61%, #1464B4 111%);
+	background: -o-linear-gradient(left top, #50A0F0 -61%, #1464B4 111%);
+	background: -ms-linear-gradient(left top, #50A0F0 -61%, #1464B4 111%);
+	background: linear-gradient(left top, #50A0F0 -61%, #1464B4 111%);
+	border-bottom: 10px solid #FFFFFF;
+	height: 94px;
+	float: left;
+	width: 124px;
+}
+.deviceIcon {
+	background: url(../images/dashboardIcons.png) 0 0 no-repeat;
+	height: 72px;
+	margin: 16px 0 0 0;
+	width: 72px;
+}
+.lanWanOne {
+	background: #96C833;
+	background-image: -moz-linear-gradient(left top, #96C833 -17%, #50780A 170%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-0.17, #96C833), color-stop(1, #50780A));
+	background: -webkit-linear-gradient(left top, #96C833 -17%, #50780A 170%);
+	background: -o-linear-gradient(left top, #96C833 -17%, #50780A 170%);
+	background: -ms-linear-gradient(left top, #96C833 -17%, #50780A 170%);
+	background: linear-gradient(left top, #96C833 -17%, #50780A 170%);
+	border-top: 10px solid #FFFFFF;
+	border-left: 10px solid #FFFFFF;
+	height: 94px;
+	float: left;
+	width: 124px;
+}
+.lanWan {
+	background: #96C833;
+	background-image: -moz-linear-gradient(left top, #96C833 0%, #50780A 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #96C833), color-stop(1, #50780A));
+	background: -webkit-linear-gradient(left top, #96C833 0%, #50780A 100%);
+	background: -o-linear-gradient(left top, #96C833 0%, #50780A 100%);
+	background: -ms-linear-gradient(left top, #96C833 0%, #50780A 100%);
+	background: linear-gradient(left top, #96C833 0%, #50780A 100%);
+	height: 205px;
+	padding: 10px 0 0 13px;
+}
+.lanWanIcon {
+	background: url(../images/dashboardIcons.png) 0 -72px no-repeat;
+	height: 72px;
+	margin: 6px 0 0 0;
+	width: 72px;
+}
+.security {
+	background: #C86432;
+	background-image: -moz-linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #FAAF4B), color-stop(1, #C86432));
+	background: -webkit-linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
+	background: -o-linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
+	background: -ms-linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
+	background: linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
+	height: 108px;
+	padding: 13px 0 0 13px;
+}
+.securityOne {
+	background: #C86432;
+	background-image: -moz-linear-gradient(left top, #FAAF4B -16%, #C86432 121%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-0.16, #FAAF4B), color-stop(1, #C86432));
+	background: -webkit-linear-gradient(left top, #FAAF4B -16%, #C86432 121%);
+	background: -o-linear-gradient(left top, #FAAF4B -16%, #C86432 121%);
+	background: -ms-linear-gradient(left top, #FAAF4B -16%, #C86432 121%);
+	background: linear-gradient(left top, #FAAF4B -16%, #C86432 121%);
+	border-bottom: 10px solid #FFFFFF;
+	float: left;
+	height: 94px;
+	width: 124px;
+}
+.securityIcon {
+	background: url(../images/dashboardIcons.png) 0 -144px no-repeat;
+	height: 72px;
+	margin: 16px 0 0 0;
+	width: 72px;
+}
+.applicationOne {
+	background: #C8A01E;
+	background-image: -moz-linear-gradient(left top, #C8A01E -6%, #7D6400 220%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-0.06, #C8A01E), color-stop(1, #7D6400));
+	background: -webkit-linear-gradient(left top, #C8A01E -6%, #7D6400 220%);
+	background: -o-linear-gradient(left top, #C8A01E -6%, #7D6400 220%);
+	background: -ms-linear-gradient(left top, #C8A01E -6%, #7D6400 220%);
+	background: linear-gradient(left top, #C8A01E -6%, #7D6400 220%);
+	border-top: 10px solid #FFFFFF;
+	border-left: 10px solid #FFFFFF;
+	float: left;
+	height: 94px;
+	width: 124px;
+}
+.applicationIcon {
+	background: url(../images/dashboardIcons.png) 0 -216px no-repeat;
+	height: 72px;
+	margin: 6px 0 0 0;
+	width: 72px;
+}
+.application {
+	background: #C8A01E;
+	background-image: -moz-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #C8A01E), color-stop(1, #7D6400));
+	background: -webkit-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
+	background: -o-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
+	background: -ms-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
+	background: linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
+	height: 294px;
+	padding: 15px 0 0 15px;
+}
+.rightBlock {
+	float: right;
+	width: 392px;
+	background: #f1cd44;
+}
+.rightBlockTop {
+	overflow: hidden;
+}
+.users {
+	background: #641E0F;
+	background-image: -moz-linear-gradient(left top, #963219 0%, #641E0F 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #963219), color-stop(1, #641E0F));
+	background: -webkit-linear-gradient(left top, #963219 0%, #641E0F 100%);
+	background: -o-linear-gradient(left top, #963219 0%, #641E0F 100%);
+	background: -ms-linear-gradient(left top, #963219 0%, #641E0F 100%);
+	background: linear-gradient(left top, #963219 0%, #641E0F 100%);
+	border-right: 10px solid #FFFFFF;
+	height: 108px;
+	float: left;
+	width: 245px;
+	padding: 13px 0 0 13px;
+}
+.usersOne {
+	background: #641E0F;
+	background-image: -moz-linear-gradient(left top, #963219 -163%, #641E0F 66%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #963219), color-stop(1, #641E0F));
+	background: -webkit-linear-gradient(left top, #963219 -163%, #641E0F 66%);
+	background: -o-linear-gradient(left top, #963219 -163%, #641E0F 66%);
+	background: -ms-linear-gradient(left top, #963219 -163%, #641E0F 66%);
+	background: linear-gradient(left top, #963219 -163%, #641E0F 66%);
+	border-bottom: 10px solid #FFFFFF;
+	height: 94px;
+	float: left;
+	width: 124px;
+}
+.usersIcon {
+	background: url(../images/dashboardIcons.png) 0 -360px no-repeat;
+	height: 72px;
+	margin: 16px 0 0 0;
+	width: 72px;
+}
+.manageGateway {
+	background: #A00A3C;
+	background-image: -moz-linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #F04B8C), color-stop(1, #A00A3C));
+	background: -webkit-linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
+	background: -o-linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
+	background: -ms-linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
+	background: linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
+	border-bottom: 10px solid #FFFFFF;
+	color: #FFFFFF;
+	height: 309px;
+	float: right;
+	text-align: center;
+	text-shadow: 1px 2px 0 #333333;
+	font-size: 16px;
+	line-height: normal;
+	margin: 0 auto;
+	width: 124px;
+}
+.managedIcon {
+	background: url(../images/dashboardIcons.png) 0 -432px no-repeat;
+	height: 72px;
+	margin: 34px 26px 34px 26px;
+	width: 72px;
+}
+.nextIcon {
+	background: url(../images/dashboardIcons.png) 0 -504px no-repeat;
+	height: 72px;
+	margin: 34px 26px 34px 26px;
+	width: 72px;
+	display: block;
+}
+.userAttached {
+	border-right: 10px solid #FFFFFF;
+	float: left;
+	width: 258px;
+}
+.attachedOne {
+	background: #9664c8;
+	border-right: 10px solid #FFFFFF;
+	border-top: 10px solid #FFFFFF;
+	float: left;
+	height: 94px;
+	width: 124px;
+}
+.attachedIcon {
+	background: url(../images/dashboardIcons.png) 0 -288px no-repeat;
+	height: 72px;
+	margin: 12px 0 0 0;
+	width: 72px;
+}
+.attachedTwo {
+	background: #9664c8;
+	background-image: -moz-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.4, #9664c8), color-stop(1, #3C0078));
+	background: -webkit-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
+	background: -o-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
+	background: -ms-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
+	background: linear-gradient(left top, #9664c8 40%, #3C0078 180%);
+	height: 81px;
+	padding: 13px 0 0 13px;
+}
+.attachedDisks {
+	background: #9664c8;
+	background-image: -moz-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0.14, #9664c8), color-stop(1, #3C0078));
+	background: -webkit-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
+	background: -o-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
+	background: -ms-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
+	background: linear-gradient(left top, #9664c8 14%, #3C0078 100%);
+	height: 202px;
+	padding: 13px 0 0 13px;
+}
+.dashboardRow {
+	padding: 0px;
+}
+.dashboardRow label, .dashboardRow p {
+	color: #FFFFFF;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
+	font-size: 11px;
+	text-align: left;
+	line-height: 18px;
+	min-width: 48%;
+}
+.dashboardRow label {
+	min-width: 40% !important;
+}
+.dashboardRow p {
+	min-width: 56% !important;
+	font-weight: bold;
+	font-style: italic;
+}
+.dashboardRow p span {
+	padding: 0 15px 0 0;
+	width: 20px;
+}
+.break {
+	clear: both;
+	height: 8px;
+}
+.break2 {
+	clear: both;
+	line-height: 3px;
+}
+.yesNo {
+	background: url(../images/dashboardYesNo.png) 0 0 no-repeat;
+	height: 16px;
+	width: 16px;
+}
+.noYes {
+	background: url(../images/dashboardYesNo.png) 0 -16px no-repeat;
+	height: 16px;
+	width: 16px;
+}
+.spaceOut {
+	border: 1px solid #ffffff;
+	width: 50px;
+	text-align: left;
+	margin: 5px 5px 0 0;
+	float: left;
+}
+.spaceInOne {
+	background: #FF0000;
+	width: 43px;
+	height: 8px;
+}
+.spaceInTwo {
+	background: #FFFF00;
+	width: 36px;
+	height: 8px;
+}
+.spaceInThree {
+	background: #00CC00;
+	width: 22px;
+	height: 8px;
+}
+.diskSpace {
+	float: left;
+}
+.dashboardRow2 {
+	padding: 0px;
+}
+.dashboardRow2 label {
+	color: #FFFFFF;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	text-align: left;
+	min-width: 65%;
+}
+.dashboardRow2 p {
+	color: #FFFFFF;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	text-align: left;
+}
+.dashboardRow2 p {
+	font-weight: bold;
+	font-style: italic;
+}
+.dashboardRow2 p span {
+	padding: 0 15px 0 0;
+	width: 20px;
+}
+.dashboardRow3 {
+	padding: 0px;
+}
+.dashboardRow3 label {
+	color: #FFFFFF;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
+	font-size: 11px;
+	text-align: left;
+	line-height: 17px;
+	min-width: 42%;
+}
+.dashboardRow3 p {
+	color: #FFFFFF;
+	float: left;
+	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 17px;
+	text-align: left;
+}
+.dashboardRow3 p span {
+	padding: 0 15px 0 0;
+	width: 20px;
+}
+.canvas {
+	margin: 10px;
+	text-align: left;
+}
+.optionOne {
+	float: left;
+	width: 130px;
+	margin: 0 0 0 20px;
+}
+.optionOne p {
+	float: left;
+	padding: 0 0 0 10px;
+}
+.optionTwo {
+	float: left;
+	width: 130px;
+}
+.optionTwo p {
+	float: left;
+	padding: 0 0 0 10px;
+}
+.lineOne {
+	float: left;
+	background: #ffff00;
+	border: 1px solid #fdfd7c;
+	height: 10px;
+	width: 14px;
+	margin: 3px 0 0 0;
+}
+.lineTwo {
+	float: left;
+	background: #FF0000;
+	border: 1px solid #FF8080;
+	height: 10px;
+	width: 14px;
+	margin: 3px 0 0 0;
+}
+.wrapText{
+	white-space: nowrap; 
+    width: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

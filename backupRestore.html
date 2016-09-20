@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Backup / Restore</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmBackupSaveCurrentSettings" method="post" action="cgi-action.html">
+                  <input type="hidden" name="thispage" id="thispage" value="backupRestore.html">
+                  <div class="configRow">
+                    <label>
+                      Save Current Settings
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" class="btnSubmit" value="Backup" onclick="if (accessLevelCheck () == true) { alert ('Passwords and other possibly sensitive information may be stored in cleartext in the configuration file. Please protect the configuration file accordingly.'); document.tf1_frmBackupSaveCurrentSettings.submit(); } else { return false; }" title="Backup">                                                 
+                    </div>
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+                <form name="tf1_frmBackupRestoreSavedSettings" id="tf1_frmBackupRestoreSavedSettings" action="cgi-action.html" method="post" enctype="multipart/form-data">
+                  <input type="hidden" name="thispage" id="thispage" value="backupRestore.html">
+                  <div class="configRow">
+                    <label>
+                      Restore Saved Settings
+                    </label>
+                    <input type="file" id="tf1_txtRestoreFile" name="file.restore" value="">
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                  <div class="submitRow">
+                    <input type="submit" name="button.restore.statusPage" class="btnSubmit" value="Restore" onclick="return check('tf1_txtRestoreFile', 'cfg', 1 ,'enc')" title="Restore">
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                </form>
+                <form name="tf1_frmBackupFactoryDefaultSettings" id="tf1_frmBackupFactoryDefaultSettings" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="backupRestore.html">
+                  <div class="configRow">
+                    <label>
+                      Factory Default settings
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" name="button.factoryReset.statusPage" class="btnSubmit" value="Default" onclick="return revertToDefaults (10)" title="Default">
+                    </div>
+                  </div>
+                  <div class="break" id="break_div">
+                    &nbsp;
+                  </div>
+                </form>
+                <form name="tf1_frmBackupReboot" id="tf1_frmBackupReboot" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="backupRestore.html">
+                  <div class="configRow">
+                    <label>
+                      Reboot
+                    </label>
+                    <div class="submitRow">
+                      <input type="submit" name="button.reboot.statusPage" class="btnSubmit" value="Reboot"  onclick="if (accessLevelCheck ()== true) { return confirm('Preparing to reboot. Are you sure you want to proceed?\nWARNING: All current sessions will be closed and the system will be down for about 110 seconds'); } else { return false; }"  title="Reboot">
+                    </div>
+                  </div>
+                  <div class="break">
+                    &nbsp;
+                  </div>
+                </form>
+                <input type="hidden" id="hdUserPriv" value="0">
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/backupAndRestore.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script  charset="utf-8">
+  function startPageLoadTimer () {   
+  }
+  
+  $(document).ready(function(){
+    
+    /* Help Section variables */
+    helpSection = "system";				
+    helpConfigFile = "helpTools.txt";				    
+    menuLoading();
+    mmSel("mainMenu5");
+    getBreadCrumb(44);
+    
+  });</script>
+</body>
+</html>

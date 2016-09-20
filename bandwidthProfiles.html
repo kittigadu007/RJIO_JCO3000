@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script> 
+<meta http-equiv="X-Frame-Options" content="deny">             
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmBandwidthProfiles" id="tf1_frmBandwidthProfiles" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="bandwidthProfiles.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Bandwidth Profile Configuration</h1>
+        
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        
+      </div>
+      <div class="dialogMidArea">
+        <input type="hidden" value="Internet" name="NetworkName">
+        <div class="configRow">
+          <label>
+            Profile Name
+          </label>
+          
+          <input type="text" maxlength="16" id="tf1_txtProfileName" value="" name="QueueName">
+          
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Priority
+          </label>
+          <select id="tf1_selPriority" name="HTBClassPrecedence">
+            <option value="3">Low</option>
+            <option value="2">Medium</option>
+            <option value="1">High</option>
+          </select>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Enable Rate Entry
+          </label>
+          
+          <img id="tf1_enableRateEntry" src="images/button_off.png" alt="" class="enable-disable">
+          <input type="hidden" value="0" name="RateLimitingStatus"> 
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        
+        <div id="tf1_percentageBandwidth_div" class="hide">
+          <label>
+            Percentage Bandwidth
+          </label>
+          <input type="text" class="one" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 100, true, '', '%');}" onkeypress="return numericValueCheck (event)" id="tf1_percentageBandwidth" value="" name="percentage" maxlength="3" disabled=""><dl>[Range: 1 - 100] %</dl>
+        </div>
+        <div id="break_percentageBandwidth_div" class="hide">
+          &nbsp;
+        </div>
+      </div>
+      <div class="dialogSubmitRow">
+        <input type="submit" onclick="return bandwidthProfilesPopupPageValidate('tf1_frmBandwidthProfiles')" value="Save" class="btnSubmit" name="button.config.bandwidthProfiles.bandwidthProfiles.-1">                    
+      </div>        
+      
+      <!-- (end) add or edit form -->
+      
+    </div>
+  </form>
+  <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit');"/>Select All
+      </li>
+      <li id="edit">
+        Edit
+      </li>
+      <li id="delete">
+        Delete
+      </li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Bandwidth Profiles</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmBandwidthProfiles2" id="tf1_frmBandwidthProfiles2" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="bandwidthProfiles.html">
+                  <input type="hidden" name="networkname" value="Internet">
+                  <input type="hidden" name="dynamicBwMeasure" value="0">
+                  <div class="configRow">
+                    <label>Bandwidth Profiles</label>
+                    
+                    <img class="enable-disable" src="images/button_on.png" id="tf1_enableStreams" />
+                    <input type="hidden" name="bwProfileStatus" value="1" id="tf1_bandwidthProfileStatus">
+                  </div>
+                  <div class="break">&nbsp;</div>
+                  <div class="configRow" id="tf1_upstream_div">
+                    <label>
+                      Upstream Bandwidth
+                    </label>
+                    <input type="text" maxlength="7" name="UpstreamBandwidth" value="1024000" id="tf1_upstream" onkeypress="return numericValueCheck (event)" onkeydown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 100, 1024000, true, '', 'Kbps');}" class="one"><dl>[Range: 100 - 1024000] Kbps</dl>
+                  </div>
+                  <div class="break" id="break_upstream_div">
+                    &nbsp;
+                  </div>
+                  
+          <div class="submitRow">							
+            <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.selfConfig.bandwidthProfiles.bandwidthProfiles" onclick="return bandwidthProfilesValidate('tf1_frmBandwidthProfiles2')" >
+            <input type="reset" class="btnSubmit" title="Cancel" value="Cancel" onclick="resetBandwidthFn('tf1_frmBandwidthProfiles2')">
+          </div>	
+        </form>
+      </div>
+    </div>
+    <h1>List of Bandwidth Profiles</h1>
+    <div class="CLR midTblWidth">
+      <div class="demo_jui">
+        <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                % Upstream Bandwidth
+              </th>
+              <th>
+                Priority
+              </th>
+            </tr>
+          </thead>                                        
+          
+          <tr class="gradeA" id="bandwidthProfiles4">
+            <td class="gradeA">testing</td>
+            <td class="gradeA">50</td>
+            <td class="gradeA">Low</td>
+          </tr>
+          
+          <tr class="gradeA" id="bandwidthProfiles5">
+            <td class="gradeA">admin</td>
+            <td class="gradeA">100</td>
+            <td class="gradeA">High</td>
+          </tr>
+          
+          <tr class="gradeA" id="bandwidthProfiles6">
+            <td class="gradeA">hrGroup</td>
+            <td class="gradeA">Disabled</td>
+            <td class="gradeA">Medium</td>
+          </tr>
+          
+          <tr class="gradeA" id="bandwidthProfiles7">
+            <td class="gradeA">testLabs</td>
+            <td class="gradeA">Disabled</td>
+            <td class="gradeA">Low</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+    <div class="buttonsRow" id="tf1_btnShowModal">
+      <input type="button" class="btnSubmit" title="Add" value="Add New Bandwidth Profiles" id="btAdd"   onClick="openForm('button.add.bandwidthProfiles.bandwidthProfiles','-1','tf1_dialog','bandwidthProfiles','bandwidthProfiles.html');" >                                
+    </div>
+  </div>
+</td>
+</tr>
+</table>
+</div>
+<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/contextMenu.js"></script>
+<script src="js/mis.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/textValidations.js"></script>
+<script src="js/mgmt.js"></script>
+<script src="js/bandwidthProfiles.js"></script>        
+<script src="js/menuSearchList.js"></script>
+<script src="js/menuSearch.js"></script>
+<script  charset="utf-8">
+$(document).ready(function(){
+  $('.gradeA').contextMenu('contextMenu', {
+    bindings: {
+      'editMenu': function(t, e, rowId){
+        openForm('button.edit.bandwidthProfiles.bandwidthProfiles',rowId,'tf1_dialog','bandwidthProfiles','bandwidthProfiles.html');
+      },
+      'deleteMenu': function(t, e, rowId){
+        deleteRows('button.delete.bandwidthProfiles.bandwidthProfiles', 'tf1_frmBandwidthProfiles', rowId, 'optionSelectAll', 'tf1_dialog', 'bandwidthProfiles', 'bandwidthProfiles');
+      }                        
+    }       
+  });
+  
+  oTable = $('#recordsData').dataTable({
+    "bJQueryUI": true,
+    "sPaginationType": "full_numbers"
+  });  
+  $("#btnClose").live("click",function(e){
+    HideDialog('tf1_dialog', 'tf1_overlay');
+    e.preventDefault();
+    /* setting recordModified=1 if the form is opened but closed by clicking "x" icon without submitting */
+    document.cookie = "recordModified=1";
+  });    
+  
+  /* Help Section variables */
+  helpSection = "bandwidthProfiles";				
+  helpConfigFile = "helpAdvanced.txt";
+  
+  /* Header section javascript bindings */
+  menuLoading();
+  mmSel("mainMenu7");
+  getBreadCrumb(70);
+  
+});</script>            
+</body>
+</html>

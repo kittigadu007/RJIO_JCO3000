@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Language" content="en-us">
+	<title>Reliance Industries Limited : </title>
+	<!--
+	Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+	All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+
+<body>
+	<div align="center">
+		<table border="0" cellpadding="0" cellspacing="0" width="980px">
+			<tr>
+				<td class="header" valign="top" align="center">
+					<!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+				</td>
+			</tr>
+			<tr>
+				<td class="midBg" valign="top" align="center">
+					<div class="midWidth">
+						
+						<h1>MAP-T Port Statistics</h1>
+						<div class="midArea">
+							<div align="left">
+								<form method="post" action="cgi-action.html" id="tf1_frmViewLogs" name="tf1_frmViewLogs">
+									<input type="hidden" value="viewLogs.html" id="thispage" name="thispage">
+									<div class="configRow">
+										<label>Peak </label>
+										<p>0</p>
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+									<div class="configRow">
+										<label>Median </label>
+										<p>0</p>
+									</div>
+									<div class="break">
+										&nbsp;
+									</div>
+									
+								</form>
+							</div>
+						</div>
+						<div class="break">
+							&nbsp;
+						</div>
+						<!--<h1>MAP-T Port Stats</h1>-->
+						<div align="center">
+							<div class="CLR midTblWidth">
+								<div class="demo_jui">
+									<table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+										<thead>
+											<tr>
+												<th>Port Number </th>
+												<th>Average </th>
+											</tr>
+										</thead>
+										
+									</table>
+									<div class="break">&nbsp; </div>
+									<div class="break">&nbsp; </div> 
+									<div class="break">&nbsp; </div>	
+								</div>
+							</div>
+						</div>
+					</div></td>
+				</tr>
+			</table>
+		</div>
+		<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+		
+		<script src="js/jquery.dataTables.min.js"></script>
+		<script src="js/contextMenu.js"></script>
+		<script src="js/mis.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/mgmt.js"></script>
+		<script src="js/menuSearchList.js"></script>
+		<script src="js/menuSearch.js"></script>
+		<script  charset="utf-8">
+		$(document).ready(function() {
+			oTable = $('#recordsData').dataTable({
+				"bJQueryUI" : true,
+				"sPaginationType" : "full_numbers"
+			});
+			/* Help Section variable */
+			helpSection = "maptPortStats";
+			helpConfigFile = "helpStatus.txt";
+			
+			/* Header section javascript bindings */
+			menuLoading();
+			mmSel("mainMenu7");
+			getBreadCrumb(87);
+			
+		});
+		</script>
+		
+	</body>
+	
+	</html>

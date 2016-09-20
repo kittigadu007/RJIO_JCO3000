@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>  
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmDisks" id="tf1_frmDisks" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="disks.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>Disk Partitions</h1>                    
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        
+      </div>
+      <div class="dialogMidArea dialogMidAreaGray">
+        <h2>Disk Summary</h2>
+        <div class="configRow">
+          <label>
+            Disk Name
+          </label>
+          <p>Generic USB_Flash_Drive</p>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Size
+          </label>
+          <p>260MB</p>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Device Type
+          </label>
+          <p>usb</p>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <div class="configRow">
+          <label>
+            Shared
+          </label>
+          <p>no</p>
+        </div>
+        <div class="break">
+          &nbsp;
+        </div>
+        <h2>List of Disk Partitions</h2>
+        <div class="CLR">
+          <div class="demo_jui">
+            <div id="recordsDataPopup_wrapper" class="dataTables_wrapper no-footer"><div class="fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-tl ui-corner-tr"></div><table cellspacing="0" cellpadding="0" border="0" id="recordsDataPopup" class="display dataTable no-footer" role="grid">
+              <thead>
+                <tr role="row"><th class="ui-state-default sorting_disabled" rowspan="1" colspan="1"><div class="DataTables_sort_wrapper">
+                  Partition Name
+                  <span class="DataTables_sort_icon"></span></div></th><th class="ui-state-default sorting_disabled" rowspan="1" colspan="1"><div class="DataTables_sort_wrapper">
+                    Total Size
+                    <span class="DataTables_sort_icon"></span></div></th><th class="ui-state-default sorting_disabled" rowspan="1" colspan="1"><div class="DataTables_sort_wrapper">
+                      Used Size
+                      <span class="DataTables_sort_icon"></span></div></th><th class="ui-state-default sorting_disabled" rowspan="1" colspan="1"><div class="DataTables_sort_wrapper">
+                        Free Size
+                        <span class="DataTables_sort_icon"></span></div></th><th class="ui-state-default sorting_disabled" rowspan="1" colspan="1"><div class="DataTables_sort_wrapper">
+                          File System
+                          <span class="DataTables_sort_icon"></span></div></th></tr>
+                        </thead> 
+                        
+                        <tbody>
+                          
+                          <tr class="gradeB odd" role="row">
+                            <td>VOLUME_a1</td>
+                            <td>244.0M</td>
+                            <td>121.7M</td>
+                            <td>122.3M</td>
+                            <td>vfat</td>
+                          </tr></tbody></table><div class="fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-bl ui-corner-br"></div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dialogSubmitRow">         	                
+                    </div>    
+                    <!-- (end) add or edit form -->
+                  </div>
+                  
+                  <div class="configDialog" id="tf1_dialog2">
+                    <div class="topBg">
+                      <h1>Format Disk</h1>                    
+                      <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+                      
+                    </div>
+                    <div class="dialogMidArea">
+                      <div class="configRow">
+                        <label>
+                          Partition Name
+                        </label>
+                        <select size="1" name="partitionName">										 
+                          <option value="VOLUME_a1">VOLUME_a1</option>
+                          
+                        </select>
+                      </div>
+                      <div class="break">
+                        &nbsp;
+                      </div>
+                      <div class="configRow">
+                        <label>
+                          File System
+                        </label>
+                        <select size="1" name="fileSystem">
+                          <option value="ext2">ext2 </option>
+                          <option value="ext3">ext3 </option>
+                        </select>
+                      </div>
+                      <div class="break">
+                        &nbsp;
+                      </div>  					 
+                    </div>
+                    <div class="dialogSubmitRow"> 
+                      
+                      <input type="submit" title="Format" value="Format" class="btnSubmit" name="button.configFormat.disks.disks./dev/sda">
+                    </div>
+                    
+                    
+                  </div>
+                </form>
+                <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+                <div class="contextMenu" id="contextMenu">
+                  <ul>
+                    
+                    <li id="detials">
+                      View
+                    </li>
+                    <li id="delete">
+                      Unplug Device
+                    </li>
+                    <li id="format">
+                      Format
+                    </li>
+                  </ul>
+                </div>
+                <!-- Right click Div End -->
+                <div align="center">
+                  <table border="0" cellpadding="0" cellspacing="0" width="980px">
+                    <tr>
+                      <td class="header" valign="top" align="center">
+                        <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="midBg" valign="top" align="center">
+                        <div class="midWidth">
+                          
+                          <h1>Attached Disks</h1>
+                          <div class="CLR midTblWidth">
+                            <div class="demo_jui">
+                              <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      Disk Name
+                                    </th>
+                                    <th>
+                                      Size
+                                    </th>
+                                    <th>
+                                      Device Type
+                                    </th>
+                                    <th>
+                                      Shared
+                                    </th>
+                                  </tr>
+                                </thead>    
+                                
+                                <tr class="gradeA" id="/dev/sda" device-type="usb">
+                                  <td>Generic USB_Flash_Drive</td>
+                                  <td>260MB</td>
+                                  <td>usb</td>
+                                  <td>no</td>
+                                </tr>
+                                
+                              </table>
+                              <div class="break">&nbsp; </div>
+                              <div class="break">&nbsp; </div> 
+                              <div class="break">&nbsp; </div>				
+                            </div>
+                          </div>                            
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+                
+                <script src="js/jquery.dataTables.min.js"></script>
+                <script src="js/contextMenu.js"></script>
+                <script src="js/mis.js"></script>
+                <script src="js/mgmt.js"></script>
+                <script src="js/menu.js"></script>
+                <script src="js/menuSearchList.js"></script>
+                <script src="js/menuSearch.js"></script>
+                <script  charset="utf-8">
+                $(document).ready(function(){
+                  $('.gradeA').contextMenu('contextMenu', {
+                    bindings: {
+                      'detialsMenu': function(t, e, rowId){							
+                        openPreviewForm('button.view.disks.disks', rowId, 'tf1_dialog', 'disks', 'disks.html');
+                      },
+                      'deleteMenu': function(t, e, rowId){
+                        deleteRows('button.remove.disks.disks', 'tf1_frmDisks', rowId, 'optionSelectAll', 'tf1_dialog', 'disks', 'disks');
+                      },
+                      'formatMenu': function(t, e, rowId){
+                        openPreviewForm('button.format.disks.disks', rowId, 'tf1_dialog2', 'disks', 'disks.html');
+                      }            
+                    }, onShowMenu: function(e,menu,rowId) {
+                      
+                      var strReplace = new RegExp("/","g")
+                      rowId = rowId.replace(strReplace,"\\/");				
+                      
+                      if ($("#"+rowId).attr("device-type") == "scsi"){
+                        $('#deleteMenu', menu).remove();
+                      }  
+                      return menu;
+                    }      
+                  });
+                  oTable = $('#recordsData').dataTable({
+                    "bJQueryUI": true,
+                    "sPaginationType": "full_numbers"
+                  });  
+                  $("#btnClose").live("click",function(e){
+                    HideDialog('tf1_dialog', 'tf1_overlay');
+                    HideDialog('tf1_dialog2', 'tf1_overlay');
+                    e.preventDefault();
+                  });    
+                  
+                  /* Help Section variables */
+                  helpSection = "disks";				
+                  helpConfigFile = "helpAdvanced.txt";
+                  
+                  /* Header section javascript bindings */
+                  menuLoading();
+                  mmSel("mainMenu7");
+                  getBreadCrumb(66);
+                  
+                });
+                function showTabInPopupFn(){
+                  oTable = $('#recordsDataPopup').dataTable({
+                    "bJQueryUI" : true,
+                    "bPaginate" : false,
+                    "bLengthChange" : false,
+                    "bFilter" : false,
+                    "bSort" : false,
+                    "bInfo" : false,
+                    "bAutoWidth" : false
+                  }); 
+                }</script>            
+              </body>
+              </html>

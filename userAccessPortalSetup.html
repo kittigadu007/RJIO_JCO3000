@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<script src="js/jquery-1.8.0.min.js"></script>        
+<meta http-equiv="X-Frame-Options" content="deny">
+
+</head>
+<body>
+  
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_loadingDiv" class="loadingDiv" style="display:none;">
+    <div class="msgInfo"><p>Loading ...</p></div>
+  </div>
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  
+  <form name="tf1_frmUserAccessPortalSetup" id="tf1_frmUserAccessPortalSetup" enctype="multipart/form-data" action="cgi-action.html" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="userAccessPortalSetup.html">
+    <div class="configDialog" id="tf1_dialog">
+      <!-- (start) add or edit form -->
+      <div class="topBg">
+        <h1>User Access Portal Configuration</h1>
+        
+        <a title="Close" id="btnClose" href="javascript:void(0)"></a>
+        
+      </div>
+      <div class="dialogMidArea">
+        <h2>General Details</h2>
+        <div id="tf1_profileName_div" class="configRow">
+          <label>Profile Name</label>
+          
+          <input type="text" id="tf1_profileName" value="" name="configurationName">
+          
+        </div>
+        <div id="break_profileName_div" class="break">&nbsp;</div>
+        
+        <div id="tf1_browserTitle_div" class="configRow">
+          <label>Browser Title</label>
+          <input type="text" id="tf1_browserTitle" value="" name="title">
+        </div>
+        <div id="break_browserTitle_div" class="break">&nbsp;</div>
+        
+        <div id="tf1_pageBgColor_div" class="configRow">
+          <label>Page Background Color</label>
+          <select onchange="pageBackgroundColorChange('tf1_pageBgColor')" name="BackGroundColor" id="tf1_pageBgColor">
+            
+            <option value="2">Red</option>
+            <option value="3">Green</option>
+            <option value="4">Blue</option>
+            <option value="5">Custom</option>
+          </select>
+        </div>
+        <div id="break_pageBgColor_div" class="break">&nbsp;</div>
+        
+        <div id="tf1_pageBgCustomColor_div" class="hide">
+          <label>Custom Color</label>
+          <input type="text" maxlength="6" class="one" id="tf1_pageBgCustomColor" value="" name="CustomColor" disabled=""><dl>
+            [CF00CF]
+          </dl>
+        </div>
+        <div id="break_pageBgCustomColor_div" class="hide">&nbsp;</div>
+        
+        <h2>Header Details</h2>
+        <input type="hidden" value="1" name="headerBackground">
+        
+        
+        
+        <div id="tf1_headerBgImage_div" class="configRow">
+          
+          
+          <label> Header Logo Image </label> 
+          <div image="true" header-bg-id="1" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide            headerloginProfileHideActive "><img style="border: 1px solid; width:45px; height:45px" src="images/capPort/image0.png"></div>       
+          
+          
+          <div image="false" header-bg-id="2" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide divHdImage">
+            
+            <img style="border: 1px solid #333333; width:45px;
+            height:45px; display:block; " src="images/capPort/imageNew.gif">
+          </div>
+          
+          
+          
+          <div image="false" header-bg-id="3" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide divHdImage">
+            
+            <img style="border: 1px solid  #333333; width:45px;
+            height:45px; display:block" src="images/capPort/imageNew.gif">
+          </div>
+          
+          
+          
+          <div image="false" header-bg-id="4" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide divHdImage">
+            
+            <img style="border: 1px solid  #333333; width:45px;
+            height:45px; display:block" src="images/capPort/imageNew.gif">
+          </div>
+          
+          
+          
+          <div image="false" header-bg-id="5" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide divHdImage">
+            
+            <img style="border: 1px solid  #333333; width:45px;
+            height:45px; display:block" src="images/capPort/imageNew.gif">
+          </div>
+          
+          
+          
+          
+          <div image="false" header-bg-id="6" onclick="headerBackGroundSelect(this)" class="headerloginProfileHide divHdImage">
+            
+            <img style="border: 1px solid #333333; width:45px;
+            height:45px; display:block" src="images/capPort/imageNew.gif">
+          </div>
+          
+          
+        </div>
+        <div id="break_headerBackgroundImage_div" class="break">
+          &nbsp;
+        </div>
+        <div id="tf1_hdImageControl_div" class="configRow">
+          <label> &nbsp; </label>
+          
+          <div class="pageloginProfileHide">Default</div>
+          <div align="center" class="pageloginProfileHide">
+            <a class="fileUploadHd" upload-index="2" href="javascript:void(0)">Add</a></div>
+            <div align="center" class="pageloginProfileHide"><a class="fileUploadHd" upload-index="3" href="javascript:void(0)">Add</a></div>
+            <div align="center" class="pageloginProfileHide"><a class="fileUploadHd" upload-index="4" href="javascript:void(0)">Add</a></div>
+            <div align="center" class="pageloginProfileHide"><a class="fileUploadHd" upload-index="5" href="javascript:void(0)">Add</a></div>
+            <div align="center" class="pageloginProfileHide"><a class="fileUploadHd" upload-index="6" href="javascript:void(0)">Add</a></div>
+          </div>
+          
+          
+          
+          <div class="break" id="break_hdImageControl_div">
+            &nbsp;
+          </div>
+          <div class="upFile" id="tf1_uploadHd_div">
+            
+            
+          </div>
+          <input type="hidden" value="1" id="tf1_headerBackgroundImage" name="headerImage">
+          
+          
+          
+          <div id="tf1_headerBgCaption_div" class="configRow">
+            <label>Header Caption</label>
+            <input type="text" maxlength="50" id="tf1_headerBgCaption" value="" name="headerCaption">
+          </div>
+          <div id="break_headerBgCaption_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_headerBgCaptionFont_div" class="configRow">
+            <label>Caption Font</label>
+            <select id="tf1_headerBgCaptionFont" name="headerFont">
+              <option value="1">Tahoma</option>
+              <option value="2">Times New Roman</option>
+              <option value="3">Verdana</option>
+              <option value="4">Arial</option>
+            </select>				
+          </div>
+          <div id="break_headerBgCaptionFont_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_headerBgCaptionFontSize_div" class="configRow">
+            <label>Font Size</label>
+            <select id="tf1_headerBgCaptionFontSize" name="headerFontSize">
+              <option value="1">Small</option>
+              <option value="2">Medium</option>
+              <option value="3">Big</option>
+            </select>
+          </div>
+          <div id="break_headerBgCaptionFontSize_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_headerBgCaptionFontColor_div" class="configRow">
+            <label>Font Color</label>
+            <select id="tf1_headerBgCaptionFontColor" name="headerFontColor">
+              <option value="1">Red</option>
+              <option value="2">Black</option>
+              <option value="3">Green</option>
+              <option value="4">Blue</option>
+            </select>
+          </div>
+          <div id="break_headerBgCaptionFontColor_div" class="break">&nbsp;</div>
+          
+          <h2>Login Details</h2>
+          <div id="tf1_loginTitle_div" class="configRow">
+            <label>Login Section Title</label>
+            <input type="text" id="tf1_loginTitle" value="" name="LoginBoxTitle"><dl>
+              Optional
+            </dl>
+          </div>
+          <div id="break_loginTitle_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_loginMessage_div" class="configRow">
+            <label>Welcome Message</label>
+            <input type="text" id="tf1_loginMessage" value="" name="welcomeMessage"><dl>
+              Optional
+            </dl>
+          </div>
+          <div id="break_loginMessage_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_loginErrorMessage_div" class="configRow">
+            <label>Error Message</label>
+            <input type="text" id="tf1_loginErrorMessage" value="" name="errorMessage"><dl>
+              Optional
+            </dl>
+          </div>
+          <div id="break_loginErrorMessage_div" class="break">&nbsp;</div>
+          
+          <h2>Advertisement Details</h2>
+          <div id="tf1_enableAdvt_div" class="configRow">
+            <label>Enable Advertisement</label>
+            
+            <img id="tf1_enableAdvt" src="images/button_off.png" alt="" class="enable-disable">
+            <input type="hidden" value="0" name="AdEnable">
+          </div>
+          <div id="break_enableAdvt_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_advtPlace_div" class="hide">
+            <label>Ad Place</label>
+            <select id="tf1_advtPlace" name="AdPlace" disabled="">
+              <option value="1">Right</option>
+              <option value="2">Left</option>
+            </select>
+          </div>
+          <div id="break_advtPlace_div" class="hide">&nbsp;</div>
+          
+          <div id="tf1_advtContent_div" class="hide">
+            <label>Ad Content</label>
+            <textarea name="AdContent" id="tf1_advtContent" disabled=""></textarea>
+          </div>
+          <div id="break_advtContent_div" class="hide">&nbsp;</div>
+          
+          <div id="tf1_advtFont_div" class="hide">
+            <label>Font</label>
+            <select id="tf1_advtFont" name="AdFont" disabled="">
+              <option value="1">Tahoma</option>
+              <option value="2">Times New Roman</option>
+              <option value="3">Verdana</option>
+              <option value="4">Arial</option>
+            </select>
+          </div>
+          <div id="break_advtFont_div" class="hide">&nbsp;</div>
+          
+          <div id="tf1_advtFontSize_div" class="hide">
+            <label>Font Size</label>
+            <select id="tf1_advtFontSize" name="AdFontSize" disabled="">
+              <option value="1">Small</option>
+              <option value="2">Medium</option>
+              <option value="3">Big</option>
+            </select>
+          </div>
+          <div id="break_advtFontSize_div" class="hide">&nbsp;</div>
+          
+          <div id="tf1_advtFontColor_div" class="hide">
+            <label>Font Color</label>
+            <select id="tf1_advtFontColor" name="AdFontColor" disabled="">
+              <option value="1">Red</option>
+              <option value="2">Black</option>
+              <option value="3">Green</option>
+              <option value="4">Blue</option>
+            </select>
+          </div>
+          <div id="break_advtFontColor_div" class="hide">&nbsp;</div>
+          
+          <h2>Footer Details</h2>
+          <div id="tf1_enablefooter_div" class="configRow">
+            <label>Change Footer Content</label>
+            
+            <img id="tf1_enablefooter" src="images/button_off.png" alt="" class="enable-disable">
+            <input type="hidden" value="0" name="FooterEnable">
+          </div>
+          <div id="break_enablefooter_div" class="break">&nbsp;</div>
+          
+          <div id="tf1_footerContent_div" class="hide">
+            <label>Footer Content</label>
+            <textarea id="tf1_footerContent" name="FooterContent" disabled=""></textarea>
+          </div>
+          <div id="break_footerContent_div" class="hide">&nbsp;</div>
+          
+          <div id="tf1_footerFontColor_div" class="hide">
+            <label>Footer Font Color</label>
+            <select id="tf1_footerFontColor" name="FooterFontColor" disabled="">
+              <option value="1">White</option>
+              <option value="2">Red</option>
+              <option value="3">Green</option>
+              <option value="4">Blue</option>
+              <option value="5">Black</option>
+            </select>
+          </div>
+          <div id="break_footerFontColor_div" class="hide">&nbsp;</div>
+        </div>
+        <div class="dialogSubmitRow">
+          <input type="submit" onclick="return userAccessPortalValidation('tf1_frmUserAccessPortalSetup')" value="Save" class="btnSubmit" name="button.configPopup.userAccessPortalSetup.userAccessPortalSetup.-1">                    
+        </div>      
+        
+        <!-- (end) add or edit form -->
+        
+      </div>
+    </form>
+    <iframe id="uploader_iframe" NAME="uploader_iframe" width="0" height="0" frameborder="0"></iframe>
+    <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
+    <div class="contextMenu" id="contextMenu">
+      <ul>
+        <li>
+          <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit detials');"/>Select All
+        </li>
+        <li id="edit">
+          Edit
+        </li>
+        <li id="detials">
+          Preview
+        </li>
+        <li id="delete">
+          Delete
+        </li>
+      </ul>
+    </div>
+    <!-- Right click Div End -->
+    <div align="center">
+      <table border="0" cellpadding="0" cellspacing="0" width="980px">
+        <tr>
+          <td class="header" valign="top" align="center">
+            <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+          </td>
+        </tr>
+        <tr>
+          <td class="midBg" valign="top" align="center">
+            <div class="midWidth">
+              
+              <h1>User Access Portal Setup</h1>
+              <div class="midArea">
+                <div class="break">&nbsp;</div>
+                <form name="tf1_frmUserAccessPortalSetup2" id="tf1_frmUserAccessPortalSetup2" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="userAccessPortalSetup.html">
+                  <input type="hidden" name="vlanId"  value="1">
+                  <input type="hidden" name="accessType"  value="2">
+                  <input type="hidden" name="authServerId"  value="0">
+                  <div align="left">
+                    <div class="configRow">
+                      <label>User Access Portal Enable</label>
+                      
+                      <img class="enable-disable" alt="" src="images/button_on.png" id="tf1_enableUserAccess" />
+                      <input type="hidden" name="enable" value="1">
+                    </div>
+                    <div class="break">&nbsp;</div>
+                    
+                    <div class="configRow" id="tf1_UAProfile_div">
+                      <label>User Access Portal Profile</label>
+                      <select name="profileId" id="tf1_UAProfile">
+                        
+                        <option  value="1">default</option>
+                        
+                        <option SELECTED value="2">default2</option>
+                        
+                      </select>
+                    </div>
+                    <div class="break" id="break_UAProfile_div">&nbsp;</div>
+                    
+                    <div class="configRow" id="tf1_redirectionType_div">
+                      <label>Redirection Type</label>
+                      <p><input type="radio" value="0" name="redirectType"  checked> HTTP</p>
+                      <p><input type="radio" value="1" name="redirectType"  > HTTPS</p>
+                    </div>
+                    <div class="break" id="break_redirectionType_div">&nbsp;</div>
+                    
+                    <div class="submitRow">
+                      <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.config.userAccessPortalSetup" onclick="setHiddenChks('tf1_frmUserAccessPortalSetup2')">
+                      <input type="button" class="btnSubmit" title="Cancel" value="Cancel" name="" onclick="document.tf1_frmUserAccessPortalSetup2.reset(); userAccessPortalSetupOnReset('tf1_frmUserAccessPortalSetup2');">
+                    </div>
+                    <div class="break">&nbsp;</div>
+                  </div>	
+                </form>
+              </div>
+              <h1>List of Available Profiles</h1>
+              <div class="CLR midTblWidth">
+                <div class="demo_jui">
+                  <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                    <thead>
+                      <tr>
+                        <th>
+                          Profile Name
+                        </th>
+                        <th>
+                          Status
+                        </th>
+                      </tr>
+                    </thead>                                        
+                    
+                    <tr class="gradeA" id="userAccessPortalSetup1" profile-name="default">
+                      <td class="gradeA">default</td>
+                      <td class="gradeA">Not In Use</td>
+                    </tr>
+                    
+                    <tr class="gradeA" id="userAccessPortalSetup2" profile-name="default2">
+                      <td class="gradeA">default2</td>
+                      <td class="gradeA">In Use</td>
+                    </tr>
+                    
+                  </table>
+                </div>
+              </div>
+              <div class="buttonsRow" id="tf1_btnShowModal">
+                <input type="button"
+                name="button.add.userAccessPortalSetup.userAccessPortalSetup.-1" class="btnSubmit" title="Add" value="Add New User Access Portal" id="btAdd"
+                
+                
+                onClick="openForm('button.add.userAccessPortalSetup.userAccessPortalSetup','-1','tf1_dialog','userAccessPortalSetup','userAccessPortalSetup.html');"
+                
+                
+                >                                
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/contextMenu.js"></script>
+    <script src="js/mis.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/textValidations.js"></script>
+    <script src="js/mgmt.js"></script>
+    <script src="js/userAccessPortalSetup.js"></script>        
+    <script src="js/menuSearchList.js"></script>
+    <script src="js/menuSearch.js"></script>
+    <script  charset="utf-8">
+    
+    
+    $(document).ready(function(){
+      
+      
+      $('.gradeA').contextMenu('contextMenu', {
+        bindings: {
+          'editMenu': function(t, e, rowId){
+            openForm('button.edit.userAccessPortalSetup.userAccessPortalSetup',rowId,'tf1_dialog','userAccessPortalSetup','userAccessPortalSetup.html');
+          },
+          'detialsMenu': function(t, e, rowId){
+            rowId = rowId.replace("userAccessPortalSetup","");
+            var url = "platform.cgi?page=captivePortal.html&buttonName=Preview&rowId="+rowId;
+            helpwindow=window.open(url,'name','left=100,top=150,resizable=no,scrollbars=yes,toolbar=no,status=no');
+            
+          },
+          'deleteMenu': function(t, e, rowId){
+            deleteRows('button.delete.userAccessPortalSetup.userAccessPortalSetup', 'tf1_frmUserAccessPortalSetup', rowId, 'optionSelectAll', 'tf1_dialog', 'userAccessPortalSetup', 'userAccessPortalSetup');
+          }                        
+        },
+        onShowMenu: function(e,menu,rowId) {
+          if ($("#"+rowId).attr("profile-name") == "default"){
+            $('#editMenu', menu).remove();                            
+          }                         
+          return menu;
+        }                
+      });
+      
+      
+      oTable = $('#recordsData').dataTable({
+        "bJQueryUI": true,
+        "sPaginationType": "full_numbers"
+      });  
+      $("#btnClose").live("click",function(e){
+        HideDialog('tf1_dialog', 'tf1_overlay');
+        e.preventDefault();
+      });    
+      
+      /* Help Section variables */
+      helpSection = "userAccessPortalSetup";				
+      helpConfigFile = "helpAdvanced.txt";
+      
+      /* Header section javascript bindings*/
+      menuLoading();
+      mmSel("mainMenu7");
+      getBreadCrumb(69); 
+      
+    });</script>
+    
+  </body>
+  </html>

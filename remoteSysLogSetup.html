@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center"><div class="midWidth">
+          
+          <h1>Remote SysLog Configuration</h1>
+          <div class="midArea">
+            <div align="left">
+              <form name="tf1_frmRemoteSysLogSetup" id="tf1_frmRemoteSysLogSetup" action="cgi-action.html" method="post">
+                <input type="hidden" name="thispage" id="thispage" value="remoteSysLogSetup.html">
+                <div class="configRow">
+                  <label> Remote SysLog Enable</label>
+                  
+                  <img class="enable-disable" src="images/button_off.png" id="tf1_chkEnable">
+                  <input type="hidden" name="enable" value="0">
+                </div>
+                <div class="break"> &nbsp;</div>
+                <div class="configRow" id="tf1_selNetwork_div">
+                  <label>Network Name </label>
+                  <select size="1"  name="interface" class="txt" id="tf1_selNetwork">
+                    
+                    <option  value="Internet">Internet</option>
+                    
+                    <option SELECTED value="Local">Local</option>
+                    
+                  </select>
+                </div>
+                <div class="break" id="break_selNetwork_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_hostName_div">
+                  <label> Remote Log Identifier </label>
+                  <p id="tf1_hostName"> Reliance </p>
+                  <input type="hidden" name="hostname" value="Reliance">
+                </div>
+                <div class="break" id="break_hostName_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_server_div">
+                  <label> SysLog Server </label>
+                  <input type="text" maxlength="32" name="serverName" value="192.168.29.100" id="tf1_server" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address', 'for octet ', true); }">
+                </div>
+                <div class="break" id="break_server_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_port_div">
+                  <label> SysLog Server Port </label>
+                  <input type="text" class="one" maxlength="5" name="serverPort" value="9116" id="tf1_port" onKeyPress="return numericValueCheck (event);" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, 1, 'Invalid Syslog server port', 1, 65535, true, '', '');}">
+                  <dl>
+                    [Range: 1 - 65535]
+                  </dl>
+                </div>
+                <div class="break" id="break_port_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_selFacilityOpt_div">
+                  <label> Log Facility </label>
+                  <select size="1"  name="facilityId" id="tf1_selFacilityOpt">
+                    <option SELECTED value="255">ALL</option>
+                    <option  value="0">Kernel</option>
+                    <option  value="3">System</option>
+                    <option  value="18">TR069</option>
+                    <option  value="21">Local5</option>
+                    <option  value="22">Local6</option>
+                    <option  value="23">Local7</option>
+                    <option  value="12">NTP</option>
+                    <option  value="1">User</option>
+                    <option  value="10">Security</option>
+                    <option  value="16">Wireless</option>
+                  </select>
+                </div>
+                <div class="break"  id="break_selFacilityOpt_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_selSeverityOpt_div">
+                  <label>Log Severity</label>
+                  <select size="1" name="severity" id="tf1_selSeverityOpt">
+                    <option  value="emergency">Emergency</option>
+                    <option  value="alert">Alert</option>
+                    <option  value="critical">Critical</option>
+                    <option  value="error">Error</option>
+                    <option  value="warning">Warning</option>
+                    <option  value="notice">Notice</option>
+                    <option  value="information">Information</option>
+                    <option SELECTED value="debug">Debug</option>
+                  </select>
+                </div>
+                <div class="break" id="break_selSeverityOpt_div"> &nbsp;</div>
+                <div class="submitRow"> 
+                  <input name="button.config.remoteSysLogSetup" class="btnSubmit" type="submit" title="Save" value="Save" onClick="return pageValidate('tf1_frmRemoteSysLogSetup')">
+                  <input class="btnSubmit" type="button" title="Cancel" value="Cancel" onClick="document.tf1_frmRemoteSysLogSetup.reset(); remoteSyslogSetupOnReset('tf1_frmRemoteSysLogSetup');">
+                </div>
+                <div class="break"> &nbsp; </div>
+              </form>
+            </div>
+          </div>
+        </div></td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  <script src="js/mis.js"> </script>
+  <script src="js/menu.js"> </script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/ipv4AddrValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script src="js/remoteSysLogSetup.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    /* Help Section variable */
+    helpSection = "remoteSyslogSetup";				
+    helpConfigFile = "helpSetup.txt";
+    
+    /* Header section javascript bindings */		
+    menuLoading();
+    mmSel("mainMenu7");
+    getBreadCrumb(58);    		
+    
+    
+  });</script>
+</body>
+</html>

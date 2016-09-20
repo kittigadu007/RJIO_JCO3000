@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Language" content="en-us">
+  <title>Reliance Industries Limited : </title>
+  <!--
+  Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+  All rights reserved.
+-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"> </script>
+<meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body onLoad="onloadCall ();">
+  <!-- Section for Pop up dialog starts -->
+  <div id="tf1_overlay" class="configDialogMask">
+  </div>
+  <form name="tf1_frmClientAccessControl" id="tf1_frmClientAccessControl" method="post">
+    <input type="hidden" name="thispage" id="thispage" value="clientAccessControl.html">
+    <div id="tf1_dialog" class="configDialog">
+      Loading.. Please wait...
+    </div>
+  </form>
+  <!-- Right click Div Start -->
+  <div class="contextMenu" id="contextMenu">
+    <ul>
+      <li>
+        <input id="optionSelectAll" type="checkbox" onClick="setSelectAll (this.id, 'edit enable disable');"/>Select All
+      </li>
+      <li id="edit">Edit</li>
+      <li id="enable">Allow</li>
+      <li id="disable">Deny</li>
+      <li id="delete">Delete</li>
+    </ul>
+  </div>
+  <!-- Right click Div End -->
+  <div align="center">
+    <table border="0" cellpadding="0" cellspacing="0" width="980px">
+      <tr>
+        <td class="header" valign="top" align="center">
+          <!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+        </td>
+      </tr>
+      <tr>
+        <td class="midBg" valign="top" align="center">
+          <div class="midWidth">
+            
+            <h1>Client Access Control</h1>
+            <div class="midArea">
+              <div align="left">
+                <form name="tf1_frmclientAccessControl2" id="tf1_frmclientAccessControl2" action="cgi-action.html" method="post">
+                  <input type="hidden" name="thispage" id="thispage" value="clientAccessControl.html">
+                  <div class="configRow">
+                    <label>Client Access Control</label>
+                    
+                    <img class="enable-disable" src="images/button_on.png" />
+                    <input type="hidden" name="ClientAccessControlStatus" value="1">
+                  </div>
+                  <div class="break">&nbsp;</div>
+                  
+                  <div class="submitRow">							
+                    <input type="submit" class="btnSubmit" title="Save" value="Save" name="button.selfConfig.clientAccessControl.clientAccessControl" onclick="setHiddenChks('tf1_frmclientAccessControl2')" >
+                    <input type="reset" class="btnSubmit" title="Cancel" value="Cancel" onclick="resetImgOnOff('tf1_frmclientAccessControl2')">
+                  </div>	
+                </form>
+              </div>
+            </div>
+            <h1>List of Client MAC Address</h1>
+            <div class="CLR midTblWidth">
+              <div class="demo_jui">
+                <table cellpadding="0" cellspacing="0" border="0" class="display" id="recordsData">
+                  <thead>
+                    <tr>
+                      <th>MAC Address </th>
+                      <th>Action </th>
+                      <th>Alias </th>
+                      <th>Description </th> 
+                    </tr>
+                  </thead>
+                  
+                </table>
+                <div class="break">&nbsp;</div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+  
+  <script src="js/jquery.dataTables.min.js"></script>
+  <script src="js/contextMenu.js"></script>
+  <script src="js/mis.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/textValidations.js"></script>
+  <script src="js/mgmt.js"></script>
+  <script src="js/menuSearchList.js"></script>
+  <script src="js/menuSearch.js"></script>
+  <script src="js/clientAccessControl.js"></script>
+  <script  charset="utf-8">
+  $(document).ready(function(){
+    
+    $('.gradeA').contextMenu('contextMenu', {
+      bindings: {
+        'editMenu': function(t, e, rowId){
+          openForm('button.edit.clientAccessControl.clientAccessControl',rowId,'tf1_dialog','clientAccessControl','clientAccessControl.html');
+        },
+        'disableMenu': function(t, e, rowId){
+          changeRowStauts('disable', 'tf1_frmClientAccessControl', rowId, 'tf1_dialog', 'clientAccessControl', 'clientAccessControl', 'clientAccessControl.clientAccessControl');
+        },
+        'enableMenu': function(t, e, rowId){                          
+          changeRowStauts('enable', 'tf1_frmClientAccessControl', rowId, 'tf1_dialog', 'clientAccessControl', 'clientAccessControl', 'clientAccessControl.clientAccessControl');
+        },
+        'deleteMenu': function(t, e, rowId){
+          deleteRows('button.delete.clientAccessControl.clientAccessControl', 'tf1_frmClientAccessControl', rowId, 'optionSelectAll', 'tf1_dialog', 'clientAccessControl', 'clientAccessControl');
+        }
+      },
+      
+      onShowMenu: function(e,menu,rowId) {
+        if ($("#"+rowId).attr("status") == "1"){
+          $('#enableMenu', menu).remove();
+        } else {
+          $('#disableMenu', menu).remove();
+        }
+        return menu;
+      }
+      
+    });
+    oTable = $('#recordsData').dataTable({
+      "bJQueryUI": true,
+      "sPaginationType": "full_numbers"
+    });
+    $("#btnClose").live("click",function(e){
+      HideDialog('tf1_dialog', 'tf1_overlay');
+      e.preventDefault();
+    }); 
+    
+    /* Help Section variables */
+    helpSection = "clientAccessControl";				
+    helpConfigFile = "helpAdvanced.txt";
+    
+    /* Header section javascript bindings */
+    menuLoading();
+    mmSel("mainMenu4");
+    getBreadCrumb(103);
+    
+  });
+  
+  </script>
+  
+</body>
+
+</html>

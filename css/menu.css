@@ -1,0 +1,388 @@
+/*
+ Copyright (c) 2012 TeamF1, Inc. (www.TeamF1.com)
+ All rights reserved.
+ Created on 1st Aug 2012 - suresh
+ */ @charset "utf-8";
+
+.menuBg {
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#0A7DC8',EndColorStr='#32AFE1');
+	background:#0A7DC8;
+	background:-ms-linear-gradient(top,#0A7DC8,#32AFE1);
+	background:-webkit-gradient(linear,left top,left bottom,from(#0A7DC8),to(#32AFE1));
+	background:-moz-linear-gradient(top,#0A7DC8,#32AFE1);
+	background:-o-linear-gradient(top,#0A7DC8,#32AFE1);
+	border-color: #0A7DC8 #0A7DC8 #6757A7;
+	border-radius: 4px 4px 0 0;
+	border-style: solid;
+	border-width: 1px 1px 8px;
+	clear: both;
+	height: 52px;
+	margin: 0;
+	padding: 0;
+}
+
+no-js nav li:hover ul {
+	display: block;
+}
+
+.two {
+	left: 182px;
+	top: 2px;
+	width: 175px;
+}
+
+.menuone {
+	min-width: 185px;
+	top: 58px;
+	position:absolute;
+}
+
+nav {
+	line-height: 52px;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	z-index:1;
+	white-space:nowrap;
+}
+
+nav li {
+  border-left: 1px solid #32AFE1;
+  border-right: 1px solid #0A7DC8;
+  display: inline;
+  float: left;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  width: auto;
+}
+
+nav li:hover {
+  border-bottom:9px solid #32AFE1;
+  height:51px;
+}
+
+nav li a {
+  color: #000000;
+  display: table-cell;
+  height: 52px;
+  font-size: 13px;
+  line-height: normal;
+  margin: 0 0 0;
+  padding: 0 32px 0 16px;
+  padding: 0 32px 0 18px\9;
+  text-decoration: none;
+  text-align: left;
+  vertical-align: middle;  
+}
+
+nav li a:hover {
+  color: #FFFFFF;	
+  border-bottom: 9px solid #32AFE1;
+  outline: none;
+  text-decoration: underline;
+  text-decoration: none;
+}
+
+nav li a.active {
+  border-bottom: 9px solid #32AFE1;
+  color: #FFFFFF;
+  height: 51px;
+}
+
+nav li:first-child a {
+	border-left: none;
+}
+
+nav li.end {
+	border-right: none;
+	border-bottom: 0 none;
+	padding-left: 0px;
+	padding-right: 0px;
+	width: 0 !important;
+}
+
+nav li.start {
+	border-left: none;
+}
+
+nav ul ul {
+  -moz-box-shadow: 2px 2px 6px #32AFE1;
+  -webkit-box-shadow: 2px 2px 6px #32AFE1;
+  box-shadow: 2px 2px 6px #32AFE1;
+  display: none;
+  left: 0;
+  width: 185px;
+  position: absolute;
+  top: 100%;
+}
+
+nav ul ul li {
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#0A7DC8',EndColorStr='#32AFE1');
+  background:#0A7DC8;
+  background:-ms-linear-gradient(top,#0A7DC8,#32AFE1);
+  background:-webkit-gradient(linear,left top,left bottom,from(#0A7DC8),to(#32AFE1));
+  background:-moz-linear-gradient(top,#0A7DC8,#32AFE1);
+  background:-o-linear-gradient(top,#0A7DC8,#32AFE1);
+  border-left: none;
+  border-right: none;
+  height: 30px !important;
+  line-height: 30px  !important;
+  text-align: left;
+  width: 100%;
+  display: table-cell;
+}
+
+nav ul ul li a {  
+  border-left: none;
+  border-right: none;
+  display: block;
+  font-size: 11px;
+  height: 30px !important;
+  line-height: 30px  !important;
+  margin: 0 !important;
+  padding: 0px 8px;
+  text-align: left
+}
+nav ul ul li:hover {
+  border-right: none;
+  border-left: none;
+  border-bottom: none !important;
+}
+nav ul ul a:hover {
+  border-bottom: none !important;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+nav ul ul a.active {
+	color: #FFFFFF;
+}
+
+.main span {
+  float: right;
+  width: 18px;
+  height: 52px;
+  margin: 0;
+  position: absolute;
+  background: url(../images/menuDown.png)  right 17px no-repeat;
+  right: 0px;
+  top: 0;
+}
+
+.main span img {
+  float: left;
+}
+
+.submain a span {
+	background: url(../images/menuRight.png) center right no-repeat;
+	width: 18px;
+	height: 18px;
+	top: 8px;
+	right: 5px;
+}
+
+/* for table right click menus */
+
+.toolTip {
+    box-shadow: 2px 2px 6px #999999;
+    min-width: 120px;
+}
+
+.toolTip > ul {
+    border-radius: 3px 3px 3px 3px;
+    padding: 0 !important;
+}
+
+#editMenu, #deleteMenu, #disableMenu, #enableMenu, #exportMenu, #copyMenu, #startSyncMenu, #disconnectMenu, #detialsMenu, #applyMenu, #macFilterMenu, #statusMenu, #startMenu, #stopMenu, #launchMenu, #formatMenu, #installMenu{
+    background: url("../images/icons.png") no-repeat scroll -18px -484px transparent;
+	color: #0A7DC8 !important;
+	cursor: pointer !important;
+	padding-left: 30px !important;
+	line-height: 24px !important;
+}
+
+#editMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -481px transparent;
+}
+
+#deleteMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -545px transparent;
+}
+
+#disableMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -609px transparent;
+}
+
+#enableMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -577px transparent;
+}
+
+#exportMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -641px transparent;
+}
+
+#copyMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -673px transparent;
+}
+
+#startSyncMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -703px transparent;
+}
+
+#disconnectMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -735px transparent;
+}
+
+#detialsMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -513px transparent;
+}
+
+#applyMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -766px transparent;
+}
+
+#macFilterMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -481px transparent;
+}
+
+#statusMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -513px transparent;
+}
+
+#startMenu {
+  background: url("../images/icons.png") no-repeat scroll -18px -896px transparent;
+}
+
+#stopMenu {
+  background: url("../images/icons.png") no-repeat scroll -18px -799px transparent;
+} 
+
+#launchMenu {
+ background: url("../images/icons.png") no-repeat scroll -18px -864px transparent;
+}
+
+#formatMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -830px transparent;
+}
+
+#installMenu {
+    background: url("../images/icons.png") no-repeat scroll -18px -863px transparent;
+}
+
+
+#Menu:hover, #editMenu:hover, #deleteMenu:hover, #disableMenu:hover, #enableMenu:hover, #exportMenu:hover, #copyMenu:hover, #startSyncMenu:hover, #disconnectMenu:hover, #detialsMenu:hover, #applyMenu:hover, #macFilterMenu:hover, #statusMenu:hover, #formatMenu:hover, #startMenu:hover, #stopMenu:hover, #launchMenu:hover, #installMenu:hover {
+	background-color: #32AFE1 !important;
+	border: none !important;
+	color: #FFFFFF !important;
+}
+
+/* table right click menus end */
+
+/* menu search */
+
+.rilSearch {
+	margin: 12px 10px;
+}
+
+.rilSearchText {
+	background: url("../images/searchIcon.png") no-repeat scroll 194px 6px #503C96;
+    border: 1px solid #E1E1E1;
+    color: #E1E1E1;
+    float: left;
+    font-size: 11px;
+    height: 22px;
+    letter-spacing: 1px;
+    padding: 2px 26px 2px 4px;
+    width: 180px;
+}
+
+/* menu search end */
+
+/* for menu search */
+.menuSearchTf1 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#fefefe',EndColorStr='#e1e1e1');
+	background:#fefefe;
+	background:-ms-linear-gradient(top,#fefefe,#e1e1e1);
+	background:-webkit-gradient(linear,left top,left bottom,from(#fefefe),to(#e1e1e1));
+	background:-moz-linear-gradient(top,#fefefe,#e1e1e1);
+	background:-o-linear-gradient(top,#fefefe,#e1e1e1);
+	border:1px solid #32AFE1;
+	-moz-box-shadow: 0 0 8px #32AFE1;
+	-webkit-box-shadow: 0 0 8px #32AFE1;
+	box-shadow: 0 0 8px #32AFE1;
+    border-radius: 4px 4px 4px 4px;
+    list-style: none outside none;
+    margin-top:28px;
+	min-width: 210px;
+    position: absolute;
+    text-align: left;
+    z-index: 1;
+}
+
+.menuSearchTf1 li {
+    border-bottom: 1px solid #e1e1e1;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    width: 210px;
+}
+
+li.menuLastChild {
+    border: 0px;
+}
+
+.menuSearchTf1 li a, .menuSearchTf1 li a:hover, li a.menu-selected, li a.menu-unselected {
+    color: #252525;
+    display: block;
+    font-size: 11px;
+    line-height: 13px;
+    list-style: none outside none;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.menuSearchTf1 li a:hover, li a.menu-selected  {
+    background:#503C96;
+    color: #e1e1e1;
+    cursor: pointer;	
+}
+
+.menuSpanArrow {
+    color: #ffffff;
+    font-size:16px;
+}
+
+.searchText {
+    color: #AFAFAF;
+    font-size: 10px;
+    font-weight: normal;
+}
+/* menu search end */
+
+/* breadcrumb starts here*/
+#breadCrumb{
+	color: #FFFFFF;
+ 	float: left;	
+    font-size: 12px;
+    padding: 5px 15px;
+}
+
+#breadCrumb span{
+	color: #ffffff;
+	font-size: 16px;
+	padding:0 10px;
+}
+.breadCrumb {
+    border-left:1px solid #989CAB; border-right:1px solid #989CAB; border-bottom:1px solid #989CAB; background:#32AFE1; border-top:medium none; text-align:left;
+    -moz-box-shadow: 0px 8px 0px #000;
+    -webkit-box-shadow: 0px 8px 0px #000;
+    box-shadow-bottom: 8px #000;
+    overflow:hidden;
+    width:978px;	
+}
+#menuList > li > a > span { color: #D71E1E !important; }
+#menuList > li > a:hover > span { color: #ffffff !important; }

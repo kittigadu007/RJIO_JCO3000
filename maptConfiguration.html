@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<title>Reliance Industries Limited : </title>
+<!--
+		Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
+		All rights reserved.
+		-->
+<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/buttons.css" />
+<link rel="stylesheet" type="text/css" href="css/menu.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
+<link rel="stylesheet" type="text/css" href="css/table.css" />
+<script src="js/jquery-1.8.0.min.js"></script>
+        <meta http-equiv="X-Frame-Options" content="deny">
+</head>
+<body>
+<div align="center">
+  <table border="0" cellpadding="0" cellspacing="0" width="980px">
+  <tr>
+<td class="header" valign="top" align="center">
+	<!--webbot bot="Include" u-include="header.html" tag="BODY" -->
+</td>
+</tr>
+    <tr>
+      <td class="midBg" valign="top" align="center"><div class="midWidth">
+          <h1>MAP-T Configuration</h1>
+          <div class="midArea">
+            <div align="left">
+             <form name="tf1_maptConfiguration" id="tf1_maptConfiguration" action="cgi-action.html" method="post">
+			<input type="hidden" name="thispage" id="thispage" value="maptConfiguration.html">
+                <div class="configRow">
+                  <label> Enable MAP-T</label>
+                  
+                  <img class="enable-disable" src="images/button_on.png" id="tf1_chkEnable">
+                  <input type="hidden" name="enable" value="1" >
+                </div>
+                <div class="break"> &nbsp;</div>
+                <div class="configRow" id="tf1_ipv4Prefix_div">
+                  <label>IPv4 Prefix</label>
+                 <input type="text" name="ipv4Prefix" value="202.38.117.0" id="tf1_ipv4Prefix"  maxlength="15" onKeyPress="return numericValueCheck (event, '.')" onKeyDown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }">
+                </div>
+                <div class="break" id="break_ipv4Prefix_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_ipv4PrefixLength_div">
+                  <label>IPv4 Prefix Length </label>
+                   <input type="text" name="ipv4PrefixLen" value="24" id="tf1_ipv4PrefixLength"  class="one" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 32, true, 'Invalid IPv4 Prefix Length.', ''); }" maxlength="2"><dl>[Range: 1 - 32]</dl>
+                </div>
+                <div class="break" id="break_ipv4PrefixLength_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_ipv6Prefix_div">
+                  <label> IPv6 Prefix</label>
+                 <input type="text"  name="ipv6Prefix" value="2001:da8:b4b6::" id="tf1_ipv6Prefix" maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                </div>
+                <div class="break" id="break_ipv6Prefix_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_ipv6PrefixLength_div" >
+                    <label>IPv6 Prefix Length </label>
+                   <input type="text"  name="ipv6PrefixLen" value="48" id="tf1_ipv6PrefixLength" class="one" maxlength="3" onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 128, true, 'Invalid IPv4 Prefix Length.', ''); }" ><dl>[Range: 1 - 128]</dl>
+                </div>
+                <div class="break" id="break_ipv6PrefixLength_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_borderRelayipv6Prefix_div">
+                   <label>Border Relay IPv6 Prefix</label>
+                   <input type="text" name="brIpv6Prefix" value="2001:da8:b4b6:ffff::" id="tf1_borderRelayipv6Prefix"  maxlength="40" onKeyPress="return numericValueCheck (event, 'ABCDEFabcdef:.')" onKeyDown="if (event.keyCode == 9) { return ipv6AddrValidate (this, false, true, ''); }">
+                </div>
+                <div class="break"  id="break_borderRelayipv6Prefix_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_borderRelayipv6PrefixLength_div">
+                  <label>Border Relay IPv6 Prefix Length</label>
+                   <input type="text" name="brIpv6PrefixLen"
+                   value="64"
+                   id="tf1_borderRelayipv6PrefixLength" class="one"
+                   maxlength="3" onKeyPress="return numericValueCheck (event)"
+                   onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 1, 128, true, 'Invalid IPv4 Prefix Length.', ''); }" ><dl>[Range: 1 - 128]</dl>
+                </div>
+                <div class="break" id="break_borderRelayipv6PrefixLength_div"> &nbsp;</div>
+                  <div class="configRow" id="tf1_embeddedAddress_div">
+                  <label>Embedded Address (EA bits)</label>
+                   <input type="text"  name="eabitsVal"
+                   value="21"
+                   id="tf1_embeddedAddress"  maxlength="15"
+                   onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 9) {return numericValueRangeCheck (this, '', '', 0, 281474976710656, true, 'Invalid IPv4 Prefix Length.', ''); }"
+                   ><dl>[Range: 0 - 2^48]</dl>
+                </div>
+                <div class="break" id="break_embeddedAddress_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_embeddedAddressLen_div">
+                  <label>Embedded Address (EA bits) Length</label>
+                   <input type="text"  name="eaLength"
+                   value="12"
+                   id="tf1_embeddedAddressLen" class="one"  maxlength="4"
+                   onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 2) {return numericValueRangeCheck (this,'', '', 0, 48, true, 'Invalid IPv4 Prefix Length.', ''); }"
+                   ><dl>[Range: 0 - 48]</dl>
+                </div>
+                <div class="break" id="break_embeddedAddressLen_div"> &nbsp;</div>
+                <div class="configRow" id="tf1_psidOffsetLen_div">
+                  <label>PSID offset</label>
+                   <input type="text"  name="offset"
+                   value="5"
+                   id="tf1_psidOffsetLen" class="one"  maxlength="4"
+                   onKeyPress="return numericValueCheck (event)" onKeyDown="if (event.keyCode == 2) {return numericValueRangeCheck (this,'','', 0, 16, true, 'Invalid PSID offset.', ''); }"
+                   ><dl>[Range: 0 - 16]</dl>
+                </div>
+                <div class="break" id="break_psidOffsetLen_div"> &nbsp;</div>
+                <div class="submitRow"> <input  type="submit"  name="button.config.maptConfig.maptConfiguration.-1" class="btnSubmit"  value="Save" title="Save" 
+        
+        onClick="return pageValidate ('tf1_maptConfiguration');" 
+
+    >
+                <input type="reset" class="btnSubmit" value="Cancel" title="Cancel" onClick="this.form.reset(); return maptConfigOnReset('tf1_maptConfiguration');">
+                </div>
+                <div class="break"> &nbsp; </div>
+              </form>
+            </div>
+          </div>
+        </div></td>
+    </tr>
+            </table>
+	</div>
+	<!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+
+<script src="js/mis.js"></script>
+<script src="js/mgmt.js"></script>
+<script src="js/textValidations.js"></script>
+<script src="js/ipv4AddrValidations.js"></script>
+<script src="js/ipv6AddrValidations.js"></script>
+<script src="js/maptConfiguration.js"></script>
+<script src="js/ipv6AddrValidations.js"></script>
+<script src="js/menu.js"> </script>
+<script src="js/menuSearchList.js"></script>
+<script src="js/menuSearch.js"></script>
+ <script  charset="utf-8">
+
+/**
+ * Validating IP Address
+ */
+function ipv4AddrValuesCheck(obj, objArr, ipv4AddrTypeStr, optFlag, alertFlag, prefixStr, suffixStr, octetShowFlag){
+    var ipOctetMinVal = 0;
+    var ipOctetMaxVal = 255;
+    var isFirstByteZero = false;
+    var isError = false;
+    var ipOctetSpecified = false;
+    var errMsg = '';
+    var tblIPAddrId = obj.id;
+    
+    for (var i = 0; i < objArr.length; i++) {
+        ipOctetMinVal = 0;
+        ipOctetMaxVal = 255;
+        isError = false;
+        var value = objArr[i];
+        var errMsg = '';
+        
+        if (value.length != (parseInt(value) + "").length) {
+            if (prefixStr) 
+                errMsg = prefixStr;
+            errMsg += " remove leading 0's for octet " + (i + 1);
+            alert(errMsg);
+            return false;
+        }
+        if (alertFlag) {
+            if (prefixStr) 
+                errMsg = prefixStr;
+            if ((ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') && ((i + 1) == 1)) 
+                errMsg += " Please enter 255 ";
+            else 
+                if ((ipv4AddrTypeStr == 'SM') && ((i + 1) == 4)) {
+                    if (objArr[i - 1] != "255") 
+                        errMsg += " Please enter 0 ";
+                    else 
+                        errMsg += " Please enter 0/128/192/224/240/248/252 ";
+                }
+                else 
+                    if ((ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') && ((i + 1) > 1)) {
+                        if (objArr[i - 1] != "255") 
+                            errMsg += " Please enter 0 ";
+                        else 
+                            errMsg += " Please enter 0/128/192/224/240/248/252/254/255 ";
+                    }
+                    else {
+                        errMsg += " Please enter a value between " + ipOctetMinVal +
+                        " - " +
+                        ipOctetMaxVal +
+                        " ";
+                    }
+            if (suffixStr) 
+                errMsg += suffixStr;
+        }
+        if (value.length == 0 || value.length > 3) {
+            if (optFlag && !ipOctetSpecified) {
+                continue;
+            }
+            var j = 0;
+            if (i == 0) {
+                /* check for full empty IP address */
+                for (j = i; j < objArr.length; ++j) {
+                    if (objArr[j].length) 
+                        break;
+                }
+            }
+            if (errMsg) {
+                if ((i == 0) && (j == objArr.length) && errMsg) {
+                    if (ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') 
+                        if (alertFlag) {
+                            errMsg = prefixStr + "Please enter a value 0/128/192/224/240/248/252/254/255 for each octet.";
+                            alert(errMsg);
+                        }
+                        else 
+                            if (alertFlag) {
+                                errMsg = prefixStr + "Please enter a value between " + ipOctetMinVal + " - " + ipOctetMaxVal + " for each octet.";
+                                alert(errMsg);
+                            }
+                }
+                else {
+                    if (octetShowFlag) {
+                        if (value.length > 3) 
+                            errMsg = "Invalid octet length for octet " + (i + 1);
+                        else 
+                            errMsg += (i + 1);
+                    }
+                    if (alertFlag) {
+                        alert(errMsg);
+                    }
+                    
+                }
+            }
+            obj.focus();
+            return false;
+        }
+        if (optFlag) {
+            if (i > 0 && !ipOctetSpecified) {
+                if (errMsg) {
+                    if (octetShowFlag) 
+                        errMsg += (i + 1);
+                    //alert (errMsg);
+                    if (alertFlag) {
+                        alert(errMsg);
+                    }
+                }
+                obj.focus();
+                return false;
+            }
+            ipOctetSpecified = true;
+        }
+        
+        if (((i + 1) == 4) && (ipv4AddrTypeStr == 'IP')) {
+            /* last octet should not set to zero as this is ip address */
+            ipOctetMinVal = 0;
+            ipOctetMaxVal = 254;
+        }
+        if (((i + 1) == 4) && (ipv4AddrTypeStr == 'SN')) {
+            /* last octet can set to zero as this is network ip */
+            ipOctetMinVal = 0;
+            ipOctetMaxVal = 254;
+        }
+        if (((i + 1) == 1) && (ipv4AddrTypeStr == 'IP' || ipv4AddrTypeStr == 'SN')) {
+            /* first octet should not exced 223 */
+            ipOctetMinVal = 1;
+            ipOctetMaxVal = 223;
+        }
+        
+        if (ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') {
+            if ((i + 1) == 1) 
+                isError = !checkSnetMask(value, 8, 8);
+            else 
+                if (((i + 1) == 4) && ipv4AddrTypeStr == 'SM') {
+                    if (objArr[i - 1] != "255") 
+                        isError = !checkSnetMask(value, 0, 0);
+                    else 
+                        isError = !checkSnetMask(value, 0, 6);
+                }
+                else {
+                    if (objArr[i - 1] != "255") 
+                        isError = !checkSnetMask(value, 0, 0);
+                    else 
+                        isError = !checkSnetMask(value, 0, 8);
+                }
+        }
+        else {
+            if (((parseInt(value) > 0) && isFirstByteZero) ||
+            (parseInt(value) < ipOctetMinVal || parseInt(value) > ipOctetMaxVal)) {
+                isError = true;
+            }
+        }
+        if (isError) {
+            if (isFirstByteZero) 
+                --i;
+            if (alertFlag) {
+                if (prefixStr) 
+                    errMsg = prefixStr;
+                if ((ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') && ((i + 1) == 1)) 
+                    errMsg += " Please enter 255 ";
+                else 
+                    if ((ipv4AddrTypeStr == 'SM') && ((i + 1) == 4)) {
+                        if (objArr[i - 1] != "255") 
+                            errMsg += " Please enter 0 ";
+                        else 
+                            errMsg += " Please enter 0/128/192/224/240/248/252 ";
+                    }
+                    else 
+                        if ((ipv4AddrTypeStr == 'SM' || ipv4AddrTypeStr == 'SNM') && ((i + 1) > 1)) {
+                            if (objArr[i - 1] != "255") 
+                                errMsg += " Please enter 0 ";
+                            else 
+                                errMsg += " Please enter 0/128/192/224/240/248/252/254/255 ";
+                        }
+                        else {
+                            errMsg += " Please enter a value between " + ipOctetMinVal + " - " + ipOctetMaxVal + " ";
+                        }
+                if (suffixStr) 
+                    errMsg += suffixStr;
+                if (octetShowFlag) 
+                    errMsg += (i + 1);
+                alert(errMsg);
+            }
+            obj.focus();
+            return false;
+        }
+    }
+    return true;
+}
+            $(document).ready(function(){
+                             
+                
+					/* Help Section variable */
+			helpSection = "maptConfiguration";				
+			helpConfigFile = "helpSetup.txt";
+
+			/* Header section javascript bindings */		
+			menuLoading();
+			mmSel("mainMenu7");
+			getBreadCrumb(63);    		
+	             
+                
+            });
+        </script>
+</body>
+</html>
