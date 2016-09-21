@@ -77,7 +77,23 @@ if(self == top) {
     <table border="0" cellpadding="0" cellspacing="0" width="980px">
       <tr>
         <td class="header" valign="top" align="center">
-           <!--webbot bot="Include" u-include="headerPlain.html" tag="BODY" -->            
+           <!--webbot bot="Include" u-include="headerPlain.html" tag="BODY" startspan -->
+  <div align="center">
+    <div class="midWidth">
+      <div class="logo FL">&nbsp;</div>
+      <div class="FR headerRight">
+        &nbsp; </div>
+        <div class="menuBg">
+          <div>
+            <div>
+              <div align="center">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--webbot bot="Include" i-checksum="32469" endspan -->            
           </td>
         </tr>
         <tr>
@@ -131,6 +147,127 @@ if(self == top) {
         </tr>
       </table>
     </div>
-    <!--webbot bot="Include" u-include="footer.html" tag="BODY" -->
+    <!--webbot bot="Include" u-include="footer.html" tag="BODY" startspan -->
+  <div id="footer">
+    <div class="footerContainer">
+      <div class="copyright"> &#169; 2016 TeamF1, Inc. All Rights Reserved.</div>
+      <div class="footerBottom">
+        <!-- Block One Starts here -->
+        <div class="blockOne">
+          <div class="lineOne blockOneBg"></div>
+          <div class="lineTwo blockOneBg"></div>
+          <div class="lineThree blockOneBg"></div>
+          <div class="lineFour blockOneBg"></div>
+          <div class="lineFive blockOneBg"></div>			
+        </div>
+        <!-- Block One Ends here -->
+        <!-- BlockTwo Starts here -->			
+        <div class="blockTwo">
+          <div class="lineOne blockTwoBg"></div>
+          <div class="lineTwo blockTwoBg"></div>
+          <div class="lineThree blockTwoBg"></div>
+          <div class="lineFour blockTwoBg"></div>
+          <div class="lineFive blockTwoBg"></div>
+        </div>
+        <!-- BlockTwo Ends here -->	
+        <!-- BlockThree Starts here -->
+        <div class="blockThree">
+          <div class="lineOne blockThreeBg"></div>
+          <div class="lineTwo blockThreeBg"></div>
+          <div class="lineThree blockThreeBg"></div>
+          <div class="lineFour blockThreeBg"></div>
+          <div class="lineFive blockThreeBg"></div>
+        </div>
+        <!-- BlockThree Ends here -->
+        <!-- BlockFour Starts here -->
+        <div class="blockFour">
+          <div class="lineOne blockFourBg"></div>
+          <div class="lineTwo blockFourBg"></div>
+          <div class="lineThree blockFourBg"></div>
+          <div class="lineFour blockFourBg"></div>
+          <div class="lineFive blockFourBg"></div>
+        </div>
+        <!-- BlockFour Ends here -->
+        <!-- BlockFive Starts here -->
+        <div class="blockFive">
+          <div class="lineOne blockFiveBg"></div>
+          <div class="lineTwo blockFiveBg"></div>
+          <div class="lineThree blockFiveBg"></div>
+          <div class="lineFour blockFiveBg"></div>
+          <div class="lineFive blockFiveBg"></div>
+        </div>
+        <!-- BlockFive Ends here -->
+        <!-- BlockSix Starts here -->
+        <div class="blockSix">
+          <div class="lineOne blockSixBg"></div>
+          <div class="lineTwo blockSixBg"></div>
+          <div class="lineThree blockSixBg"></div>
+          <div class="lineFour blockSixBg"></div>
+          <div class="lineFive blockSixBg"></div>
+        </div>
+        <!-- BlockSix Ends here -->
+        <!-- BlockSeven Starts here -->
+        <div class="blockSeven">
+          <div class="lineOne blockSevenBg"></div>
+          <div class="lineTwo blockSevenBg"></div>
+          <div class="lineThree blockSevenBg"></div>
+          <div class="lineFour blockSevenBg"></div>
+          <div class="lineFive blockSevenBg"></div>
+        </div>
+        <!-- BlockSeven Ends here -->
+        <!-- BlockEight Starts here -->
+        <div class="blockEight">
+          <div class="lineOne blockEightBg"></div>
+          <div class="lineTwo blockEightBg"></div>
+          <div class="lineThree blockEightBg"></div>
+          <div class="lineFour blockEightBg"></div>
+          <div class="lineFive blockEightBg"></div>
+        </div>	
+        <!-- BlockEight Ends here -->
+        <!-- Blocknine Starts here -->
+        <div class="blockNine">
+          <div class="lineOne blockNineBg"></div>
+          <div class="lineTwo blockNineBg"></div>
+          <div class="lineThree blockNineBg"></div>
+          <div class="lineFour blockNineBg"></div>
+          <div class="lineFive blockNineBg"></div>
+        </div>
+        <!-- Blocknine Ends here -->
+      </div></div>
+    </div>
+    <div id="tf1_pageLoadingOverLay" class="configOnloadDialogMask"></div>
+    <div class="msgInfoLoading loadingDialog" id="tf1_pageLoadingMask">
+      <p> Loading Please wait..! </p>
+    </div>
+    <script src="js/loadingStatus.js">
+    </script>
+    <script  charset="utf-8">
+    $(document).ready(function() {
+      window.onresize = function(event){
+        var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;
+        leftPx = Math.round(leftPx);
+        $(".configDialog").css('left',leftPx+'px');	
+        /* page loading mask starts */
+        var maskLeftPx = $(window).innerWidth()/2 - $("#tf1_pageLoadingMask").width()/2;
+        var maskHeightPx = $(window).innerHeight()/2 - $("#tf1_pageLoadingMask").height()/2;
+        maskLeftPx = Math.round(maskLeftPx);
+        maskHeightPx = Math.round(maskHeightPx);
+        $("#tf1_pageLoadingMask").css('left',maskLeftPx+'px');
+        $("#tf1_pageLoadingMask").css('top',maskHeightPx+'px');
+        /* page loading mask ends */
+      }
+    });
+    </script>
+    <!--[if IE 9]>
+    <script>
+    if(Function('/*@cc_on return 9===document.documentMode@*/')()){
+    var midAreadivs = document.getElementsByClassName('midArea');
+    if (midAreadivs.length > 0 ){
+    midAreadivs[0].style.setProperty('filter','none');
+  }
+}
+</script>
+<![endif]-->
+<!--webbot bot="Include" i-checksum="4293" endspan -->
   </body>
   </html>

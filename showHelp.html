@@ -12,8 +12,7 @@
 <script src="js/menu.js"></script>
 <script  >
 
-function getHelpInfo ()
-{
+function getHelpInfo (){
 	var request = null;	
 	var helpDiv = document.getElementById("tf1_helpDiv");
 	/* Code for Safari browser extra space adjusting Starts */
@@ -64,8 +63,8 @@ function getHelpInfo ()
 			/* Added Chnages to show H1 tag above help scrolling div */
 		}
 	}
-	request.open("GET","?page=getHelp.html" + window.location.href.substr (window.location.href.indexOf ("&")) + "&time" + new Date(),true);
-	request.send(null);
+//	request.open("GET","?page=getHelp.html" + window.location.href.substr (window.location.href.indexOf ("&")) + "&time" + new Date(),true);
+	// request.send(null);
 }
 
 
@@ -103,11 +102,47 @@ if(self == top) {
 				<tr>
 					<td class="midBg helpMidBg" valign="top" align="center">
 						<div class="midWidthHelp">
-							<h1 id="tf1_headingdyn">&nbsp;</h1>
+							<h1 id="tf1_headingdyn">Device Status</h1>
 							<div class="midAreaHelp">
-								<div align="left" id="tf1_helpDiv" class="helpContentArea">
-									Loading Help Content. Please wait...
-								</div>
+								<div align="left" class="helpContentArea" id="tf1_helpDiv">
+<si style="display: none;"></si>
+<h1 style="display: none;">Device Status</h1>
+<si style="display: none;"></si>
+This Help section provides brief information on the fields displayed.<si></si>
+<h2>General</h2><si></si>
+<b>System Name</b>: Displays router's unit name<si></si>
+<b>Firmware Version</b>: The software version is the version of the firmware that the router is currently using. <si></si>
+<b>Serial Number</b>: The hardware number of the router.<si></si>
+<b>Model Name</b>: The Model name of the router.<si></si>
+<h2>WAN Information</h2><si></si>The WAN Information provides the current status of the WAN interfaces. <si></si>
+<b>MAC Address</b>: MAC Address of the WAN port.<si></si>
+<b>IPv4 Address</b>: IPv4 address of the WAN port.<si></si>
+<b>IPv6 Address</b>: IPv6 address of the WAN port.<si></si>
+<b>NAT (IPv4 Only)</b>: Indicates if the security appliance is in NAT mode(Enabled) or classical routing mode(Disabled).<si></si>
+<b>IPv4 Connection Type</b>: Indicates if the WAN IPv4 address is obtained dynamically through a DHCP server or assigned statically by the user or obtained through a PPPoE/PPTP ISP connection.<si></si>
+<b>IPv6 Connection Type</b>: Indicates if the WAN IPv6 address is obtained dynamically through a DHCP server or assigned statically by the user or obtained through a PPPoE/PPTP ISP connection.<si></si>
+<b>IPv4 Connection State</b>: Indicates if the WAN port is connected to the Internet Service Provider.<si></si>
+<b>IPv6 Connection State</b>: Indicates if the WAN port is connected to the Internet Service Provider.<si></si>
+<b>GPON State/Link State</b>: Detects if a link is present on the WAN Interface<si></si>
+<b>IPv4 Gateway</b>: Gateway IPv4 address of the WAN port. <si></si>
+<b>IPv6 Gateway</b>: Gateway IPv6 address of the WAN port. <si></si>
+<b>Primary DNS</b>: Primary DNS server IPv4 address of the WAN port.<si></si>
+<b>Secondary DNS</b>: Secondary DNS server IPv4 address of the WAN port.<si></si>
+<b>Primary DNS (IPv6)</b>: Primary DNS server IPv6 address of the WAN port.<si></si>
+<b>Secondary DNS (IPv6)</b>: Secondary DNS server IPv6 address of the WAN port.<si></si>
+<h2>LAN Information</h2><si></si>This section displays information about the default LAN port. <si></si>
+<b>MAC Address</b>: The router's LAN side MAC address. <si></si>
+<b>IPv4 Address</b>: The router's LAN side IPv4 address and Subnet Mask. <si></si>
+<b>IPv6 Address</b>: The router's LAN side IPv6 address and Subnet Mask.<si></si>
+<b>DHCP Server</b>: Indicates if the router's DHCP server is enabled or disabled. If it is enabled, then DHCP client machines connected to the LAN port will receive their IP address dynamically. <si></si>
+<b>DHCP Relay</b>: Indicates if the router is acting as a DHCP relay. If it is enabled, then the security appliance is acting as a DHCP relay. <si></si>
+<b>DHCPv6 Server</b>: Indicates if the router's DHCPv6 server is enabled or disabled. If it is enabled, then DHCPv6 client machines connected to the LAN port will receive their IP address dynamically.<si></si>
+<b>DHCPv6 Relay</b>: Indicates if the router is acting as a DHCPv6 relay. If it is enabled, then the security appliance is acting as a DHCPv6 relay.<si></si>
+<h2>Wireless LAN Information</h2><si></si>This section displays information about the WLAN.<si></si>
+<b>Operating Frequency</b>: Operating frequency indicates which RF band is used by the router.<si></si>
+<b>Mode</b>: This device supports 802.11 b/g/n Wi-Fi modes. The available modes are dependent on the operating frequency selected.<si></si>
+<b>Channel</b>: This specifies the frequency the radio uses to transmit the wireless frames.<si></si>
+ </div>
 							</div>
 						</div>
 					</td>
