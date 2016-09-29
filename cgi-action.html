@@ -17,9 +17,7 @@
 <script type="text/javascript" language="javascript" src="js/mis.js"></script>
 <script type="text/javascript" language="javascript" src="js/textValidations.js"></script>
 <script type="text/javascript" language="javascript"  charset="utf-8">
-
-function loginValidate()
-{
+function loginValidate(){
   var txtFieldIdArr = new Array ();
   txtFieldIdArr[0] = "tf1_userName,Please enter a valid Username";
   txtFieldIdArr[1] = "tf1_password,Please enter a valid password";
@@ -56,21 +54,8 @@ $(document).ready(function(){
   
   loginInit();
   
-});</script>
-
-<style>
-html {
-  display: none;
-}
-</style>
-<script>
-if(self == top) {
-  document.documentElement.style.display = 'block'; 
-} else {
-  top.location = self.location; 
-}</script>
-
-
+});
+</script>
 </head>
 <body>
   <div align="center">
