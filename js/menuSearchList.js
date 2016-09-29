@@ -168,13 +168,6 @@ menuSearchList = {
         "hrefAttrLink": "profiles.html",
         "breadCrumb": "Network@@Wireless@@Profiles"
     },
-    "menu26": {
-        "mainMenu": "Network",
-        "secondLevelMenu": "Basic Configuration",
-        "thirdLevelMenu": "",
-        "hrefAttrLink": "radioBasicConfig.html",
-        "breadCrumb": "Network@@Wireless@@Basic Configuration"
-    },
     "menu27": {
         "mainMenu": "Network",
         "secondLevelMenu": "Advanced Configuration",

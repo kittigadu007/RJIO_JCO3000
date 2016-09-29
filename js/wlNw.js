@@ -26,7 +26,7 @@ function updateChannel(){
     if (chSpValue == 20) {
         fieldStateChangeWr('selSideBand', '', '', '');
         vidualDisplay('tf1_selSideBand', 'hide');
-        vidualDisplay('break_selSideBand', 'hide');
+        //vidualDisplay('break_selSideBand', 'hide');
     }
     else {
         fieldStateChangeWr('', '', 'selSideBand', '');

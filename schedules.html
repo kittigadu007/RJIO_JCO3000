@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/table.css" />
 <link rel="stylesheet" type="text/css" href="css/dateTimePicker.css" />        
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
-<script src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/jquery-1.8.0.min.js"></script>
 <meta http-equiv="X-Frame-Options" content="deny">
 
 </head>
@@ -25,193 +25,193 @@
   </div>
   <form  action="cgi-action.html" method="post" name="tf1_schedules" id="tf1_schedules">
     <input type="hidden" name="thispage" id="thispage" value="schedules.html">           
-    <div class="configDialog" id="tf1_dialog">
-      
-      <!-- (start) add or edit form -->
-      <div class="topBg">
-        <h1>Schedule Configuration</h1>
-        <close>
-          <a title="Close" id="btnClose" href="javascript:void(0)"></a>
-        </close>
-      </div>
-      <div class="dialogMidArea">
-        <div id="tf1_scheduleName_div" class="configRow">
-          <label>
-            Schedule Name
-          </label>
-          <input type="text" onkeydown="if (event.keyCode == 9) { return alphaNumericValueCheck('tf1_scheduleName', '', 'Invalid Schedule Name'); }" onkeypress="return alphaNumericCheckSpace (event, '')" maxlength="64" id="tf1_scheduleName" value="" name="ScheduleName"> 
-        </div>
-        <div id="break_scheduleName_div" class="break">
-          &nbsp;
-        </div>
-        <h2>Time of Day</h2>
-        <div id="tf1_timeSelect_div" class="configRow">
-          <label>
-            Time of Day
-          </label>
-          <select onchange="selectTime()" id="tf1_timeSelect" size="1" name="TimeType">
-            <option value="1">
-              Entire Day
-            </option>
-            
-            <option value="2">
-              Morning (5 AM - 11 AM)
-            </option>
-            
-            <option value="3">
-              Afternoon (11 AM - 4 PM)
-            </option>
-            
-            <option value="4">
-              Evening (4 PM - 7 PM)
-            </option>
-            
-            <option value="5">
-              Night (7 PM - 11 PM)
-            </option>
-            
-            <option value="6">
-              Custom
-            </option>                            
-          </select>
-        </div>
-        <div id="break9_div" class="break">
-          &nbsp;
-        </div>
-        <div id="tf1_startTime_div" class="hide">
-          <h2>Start Time</h2>
-          <div id="tf1_dateTimePickerStartValue_div" class="configRow">
-            <label> Start Time </label>
-            <input type="text" readonly="" value="" name="DatePickerStartTime" id="tf1_dateTimePickerStartValue" disabled="">
-          </div>
-          <div class="break">&nbsp;</div>
-          
-          <div id="tf1_dateTimePickerStart_div" class="configRow">
-            <label>&nbsp; </label>
-            <input type="hidden" readonly="" onchange="onchangeValueStart()" id="tf1_dateTimePickerStart" disabled="" value="">
-            <div id="tf1_dateTimePickerStart"></div>
-          </div>
-          <div id="break12_div" class="break">
-            &nbsp;
-          </div>
-        </div>
-        
-        <div id="tf1_endTime_div" class="hide">
-          <h2>End Time</h2>
-          <div id="tf1_dateTimePickerEndValue_div" class="configRow">
-            <label> End Time </label>
-            <input type="text" readonly="" value="" name="DatePickerEndTime" id="tf1_dateTimePickerEndValue" disabled="">
-          </div>
-          <div class="break">&nbsp;</div>
-          
-          <div id="tf1_dateTimePickerEnd_div" class="configRow">
-            <label>&nbsp; </label>
-            <input type="hidden" readonly="" onchange="onchangeValueEnd()" id="tf1_dateTimePickerEnd" disabled="" value="">
-            <div id="tf1_dateTimePickerEnd"></div>
-          </div>
-          <div id="break13_div" class="break">
-            &nbsp;
-          </div>
-        </div>
-        
-        <h2>Days of Week</h2>
-        <div id="tf1_daySelect_div" class="configRow">
-          <label>
-            Days of Week
-          </label>
-          <select onchange="selectDay()" id="tf1_daySelect" size="1" name="DaysType">
-            <option value="1">
-              Entire Week
-            </option>
-            
-            <option value="2">
-              Weekends
-            </option>                            
-            
-            <option value="3">
-              Weekdays 
-            </option>
-            
-            <option value="4">
-              Custom
-            </option>
-          </select>
-        </div>
-        <div id="break1_div" class="break">
-          &nbsp;
-        </div>
-        
-        <div id="tf1_monday_div" class="hide">
-          <label> &nbsp; </label>
-          <p class="five">
-            <span>Monday</span>
-            
-            <img src="images/button_off.png" class="enable-disable">
-            <input type="hidden" id="tf1_monday" value="0" name="DayOfWeek.monday" disabled="">
-          </p>
-          <p class="five">
-            <span>Tuesday</span>
-            
-            <img src="images/button_off.png" class="enable-disable">
-            <input type="hidden" id="tf1_tuesday" value="0" name="DayOfWeek.tuesday" disabled="">
-          </p>
-        </div>
-        <div id="break3_div" class="break"> &nbsp;</div>
-        
-        <div id="tf1_wednesday_div" class="hide">
-          <label> &nbsp; </label>
-          <p class="five">
-            <span>Wednesday</span>
-            
-            <img src="images/button_off.png" class="enable-disable"> 
-            <input type="hidden" id="tf1_wednesday" value="0" name="DayOfWeek.wednesday" disabled="">
-          </p>
-          <p class="five">
-            <span>Thursday</span>
-            
-            <img src="images/button_off.png" class="enable-disable"> 
-            <input type="hidden" id="tf1_thursday" value="0" name="DayOfWeek.thursday" disabled="">
-          </p>
-        </div>
-        <div id="break5_div" class="break">&nbsp;</div>
-        
-        <div id="tf1_friday_div" class="hide">
-          <label> &nbsp; </label>
-          <p class="five">
-            <span>Friday</span>
-            
-            <img src="images/button_off.png" class="enable-disable"> 
-            <input type="hidden" id="tf1_friday" value="0" name="DayOfWeek.friday" disabled="">
-          </p>
-          <p class="five">
-            <span>Saturday</span>
-            
-            <img src="images/button_off.png" class="enable-disable">
-            <input type="hidden" id="tf1_saturday" value="0" name="DayOfWeek.saturday" disabled="">
-          </p>
-        </div>
-        <div id="break7_div" class="break"> &nbsp;</div>
-        
-        <div id="tf1_sunday_div" class="hide">
-          <label> &nbsp; </label>
-          <p class="five">
-            <span>Sunday</span>
-            
-            <img src="images/button_off.png" class="enable-disable">
-            <input type="hidden" id="tf1_sunday" value="0" name="DayOfWeek.sunday" disabled="">
-          </p>
-        </div>
-        <div id="break8_div" class="break"> &nbsp;</div>
-      </div>
-      
-      <div class="dialogSubmitRow">
-        <input type="submit" name="button.config.schedules.schedules.-1" onclick="return schedulesConfigValidate('tf1_schedules')" value="Save" title="Save" class="btnSubmit">  
-      </div>
-      
-      <!-- (end) add or edit form -->
-      
-      
-    </div>
+      <div id="tf1_dialog" class="configDialog">
+
+<!-- (start) add or edit form -->
+<div class="topBg">
+                    <h1>Schedule Configuration</h1>
+                    <close>
+                        <a href="javascript:void(0)" id="btnClose" title="Close"></a>
+                    </close>
+                </div>
+                <div class="dialogMidArea">
+                    <div class="configRow" id="tf1_scheduleName_div">
+                        <label>
+                            Schedule Name
+                        </label>
+						<input name="ScheduleName" value="" id="tf1_scheduleName" maxlength="64" onkeypress="return alphaNumericCheckSpace (event, '')" onkeydown="if (event.keyCode == 9) { return alphaNumericValueCheck('tf1_scheduleName', '', 'Invalid Schedule Name'); }" type="text"> 
+                    </div>
+                    <div class="break" id="break_scheduleName_div">
+                        &nbsp;
+                    </div>
+                    <h2>Time of Day</h2>
+                    <div class="configRow" id="tf1_timeSelect_div">
+                        <label>
+                            Time of Day
+                        </label>
+                        <select name="TimeType" size="1" id="tf1_timeSelect" onchange="selectTime()">
+                            <option value="1">
+                            Entire Day
+                            </option>
+
+                            <option value="2">
+                            Morning (5 AM - 11 AM)
+                            </option>
+
+                            <option value="3">
+                            Afternoon (11 AM - 4 PM)
+                            </option>
+
+                            <option value="4">
+                            Evening (4 PM - 7 PM)
+                            </option>
+
+                            <option value="5">
+                            Night (7 PM - 11 PM)
+                            </option>
+
+                            <option value="6">
+                            Custom
+                            </option>                            
+						</select>
+                    </div>
+                    <div class="break" id="break9_div">
+                        &nbsp;
+                    </div>
+                   <div id="tf1_startTime_div" class="hide">
+                        <h2>Start Time</h2>
+                        <div class="configRow" id="tf1_dateTimePickerStartValue_div">
+                            <label> Start Time </label>
+                            <input id="tf1_dateTimePickerStartValue" name="DatePickerStartTime" value="" readonly="" disabled="" type="text">
+                        </div>
+                        <div class="break">&nbsp;</div>
+                        
+                        <div class="configRow" id="tf1_dateTimePickerStart_div">
+                            <label>&nbsp; </label>
+                            <input id="tf1_dateTimePickerStart" onchange="onchangeValueStart()" readonly="" disabled="" value="" type="hidden"><div class=""><div class="dw dwbg dwi"><div class="dwwr"><div class="dwc dwsc"><div class="dwwc dwrc"><table cellspacing="0" cellpadding="0"><tbody><tr><td><div class="dwwl dwrc"><div class="dwl">HH</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,-108px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">12</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">01</li><li class="dw-v" data-val="2" style="height:12px;line-height:12px;">02</li><li class="dw-v" data-val="3" style="height:12px;line-height:12px;">03</li><li class="dw-v" data-val="4" style="height:12px;line-height:12px;">04</li><li class="dw-v" data-val="5" style="height:12px;line-height:12px;">05</li><li class="dw-v" data-val="6" style="height:12px;line-height:12px;">06</li><li class="dw-v" data-val="7" style="height:12px;line-height:12px;">07</li><li class="dw-v" data-val="8" style="height:12px;line-height:12px;">08</li><li class="dw-v" data-val="9" style="height:12px;line-height:12px;">09</li><li class="dw-v" data-val="10" style="height:12px;line-height:12px;">10</li><li class="dw-v" data-val="11" style="height:12px;line-height:12px;">11</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td><td><div class="dwwl dwrc"><div class="dwl">MM</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,-408px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">00</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">01</li><li class="dw-v" data-val="2" style="height:12px;line-height:12px;">02</li><li class="dw-v" data-val="3" style="height:12px;line-height:12px;">03</li><li class="dw-v" data-val="4" style="height:12px;line-height:12px;">04</li><li class="dw-v" data-val="5" style="height:12px;line-height:12px;">05</li><li class="dw-v" data-val="6" style="height:12px;line-height:12px;">06</li><li class="dw-v" data-val="7" style="height:12px;line-height:12px;">07</li><li class="dw-v" data-val="8" style="height:12px;line-height:12px;">08</li><li class="dw-v" data-val="9" style="height:12px;line-height:12px;">09</li><li class="dw-v" data-val="10" style="height:12px;line-height:12px;">10</li><li class="dw-v" data-val="11" style="height:12px;line-height:12px;">11</li><li class="dw-v" data-val="12" style="height:12px;line-height:12px;">12</li><li class="dw-v" data-val="13" style="height:12px;line-height:12px;">13</li><li class="dw-v" data-val="14" style="height:12px;line-height:12px;">14</li><li class="dw-v" data-val="15" style="height:12px;line-height:12px;">15</li><li class="dw-v" data-val="16" style="height:12px;line-height:12px;">16</li><li class="dw-v" data-val="17" style="height:12px;line-height:12px;">17</li><li class="dw-v" data-val="18" style="height:12px;line-height:12px;">18</li><li class="dw-v" data-val="19" style="height:12px;line-height:12px;">19</li><li class="dw-v" data-val="20" style="height:12px;line-height:12px;">20</li><li class="dw-v" data-val="21" style="height:12px;line-height:12px;">21</li><li class="dw-v" data-val="22" style="height:12px;line-height:12px;">22</li><li class="dw-v" data-val="23" style="height:12px;line-height:12px;">23</li><li class="dw-v" data-val="24" style="height:12px;line-height:12px;">24</li><li class="dw-v" data-val="25" style="height:12px;line-height:12px;">25</li><li class="dw-v" data-val="26" style="height:12px;line-height:12px;">26</li><li class="dw-v" data-val="27" style="height:12px;line-height:12px;">27</li><li class="dw-v" data-val="28" style="height:12px;line-height:12px;">28</li><li class="dw-v" data-val="29" style="height:12px;line-height:12px;">29</li><li class="dw-v" data-val="30" style="height:12px;line-height:12px;">30</li><li class="dw-v" data-val="31" style="height:12px;line-height:12px;">31</li><li class="dw-v" data-val="32" style="height:12px;line-height:12px;">32</li><li class="dw-v" data-val="33" style="height:12px;line-height:12px;">33</li><li class="dw-v" data-val="34" style="height:12px;line-height:12px;">34</li><li class="dw-v" data-val="35" style="height:12px;line-height:12px;">35</li><li class="dw-v" data-val="36" style="height:12px;line-height:12px;">36</li><li class="dw-v" data-val="37" style="height:12px;line-height:12px;">37</li><li class="dw-v" data-val="38" style="height:12px;line-height:12px;">38</li><li class="dw-v" data-val="39" style="height:12px;line-height:12px;">39</li><li class="dw-v" data-val="40" style="height:12px;line-height:12px;">40</li><li class="dw-v" data-val="41" style="height:12px;line-height:12px;">41</li><li class="dw-v" data-val="42" style="height:12px;line-height:12px;">42</li><li class="dw-v" data-val="43" style="height:12px;line-height:12px;">43</li><li class="dw-v" data-val="44" style="height:12px;line-height:12px;">44</li><li class="dw-v" data-val="45" style="height:12px;line-height:12px;">45</li><li class="dw-v" data-val="46" style="height:12px;line-height:12px;">46</li><li class="dw-v" data-val="47" style="height:12px;line-height:12px;">47</li><li class="dw-v" data-val="48" style="height:12px;line-height:12px;">48</li><li class="dw-v" data-val="49" style="height:12px;line-height:12px;">49</li><li class="dw-v" data-val="50" style="height:12px;line-height:12px;">50</li><li class="dw-v" data-val="51" style="height:12px;line-height:12px;">51</li><li class="dw-v" data-val="52" style="height:12px;line-height:12px;">52</li><li class="dw-v" data-val="53" style="height:12px;line-height:12px;">53</li><li class="dw-v" data-val="54" style="height:12px;line-height:12px;">54</li><li class="dw-v" data-val="55" style="height:12px;line-height:12px;">55</li><li class="dw-v" data-val="56" style="height:12px;line-height:12px;">56</li><li class="dw-v" data-val="57" style="height:12px;line-height:12px;">57</li><li class="dw-v" data-val="58" style="height:12px;line-height:12px;">58</li><li class="dw-v" data-val="59" style="height:12px;line-height:12px;">59</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td><td><div class="dwwl dwrc"><div class="dwl">AM/PM</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,12px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">AM</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">PM</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td></tr></tbody></table></div></div><div class="dwcc"></div></div></div></div>
+                            <div id="tf1_dateTimePickerStart"></div>
+                        </div>
+                        <div class="break" id="break12_div">
+                            &nbsp;
+                        </div>
+                    </div>
+                    
+                    <div id="tf1_endTime_div" class="hide">
+                        <h2>End Time</h2>
+                        <div class="configRow" id="tf1_dateTimePickerEndValue_div">
+                            <label> End Time </label>
+                            <input id="tf1_dateTimePickerEndValue" name="DatePickerEndTime" value="" readonly="" disabled="" type="text">
+                        </div>
+                        <div class="break">&nbsp;</div>
+                        
+                        <div class="configRow" id="tf1_dateTimePickerEnd_div">
+                            <label>&nbsp; </label>
+                            <input id="tf1_dateTimePickerEnd" onchange="onchangeValueEnd()" readonly="" disabled="" value="" type="hidden"><div class=""><div class="dw dwbg dwi"><div class="dwwr"><div class="dwc dwsc"><div class="dwwc dwrc"><table cellspacing="0" cellpadding="0"><tbody><tr><td><div class="dwwl dwrc"><div class="dwl">HH</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,-108px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">12</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">01</li><li class="dw-v" data-val="2" style="height:12px;line-height:12px;">02</li><li class="dw-v" data-val="3" style="height:12px;line-height:12px;">03</li><li class="dw-v" data-val="4" style="height:12px;line-height:12px;">04</li><li class="dw-v" data-val="5" style="height:12px;line-height:12px;">05</li><li class="dw-v" data-val="6" style="height:12px;line-height:12px;">06</li><li class="dw-v" data-val="7" style="height:12px;line-height:12px;">07</li><li class="dw-v" data-val="8" style="height:12px;line-height:12px;">08</li><li class="dw-v" data-val="9" style="height:12px;line-height:12px;">09</li><li class="dw-v" data-val="10" style="height:12px;line-height:12px;">10</li><li class="dw-v" data-val="11" style="height:12px;line-height:12px;">11</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td><td><div class="dwwl dwrc"><div class="dwl">MM</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,-408px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">00</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">01</li><li class="dw-v" data-val="2" style="height:12px;line-height:12px;">02</li><li class="dw-v" data-val="3" style="height:12px;line-height:12px;">03</li><li class="dw-v" data-val="4" style="height:12px;line-height:12px;">04</li><li class="dw-v" data-val="5" style="height:12px;line-height:12px;">05</li><li class="dw-v" data-val="6" style="height:12px;line-height:12px;">06</li><li class="dw-v" data-val="7" style="height:12px;line-height:12px;">07</li><li class="dw-v" data-val="8" style="height:12px;line-height:12px;">08</li><li class="dw-v" data-val="9" style="height:12px;line-height:12px;">09</li><li class="dw-v" data-val="10" style="height:12px;line-height:12px;">10</li><li class="dw-v" data-val="11" style="height:12px;line-height:12px;">11</li><li class="dw-v" data-val="12" style="height:12px;line-height:12px;">12</li><li class="dw-v" data-val="13" style="height:12px;line-height:12px;">13</li><li class="dw-v" data-val="14" style="height:12px;line-height:12px;">14</li><li class="dw-v" data-val="15" style="height:12px;line-height:12px;">15</li><li class="dw-v" data-val="16" style="height:12px;line-height:12px;">16</li><li class="dw-v" data-val="17" style="height:12px;line-height:12px;">17</li><li class="dw-v" data-val="18" style="height:12px;line-height:12px;">18</li><li class="dw-v" data-val="19" style="height:12px;line-height:12px;">19</li><li class="dw-v" data-val="20" style="height:12px;line-height:12px;">20</li><li class="dw-v" data-val="21" style="height:12px;line-height:12px;">21</li><li class="dw-v" data-val="22" style="height:12px;line-height:12px;">22</li><li class="dw-v" data-val="23" style="height:12px;line-height:12px;">23</li><li class="dw-v" data-val="24" style="height:12px;line-height:12px;">24</li><li class="dw-v" data-val="25" style="height:12px;line-height:12px;">25</li><li class="dw-v" data-val="26" style="height:12px;line-height:12px;">26</li><li class="dw-v" data-val="27" style="height:12px;line-height:12px;">27</li><li class="dw-v" data-val="28" style="height:12px;line-height:12px;">28</li><li class="dw-v" data-val="29" style="height:12px;line-height:12px;">29</li><li class="dw-v" data-val="30" style="height:12px;line-height:12px;">30</li><li class="dw-v" data-val="31" style="height:12px;line-height:12px;">31</li><li class="dw-v" data-val="32" style="height:12px;line-height:12px;">32</li><li class="dw-v" data-val="33" style="height:12px;line-height:12px;">33</li><li class="dw-v" data-val="34" style="height:12px;line-height:12px;">34</li><li class="dw-v" data-val="35" style="height:12px;line-height:12px;">35</li><li class="dw-v" data-val="36" style="height:12px;line-height:12px;">36</li><li class="dw-v" data-val="37" style="height:12px;line-height:12px;">37</li><li class="dw-v" data-val="38" style="height:12px;line-height:12px;">38</li><li class="dw-v" data-val="39" style="height:12px;line-height:12px;">39</li><li class="dw-v" data-val="40" style="height:12px;line-height:12px;">40</li><li class="dw-v" data-val="41" style="height:12px;line-height:12px;">41</li><li class="dw-v" data-val="42" style="height:12px;line-height:12px;">42</li><li class="dw-v" data-val="43" style="height:12px;line-height:12px;">43</li><li class="dw-v" data-val="44" style="height:12px;line-height:12px;">44</li><li class="dw-v" data-val="45" style="height:12px;line-height:12px;">45</li><li class="dw-v" data-val="46" style="height:12px;line-height:12px;">46</li><li class="dw-v" data-val="47" style="height:12px;line-height:12px;">47</li><li class="dw-v" data-val="48" style="height:12px;line-height:12px;">48</li><li class="dw-v" data-val="49" style="height:12px;line-height:12px;">49</li><li class="dw-v" data-val="50" style="height:12px;line-height:12px;">50</li><li class="dw-v" data-val="51" style="height:12px;line-height:12px;">51</li><li class="dw-v" data-val="52" style="height:12px;line-height:12px;">52</li><li class="dw-v" data-val="53" style="height:12px;line-height:12px;">53</li><li class="dw-v" data-val="54" style="height:12px;line-height:12px;">54</li><li class="dw-v" data-val="55" style="height:12px;line-height:12px;">55</li><li class="dw-v" data-val="56" style="height:12px;line-height:12px;">56</li><li class="dw-v" data-val="57" style="height:12px;line-height:12px;">57</li><li class="dw-v" data-val="58" style="height:12px;line-height:12px;">58</li><li class="dw-v" data-val="59" style="height:12px;line-height:12px;">59</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td><td><div class="dwwl dwrc"><div class="dwl">AM/PM</div><div class="dww dwrc" style="height:36px;min-width:24px;"><ul style="-webkit-transform:translate3d(0,12px,0);"><li class="dw-v" data-val="0" style="height:12px;line-height:12px;">AM</li><li class="dw-v" data-val="1" style="height:12px;line-height:12px;">PM</li></ul><div class="dwwo"></div></div><div class="dwwol"></div></div></td></tr></tbody></table></div></div><div class="dwcc"></div></div></div></div>
+                            <div id="tf1_dateTimePickerEnd"></div>
+                        </div>
+                        <div class="break" id="break13_div">
+                            &nbsp;
+                        </div>
+					</div>
+                    
+                    <h2>Days of Week</h2>
+                    <div class="configRow" id="tf1_daySelect_div">
+                        <label>
+                            Days of Week
+                        </label>
+                        <select name="DaysType" size="1" id="tf1_daySelect" onchange="selectDay()">
+                            <option value="1">
+                            Entire Week
+                            </option>
+
+                            <option value="2">
+                            Weekends
+                            </option>                            
+
+                            <option value="3">
+                            Weekdays 
+                            </option>
+
+                            <option value="4">
+                            Custom
+                            </option>
+                        </select>
+                    </div>
+                    <div class="break" id="break1_div">
+                        &nbsp;
+                    </div>
+
+                    <div class="hide" id="tf1_monday_div">
+                        <label> &nbsp; </label>
+                        <p class="five">
+                        <span>Monday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png">
+                        <input name="DayOfWeek.monday" value="0" id="tf1_monday" disabled="" type="hidden">
+                        </p>
+                        <p class="five">
+                        <span>Tuesday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png">
+                        <input name="DayOfWeek.tuesday" value="0" id="tf1_tuesday" disabled="" type="hidden">
+                        </p>
+                    </div>
+                    <div class="break" id="break3_div"> &nbsp;</div>
+
+                    <div class="hide" id="tf1_wednesday_div">
+                        <label> &nbsp; </label>
+                        <p class="five">
+                        <span>Wednesday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png"> 
+                        <input name="DayOfWeek.wednesday" value="0" id="tf1_wednesday" disabled="" type="hidden">
+                        </p>
+                        <p class="five">
+                        <span>Thursday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png"> 
+                        <input name="DayOfWeek.thursday" value="0" id="tf1_thursday" disabled="" type="hidden">
+                        </p>
+                    </div>
+                    <div class="break" id="break5_div">&nbsp;</div>
+
+                    <div class="hide" id="tf1_friday_div">
+                        <label> &nbsp; </label>
+                        <p class="five">
+                        <span>Friday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png"> 
+                        <input name="DayOfWeek.friday" value="0" id="tf1_friday" disabled="" type="hidden">
+                        </p>
+                        <p class="five">
+                        <span>Saturday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png">
+                        <input name="DayOfWeek.saturday" value="0" id="tf1_saturday" disabled="" type="hidden">
+                        </p>
+                    </div>
+                    <div class="break" id="break7_div"> &nbsp;</div>
+
+                    <div class="hide" id="tf1_sunday_div">
+                         <label> &nbsp; </label>
+                        <p class="five">
+                        <span>Sunday</span>
+                        
+                        <img class="enable-disable" src="images/button_off.png">
+                        <input name="DayOfWeek.sunday" value="0" id="tf1_sunday" disabled="" type="hidden">
+                        </p>
+                    </div>
+                    <div class="break" id="break8_div"> &nbsp;</div>
+                </div>
+
+                <div class="dialogSubmitRow">
+                    <input class="btnSubmit" title="Save" value="Save" onclick="return schedulesConfigValidate('tf1_schedules')" name="button.config.schedules.schedules.-1" type="submit">  
+                </div>
+								
+<!-- (end) add or edit form -->
+
+
+</div>
   </form>
   <!-- Section for Pop up dialog ends --><!-- Right click Div Start -->
   <div class="contextMenu" id="contextMenu">
@@ -234,208 +234,210 @@
         <td class="header" valign="top" align="center">
           <!--webbot bot="Include" u-include="header.html" tag="BODY" startspan -->
   <div align="center">
-    <table border="0" cellpadding="0" cellspacing="0" width="980px">	
-      <tr>
-        <td class="header" valign="top" align="center">
-          <div align="center">
-            <div class="midWidth">
-              <div class="logo FL">&nbsp;</div>
-              <div class="FR headerRight">
-                <table border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td valign="top"><h4 class="FR">Logged in as:</h4></td>
-                    <td valign="top"><h5 class="FR"><label id="lblLoggedinUser" title="admin">admin</label>(admin)</h5></td>
-                    <td valign="top"><a class="btnLogout" href="index.html"><div><div>Logout </div></div></a></td>
-                  </tr>
-                  <tr>
-                    <td valign="top"><h4 class="FR">Firmware Version:</h4></td>
-                    <td valign="top" colspan="2"><h5 class="FR">FHMTF1_JCO300_R1.4</h5></td>
-                  </tr>
-                  <tr>
-                    <td valign="top"><h4 class="FR">Serial Number:</h4></td>
-                    <td valign="top" colspan="2"><h5 class="FR">RWUOTEC6FF9B9A0</h5></td>
-                  </tr>
-                </table>
-              </div>
-              <div class="menuBg">
+    <div class="midWidth">
+      <div class="logo FL">&nbsp;</div>
+      <div class="FR headerRight">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top"><h4 class="FR">Logged in as:</h4></td>
+            <td valign="top"><h5 class="FR"><label id="lblLoggedinUser" title="admin">admin</label>(admin)</h5></td>
+            <td valign="top">
+              <a class="btnLogout" href="index.html">
                 <div>
-                  <nav id="topNav">
-                    <ul>
-                      <li class="main start"><a class="nolink" href="javascript:void(0)" id="mainMenu1">Status<span></span></a>
-                        <ul class="menuone">
-                          <li><a href="dashboard.html" >Dashboard</a></li>
-                          <li><a href="deviceStatus.html" >Device Status</a></li>
-                          <li><a href="deviceStatistics.html" >Device Statistics</a></li>
-                          <li class="submain"><a href="javascript:void(0)" class="nolink">LAN Clients <span></span></a>
-                            <ul class="two">
-                              <li><a href="lanDhcpLeasedClients.html">Active LAN Clients</a></li>
-                              <li><a href="lanDhcpV6LeasedClients.html">DHCPv6</a> </li> 
-                            </ul>
-                          </li>
-                          <li><a href="wirelessStatistics.html" >WLAN Statistics</a></li>
-                          <li><a href="wirelessClients.html" >WLAN Clients</a></li>
-                        </ul>
-                      </li>
-                      <li class="main"><a class="nolink" href="javascript:void(0)" id="mainMenu2">Network<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain"><a class="nolink" href="javascript:void(0)">LAN<span></span></a>
-                            <ul class="two">
-                              <li><a href="lanIPv4Config.html" >LAN IPv4 Configuration</a> </li>
-                              <li><a href="lanIPv4ReservedIPs.html" >LAN IPv4 Reserved IPs</a> </li>
-                              <li><a href="lanIPv6Config.html" >LAN IPv6 Configuration</a> </li>
-                              <li><a href="vlanSettings.html" >Available VLANs</a> </li>
-                              <li><a href="portVlan.html" >VLAN Membership</a> </li>
-                            </ul>									
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">WAN<span></span></a>
-                            <ul class="two">
-                              <li><a href="wanIPv4Config.html" >WAN IPv4 Configuration</a> </li>
-                              <li><a href="wanIpv6Config.html" >WAN IPv6 Configuration</a> </li>
-                              <li><a href="eogre.html" >EoGRE</a> </li>
-                            </ul>
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Wireless<span></span></a>
-                            <ul class="two">
-                              <li><a href="accessPoints.html" >Access Points</a></li>
-                              <li><a href="profiles.html" >Profiles</a></li>
-                              <li><a href="wps.html" >WPS</a></li>
-                            </ul>
-                          </li>
-                          <li class="submain"><a class="nolink" href="javascript:void(0)">IPv6<span></span></a>
-                            <ul class="two">
-                              <li><a href="ipMode.html" >IP Mode</a></li>
-                            </ul>
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Routing<span></span></a>
-                            <ul class="two">
-                              <li><a href="routingMode.html" >Routing Mode</a></li>
-                              <li><a href="staticRouting.html" >Static Routing</a></li>
-                              <li><a href="ipv6Routing.html" >IPv6 Routing</a> </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="main">
-                        <a class="nolink" href="javascript:void(0)" id="mainMenu4">Security<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Firewall<span></span></a>
-                            <ul class="two">
-                              <li><a href="defaultPolicy.html" >Default Policy</a></li>
-                              <li><a href="firewallRules.html" >Firewall Rules</a></li>
-                              <li><a href="customServices.html" >Custom Services</a></li>
-                              <li><a href="portForwarding.html" >Port Forwarding</a></li>
-                              <li><a href="clientAccessControl.html" >Client Access Control</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="alg.html">ALG</a></li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Content Filtering<span></span></a>
-                            <ul class="two">
-                              <li><a href="contentFiltering.html" >Content Filtering</a></li>
-                              <li><a href="blockedKeywords.html" >Blocked Keywords</a></li>
-                              <li><a href="approvedUrls.html" >Approved URLs</a></li>
-                              <li><a href="exportWebFilter.html" >Export Web Filter</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="vpnPassthrough.html">VPN Passthrough</a></li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Attack Checks<span></span></a>
-                            <ul class="two">
-                              <li><a href="specificAttacks.html" >Specific Attacks</a></li>
-                              <li><a href="dosDDoSPrevention.html" >DoS / DDoS Preventions</a></li>
-                              <li><a href="p2pSessionLimitation.html" >P2P Session Limitation</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="main">
-                        <a class="nolink" href="javascript:void(0)" id="mainMenu5">Administration<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain">
-                            <a href="users.html">Users</a></li>
-                            <li><a href="remoteManagement.html" >Remote Management</a></li>
-                            <li><a href="webManagement.html" >Web Management</a></li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Maintenance<span></span></a>
-                              <ul class="two">
-                                <li><a href="backupRestore.html">Backup / Restore</a></li>
-                                <li><a href="upgradeViaNetwork.html">Upgrade Via Network</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="diagnostics.html">Diagnostics</a></li>
-                            <li><a href="dateAndTime.html">Date &amp; Time</a></li>									
-                          </ul>
-                        </li>
-                        <li class="main"> <a class="nolink" href="javascript:void(0)" id="mainMenu7">Advanced<span></span></a>
-                          <ul class="menuone">
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Status <span></span></a>
-                              <ul class="two">
-                                <li><a href="accountingStatus.html" >Accounting Status</a></li>
-                                <li><a href="maptAvailablePorts.html" >MAP-T Available Ports</a></li>
-                                <li><a href="maptPortStats.html" >MAP-T Port Statistics </a></li>
-                              </ul>
-                            </li>
-                            <li><a href="serverSettings.html">DMS Server Settings</a></li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Network <span></span></a>
-                              <ul class="two">
-                                <li><a href="maptConfiguration.html" >MAP-T Configuration</a></li>
-                                <li><a href="bridgeMode.html" >Bridge Mode</a></li>
-                                <li><a href="upnpConfig.html" >UPnP Configuration</a></li>
-                                <li><a href="igmpProxySetup.html" >IGMP Proxy Setup</a></li>
-                                <li><a href="dmzHost.html" >DMZ Host</a></li>
-                              </ul>
-                            </li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Security <span></span></a>
-                              <ul class="two">
-                                <li><a href="unauthorizedUsage.html" >Unauthorized Usage</a></li>
-                              </ul>
-                            </li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Administration <span></span></a>
-                              <ul class="two">
-                                <li><a href="remoteSysLogSetup.html" >Remote Syslog Setup</a></li>
-                                <li><a href="disks.html">Storage Devices</a></li>
-                                <li><a href="accounting.html">Accounting</a></li>
-                                <li><a href="radiusConfig.html" >Radius Server Configuration</a></li>
-                                <li><a href="userAccessPortalSession.html" >Users Access Portal Session</a></li>
-                                <li><a href="userAccessPortalSetup.html">Users Access Portal Setup</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="bandwidthProfiles.html" >Bandwidth Profiles</a></li>
-                            <li><a href="trafficSelectors.html" >Traffic Selectors</a></li>
-                            <li><a href="schedules.html" >Schedules</a></li>
-                            <li><a href="ftpServer.html" >FTP Server</a></li>
-                          </ul>
-                        </li>
-                        <li class="main end">&nbsp;</li>
+                  <div>Logout </div>
+                </div>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><h4 class="FR">Firmware Version:</h4></td>
+            <td valign="top" colspan="2"><h5 class="FR">FHMTF1_JCO300_R1.4</h5></td>
+          </tr>
+          <tr>
+            <td valign="top"><h4 class="FR">Serial Number:</h4></td>
+            <td valign="top" colspan="2"><h5 class="FR">RWUOTEC6FF9B9A0</h5></td>
+          </tr>
+        </table>
+      </div>
+      <div class="menuBg">
+        <div>
+          <nav id="topNav">
+            <ul>
+              <li class="main start"><a class="nolink" href="javascript:void(0)" id="mainMenu1">Status<span></span></a>
+                <ul class="menuone">
+                  <li><a href="dashboard.html" >Dashboard</a></li>
+                  <li><a href="deviceStatus.html" >Device Status</a></li>
+                  <li><a href="deviceStatistics.html" >Device Statistics</a></li>
+                  <li class="submain"><a href="javascript:void(0)" class="nolink">LAN Clients <span></span></a>
+                    <ul class="two">
+                      <li><a href="lanDhcpLeasedClients.html">Active LAN Clients</a></li>
+                      <li><a href="lanDhcpV6LeasedClients.html">DHCPv6</a> </li> 
+                    </ul>
+                  </li>
+                  <li><a href="wirelessStatistics.html" >WLAN Statistics</a></li>
+                  <li><a href="wirelessClients.html" >WLAN Clients</a></li>
+                </ul>
+              </li>
+              <li class="main"><a class="nolink" href="javascript:void(0)" id="mainMenu2">Network<span></span></a>
+                <ul class="menuone">
+                  <li class="submain"><a class="nolink" href="javascript:void(0)">LAN<span></span></a>
+                    <ul class="two">
+                      <li><a href="lanIPv4Config.html" >LAN IPv4 Configuration</a> </li>
+                      <li><a href="lanIPv4ReservedIPs.html" >LAN IPv4 Reserved IPs</a> </li>
+                      <li><a href="lanIPv6Config.html" >LAN IPv6 Configuration</a> </li>
+                      <li><a href="vlanSettings.html" >Available VLANs</a> </li>
+                      <li><a href="portVlan.html" >VLAN Membership</a> </li>
+                    </ul>									
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">WAN<span></span></a>
+                    <ul class="two">
+                      <li><a href="wanIPv4Config.html" >WAN IPv4 Configuration</a> </li>
+                      <li><a href="wanIpv6Config.html" >WAN IPv6 Configuration</a> </li>
+                      <li><a href="eogre.html" >EoGRE</a> </li>
+                    </ul>
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Wireless<span></span></a>
+                    <ul class="two">
+                      <li><a href="accessPoints.html" >Access Points</a></li>
+                      <li><a href="profiles.html" >Profiles</a></li>
+                      <li><a href="wps.html" >WPS</a></li>
+                    </ul>
+                  </li>
+                  <li class="submain"><a class="nolink" href="javascript:void(0)">IPv6<span></span></a>
+                    <ul class="two">
+                      <li><a href="ipMode.html" >IP Mode</a></li>
+                    </ul>
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Routing<span></span></a>
+                    <ul class="two">
+                      <li><a href="routingMode.html" >Routing Mode</a></li>
+                      <li><a href="staticRouting.html" >Static Routing</a></li>
+                      <li><a href="ipv6Routing.html" >IPv6 Routing</a> </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="main">
+                <a class="nolink" href="javascript:void(0)" id="mainMenu4">Security<span></span></a>
+                <ul class="menuone">
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Firewall<span></span></a>
+                    <ul class="two">
+                      <li><a href="defaultPolicy.html" >Default Policy</a></li>
+                      <li><a href="firewallRules.html" >Firewall Rules</a></li>
+                      <li><a href="customServices.html" >Custom Services</a></li>
+                      <li><a href="portForwarding.html" >Port Forwarding</a></li>
+                      <li><a href="clientAccessControl.html" >Client Access Control</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="alg.html">ALG</a></li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Content Filtering<span></span></a>
+                    <ul class="two">
+                      <li><a href="contentFiltering.html" >Content Filtering</a></li>
+                      <li><a href="blockedKeywords.html" >Blocked Keywords</a></li>
+                      <li><a href="approvedUrls.html" >Approved URLs</a></li>
+                      <li><a href="exportWebFilter.html" >Export Web Filter</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="vpnPassthrough.html">VPN Passthrough</a></li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Attack Checks<span></span></a>
+                    <ul class="two">
+                      <li><a href="specificAttacks.html" >Specific Attacks</a></li>
+                      <li><a href="dosDDoSPrevention.html" >DoS / DDoS Preventions</a></li>
+                      <li><a href="p2pSessionLimitation.html" >P2P Session Limitation</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="main">
+                <a class="nolink" href="javascript:void(0)" id="mainMenu5">Administration<span></span></a>
+                <ul class="menuone">
+                  <li class="submain">
+                    <a href="users.html">Users</a></li>
+                    <li><a href="remoteManagement.html" >Remote Management</a></li>
+                    <li><a href="webManagement.html" >Web Management</a></li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Maintenance<span></span></a>
+                      <ul class="two">
+                        <li><a href="backupRestore.html">Backup / Restore</a></li>
+                        <li><a href="upgradeViaNetwork.html">Upgrade Via Network</a></li>
                       </ul>
-                    </nav>
-                  </div>			 
-                  <div class="FR rilSearch">
-                    <input id="menu1" class="rilSearchText" size="200" name="rilSearch" value="Menu Search..." onfocus="watermark('menu1','Menu Search...');" onblur="watermark('menu1','Menu Search...');" />
-                    <div id="menuList" class="menuSearchTf1">
-                    </div>
-                  </div>			 
-                </div>
-                <div class="breadCrumb">
-                  <div id="breadCrumb">
-                  </div>
-                  <div class="help">
-                    <a id="link" HREF="javascript:void(0)" style="visibility:hidden;position:absolute;"></a>
-                    <a class="helpButton" href="javascript:void(0)"><div><div>Help </div></div></a></div>
-                  </div>
-                </div>
-              </div>
-              <input type="hidden"  id="tf1_hidden_hgwModelName" value="1"> 
+                    </li>
+                    <li><a href="diagnostics.html">Diagnostics</a></li>
+                    <li><a href="dateAndTime.html">Date &amp; Time</a></li>									
+                  </ul>
+                </li>
+                <li class="main"> <a class="nolink" href="javascript:void(0)" id="mainMenu7">Advanced<span></span></a>
+                  <ul class="menuone">
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Status <span></span></a>
+                      <ul class="two">
+                        <li><a href="accountingStatus.html" >Accounting Status</a></li>
+                        <li><a href="maptAvailablePorts.html" >MAP-T Available Ports</a></li>
+                        <li><a href="maptPortStats.html" >MAP-T Port Statistics </a></li>
+                      </ul>
+                    </li>
+                    <li><a href="serverSettings.html">DMS Server Settings</a></li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Network <span></span></a>
+                      <ul class="two">
+                        <li><a href="maptConfiguration.html" >MAP-T Configuration</a></li>
+                        <li><a href="bridgeMode.html" >Bridge Mode</a></li>
+                        <li><a href="upnpConfig.html" >UPnP Configuration</a></li>
+                        <li><a href="igmpProxySetup.html" >IGMP Proxy Setup</a></li>
+                        <li><a href="dmzHost.html" >DMZ Host</a></li>
+                      </ul>
+                    </li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Security <span></span></a>
+                      <ul class="two">
+                        <li><a href="unauthorizedUsage.html" >Unauthorized Usage</a></li>
+                      </ul>
+                    </li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Administration <span></span></a>
+                      <ul class="two">
+                        <li><a href="remoteSysLogSetup.html" >Remote Syslog Setup</a></li>
+                        <li><a href="disks.html">Storage Devices</a></li>
+                        <li><a href="accounting.html">Accounting</a></li>
+                        <li><a href="radiusConfig.html" >Radius Server Configuration</a></li>
+                        <li><a href="userAccessPortalSession.html" >Users Access Portal Session</a></li>
+                        <li><a href="userAccessPortalSetup.html">Users Access Portal Setup</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="bandwidthProfiles.html" >Bandwidth Profiles</a></li>
+                    <li><a href="trafficSelectors.html" >Traffic Selectors</a></li>
+                    <li><a href="schedules.html" >Schedules</a></li>
+                    <li><a href="ftpServer.html" >FTP Server</a></li>
+                  </ul>
+                </li>
+                <li class="main end">&nbsp;</li>
+              </ul>
+            </nav>
+          </div>			 
+          <div class="FR rilSearch">
+            <input id="menu1" class="rilSearchText" size="200" name="rilSearch" value="Menu Search..." onfocus="watermark('menu1','Menu Search...');" onblur="watermark('menu1','Menu Search...');" />
+            <div id="menuList" class="menuSearchTf1">
             </div>
-          <!--webbot bot="Include" i-checksum="61167" endspan -->
+          </div>			 
+        </div>
+        <div class="breadCrumb">
+          <div id="breadCrumb">
+          </div>
+          <div class="help">
+            <a id="link" HREF="javascript:void(0)" style="visibility:hidden;position:absolute;"></a>
+            <a class="helpButton" href="javascript:void(0)"><div><div>Help </div></div></a></div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden"  id="tf1_hidden_hgwModelName" value="1"> 
+      <input type="hidden"  id="tf1_hidden_gponStatus" value="1"> 
+    <!--webbot bot="Include" i-checksum="9267" endspan -->
         </td>
       </tr>
       <tr>
@@ -634,9 +636,9 @@
     <div class="msgInfoLoading loadingDialog" id="tf1_pageLoadingMask">
       <p> Loading Please wait..! </p>
     </div>
-    <script src="js/loadingStatus.js">
+    <script type="text/javascript" language="javascript" src="js/loadingStatus.js">
     </script>
-    <script  charset="utf-8">
+    <script type="text/javascript" language="javascript"  charset="utf-8">
     $(document).ready(function() {
       window.onresize = function(event){
         var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;
@@ -665,18 +667,18 @@
 <![endif]-->
 <!--webbot bot="Include" i-checksum="4293" endspan -->
   
-  <script src="js/jquery.dataTables.min.js"></script>
-  <script src="js/contextMenu.js"></script>
-  <script src="js/mis.js"> </script>
-  <script src="js/menu.js"> </script>
-  <script src="js/textValidations.js"></script>
-  <script src="js/macValidations.js"></script>
-  <script src="js/mgmt.js"></script>
-  <script src="js/menuSearchList.js"></script>
-  <script src="js/menuSearch.js"></script>
-  <script src="js/schedules.js"></script>
-  <script src="js/dateTimePicker.js"></script>
-  <script  charset="utf-8">
+  <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript" src="js/contextMenu.js"></script>
+  <script type="text/javascript" language="javascript" src="js/mis.js"> </script>
+  <script type="text/javascript" language="javascript" src="js/menu.js"> </script>
+  <script type="text/javascript" language="javascript" src="js/textValidations.js"></script>
+  <script type="text/javascript" language="javascript" src="js/macValidations.js"></script>
+  <script type="text/javascript" language="javascript" src="js/mgmt.js"></script>
+  <script type="text/javascript" language="javascript" src="js/menuSearchList.js"></script>
+  <script type="text/javascript" language="javascript" src="js/menuSearch.js"></script>
+  <script type="text/javascript" language="javascript" src="js/dateTimePicker.js"></script>
+  <script type="text/javascript" language="javascript" src="js/schedules.js"></script>
+  <script type="text/javascript" language="javascript"  charset="utf-8">
   $(document).ready(function(){
     
     $('.gradeA').contextMenu('contextMenu', {

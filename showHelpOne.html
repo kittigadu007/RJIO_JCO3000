@@ -1,0 +1,205 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Reliance Industries Limited : </title>
+	<!--
+	Copyright (c) 2010 - 2012 TeamF1, Inc. All rights reserved.
+-->
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" language="javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/menu.js"></script>
+<script type="text/javascript" language="javascript"  >
+
+function getHelpInfo (){
+	var request = null;	
+	var helpDiv = document.getElementById("tf1_helpDiv");
+	/* Code for Safari browser extra space adjusting Starts */
+	var ua = navigator.userAgent.toLowerCase(); 
+	if (ua.indexOf('safari') != -1) { 
+		if (ua.indexOf('chrome') > -1) {
+			// Chrome
+		} 
+		else {  
+			document.getElementById('tf1_helpDiv').style.height = "280px";
+		}
+	}
+	/* Code for Safari browser extra space adjusting ends */
+	try 
+	{  // Firefox, Opera 8.0+, Safari
+		request=new XMLHttpRequest();
+	}
+	catch (e)
+	{	// Internet Explorer
+		try
+		{
+			request=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e)
+		{
+			try
+			{
+				request=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch (e)
+			{
+				window.status = "Your browser does not support AJAX!";
+				return false;
+			}
+		}
+	}
+	request.onreadystatechange=function()
+	{
+		if(request.readyState==4)
+		{
+			helpDiv.innerHTML = request.responseText + " ";
+			/* Added Chnages to show H1 tag above help scrolling div */
+			h1Tagtext = $(helpDiv).find('h1').text() ;
+			$("#tf1_headingdyn").html(h1Tagtext);
+			$(helpDiv).find('h1').hide();
+			$(helpDiv).find('si:first').hide();
+			$("h1 + si:first").hide();
+			/* Added Chnages to show H1 tag above help scrolling div */
+		}
+	}
+//	request.open("GET","?page=getHelp.html" + window.location.href.substr (window.location.href.indexOf ("&")) + "&time" + new Date(),true);
+	// request.send(null);
+}
+
+
+</script>
+<meta http-equiv="X-Frame-Options" content="deny">
+<style>
+html {
+	display: none;
+}
+</style>
+<script>
+if(self == top) {
+	document.documentElement.style.display = 'block'; 
+} else {
+	top.location = self.location; 
+}
+</script>
+
+</head>
+<body onload="getHelpInfo ()" style="margin-bottom: 0 !important">
+	
+	
+	<div align="center">
+		<table border="0" cellpadding="0" cellspacing="0" width="95%">
+			<tr>
+				<td valign="top" align="center">
+					<div align="center">
+						<div class="midWidthHelp">
+							<div class="logoHelp FL">
+								&nbsp;</div>
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="midBg helpMidBg" valign="top" align="center">
+						<div class="midWidthHelp">
+							<h1 id="tf1_headingdyn">User Access Portal Setup</h1>
+							<div class="midAreaHelp">
+								<div align="left" class="helpContentArea" id="tf1_helpDiv">
+<si style="display: none;"></si><h1 style="display: none;">User Access Portal Setup</h1><si style="display: none;"></si><b>User Access Portal Enable</b>: Enabling this will Block traffic coming from LAN Network.<si></si><b>User Access Portal Profile</b>: Profiles can be used for User Access Portal Login page.<si></si><b>Redirection Type</b>: Allows the user to configure traffic redirection for http or https traffic.<si></si><b>Save</b>:  Click to save the settings.<si></si><b>Cancel</b>:  Click to revert to the previous settings.<si></si><h2>List of Available Profiles</h2><si></si>Any one of these profiles can be used for User Access Portal Login page while enabling User Access Portal.<si></si><b>Profile Name</b>: Name of the profiles that are available.<si></si><b>Status</b>: Lets user know if the profile is in use or not.<si></si>The actions that can be performed on profiles are:<si></si><b>Select All</b>: Selects all the profiles in the table.<si></si><b>Edit</b>:  The Edit button will link to the User Access Portal Profile Configuration page, allowing you to make changes to the selected profile. The Default Profile cannot be edited.<si></si><b>Delete</b>:  Deletes the selected profile. The default profile and the current profile being used, cannot be deleted.<si></si><b>Add</b>:  Clicking this button will link to the User Access Portal Profile Configuration page. Maximum allowed number of profiles is 5, excluding the default one.<si></si><b>Preview</b>:  Shows preview of the page, if a profile is selected.<si></si><si></si><h2>User Access Portal Configuration</h2><si></si>User Access Portal login page display can be altered by modifying the configuration.<si></si><h2>General Details</h2><si></si><b>Profile Name</b>:  Name of the profile that is being added.<si></si><b>Browser Title</b>:  It is the browser title.<si></si><b>Page Background Color</b>:  Choose the background color for the page from list. Choose 'Custom' to mention a custom color.<si></si><b>Custom Color</b>:  If page background color selected as 'Custom', mention the custom color in hexadecimal notation (HEX) for the combination of Red, Green, and Blue color values (RGB) like #FFFFFF. <si></si><h2>Header Details</h2><si></si>It allows user to configure how the header portion of the page should be displayed.<si></si><b>Header Logo Image</b>:  Sets the logo for the header portion.<si></si><b>Add</b>: Will let you add a new image. This image can be set as header image for this profile.<si></si><b>Header Caption</b>: Text to be displayed in the header portion.<si></si><b>Caption Font</b>:  Font for the header text to be displayed.<si></si><b>Font Size</b>:  Font size for the header text to be displayed.<si></si><b>Font Color</b>:  Color in which the text is to be displayed.<si></si><h2>Login Details</h2><si></si>It allows user to configure how the Login Area of the page should be displayed.<si></si><b>Login Section Title</b>: Title for the Login Box<si></si><b>Welcome Message</b>: Message which is displayed when a user visits the page.<si></si><b>Error Message</b>: Error Message displayed when user enters invalid credentials.<si></si><h2>Advertisement Details</h2><si></si>It allows user to configure advertisements on the page.<si></si><b>Enable Advertisement</b>:  Choose this to enable advertising on the page. <si></si><b>Ad Place</b>:  Choose the position (left / right) to place the Advertisement. <si></si><b>Ad Content</b>:  Write advertisement information here. <si></si><b>Font</b>:  Font for the information to be displayed.<si></si><b>Font Size</b>:  Font size for the information to be displayed.<si></si><b>Font Color</b>: Color in which the information is to be displayed.<si></si><h2>Footer Details</h2><si></si>It allows user to configure the footer portion of the page.<si></si><b>Change Footer Content</b>:  Choose this to enable footer portion in the page. <si></si><b>Footer Content</b>:  Write the footer content here. <si></si><b>Footer Font Color</b>: Color in which the footer is to be displayed.<si></si>Click <b>Save</b> to save your changes.<si></si>Click <b>Cancel</b> to revert to the previous settings.<si></si><h3>Following drop down/buttons are available for assisting in pagination</h3> <si></si><b>Show 10/25/50/100 entries</b> Allows the user to select to display 10/25/50/100 entries in one page.<si></si><b>First</b> Navigates to the first page of the displayed entries.<si></si><b>Previous</b> Navigates to the previous page of the displayed entries.<si></si><b>Next</b> Navigates to the next page of the displayed entries.<si></si><b>Last</b> Navigates to the last page of the displayed entries.<si></si>
+ </div>
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>	
+		<div id="footerHelp">
+			<div class="footerContainer">
+				<div class="copyright"> &#169; 2016 TeamF1, Inc. All Rights Reserved.</div>
+				<div class="footerBottom">
+					<!-- Block One Starts here -->
+					<div class="blockOne">
+						<div class="lineOne blockOneBg"></div>
+						<div class="lineTwo blockOneBg"></div>
+						<div class="lineThree blockOneBg"></div>
+						<div class="lineFour blockOneBg"></div>
+						<div class="lineFive blockOneBg"></div>			
+					</div>
+					<!-- Block One Ends here -->
+					<!-- BlockTwo Starts here -->			
+					<div class="blockTwo">
+						<div class="lineOne blockTwoBg"></div>
+						<div class="lineTwo blockTwoBg"></div>
+						<div class="lineThree blockTwoBg"></div>
+						<div class="lineFour blockTwoBg"></div>
+						<div class="lineFive blockTwoBg"></div>
+					</div>
+					<!-- BlockTwo Ends here -->	
+					<!-- BlockThree Starts here -->
+					<div class="blockThree">
+						<div class="lineOne blockThreeBg"></div>
+						<div class="lineTwo blockThreeBg"></div>
+						<div class="lineThree blockThreeBg"></div>
+						<div class="lineFour blockThreeBg"></div>
+						<div class="lineFive blockThreeBg"></div>
+					</div>
+					<!-- BlockThree Ends here -->
+					<!-- BlockFour Starts here -->
+					<div class="blockFour">
+						<div class="lineOne blockFourBg"></div>
+						<div class="lineTwo blockFourBg"></div>
+						<div class="lineThree blockFourBg"></div>
+						<div class="lineFour blockFourBg"></div>
+						<div class="lineFive blockFourBg"></div>
+					</div>
+					<!-- BlockFour Ends here -->
+					<!-- BlockFive Starts here -->
+					<div class="blockFive">
+						<div class="lineOne blockFiveBg"></div>
+						<div class="lineTwo blockFiveBg"></div>
+						<div class="lineThree blockFiveBg"></div>
+						<div class="lineFour blockFiveBg"></div>
+						<div class="lineFive blockFiveBg"></div>
+					</div>
+					<!-- BlockFive Ends here -->
+					<!-- BlockSix Starts here -->
+					<div class="blockSix">
+						<div class="lineOne blockSixBg"></div>
+						<div class="lineTwo blockSixBg"></div>
+						<div class="lineThree blockSixBg"></div>
+						<div class="lineFour blockSixBg"></div>
+						<div class="lineFive blockSixBg"></div>
+					</div>
+					<!-- BlockSix Ends here -->
+					<!-- BlockSeven Starts here -->
+					<div class="blockSeven">
+						<div class="lineOne blockSevenBg"></div>
+						<div class="lineTwo blockSevenBg"></div>
+						<div class="lineThree blockSevenBg"></div>
+						<div class="lineFour blockSevenBg"></div>
+						<div class="lineFive blockSevenBg"></div>
+					</div>
+					<!-- BlockSeven Ends here -->
+					<!-- BlockEight Starts here -->
+					<div class="blockEight">
+						<div class="lineOne blockEightBg"></div>
+						<div class="lineTwo blockEightBg"></div>
+						<div class="lineThree blockEightBg"></div>
+						<div class="lineFour blockEightBg"></div>
+						<div class="lineFive blockEightBg"></div>
+					</div>	
+					<!-- BlockEight Ends here -->
+					<!-- Blocknine Starts here -->
+					<div class="blockNine">
+						<div class="lineOne blockNineBg"></div>
+						<div class="lineTwo blockNineBg"></div>
+						<div class="lineThree blockNineBg"></div>
+						<div class="lineFour blockNineBg"></div>
+						<div class="lineFive blockNineBg"></div>
+					</div>
+					<!-- Blocknine Ends here -->
+				</div></div>
+			</div>
+			
+		</body>
+		</html>

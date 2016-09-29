@@ -14,18 +14,171 @@
 <link rel="stylesheet" type="text/css" href="css/menu.css" />
 <link rel="stylesheet" type="text/css" href="css/table.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
-<script src="js/jquery-1.8.0.min.js"></script> 
+<script type="text/javascript" language="javascript" src="js/jquery-1.8.0.min.js"></script> 
 <meta http-equiv="X-Frame-Options" content="deny">         
 </head>
 <body>
   <!-- Section for Pop up dialog starts -->
   <div id="tf1_overlay" class="configDialogMask">
   </div>
-  <form name="tf1_frmFirewallRules" id="tf1_frmFirewallRules" action="platform.cgi" method="post">
+  <form name="tf1_frmFirewallRules" id="tf1_frmFirewallRules" action="cgi-action.html" method="post">
     <input type="hidden" name="thispage" id="thispage" value="firewallRules.html">          
-    <div id="tf1_dialog" class="configDialog">
-      
-    </div>
+    <div id="tf1_dialog" class="configDialog"><!-- (start) add or edit form -->
+                <div class="topBg">
+                    <h1>IPv4 Firewall Rules Configuration</h1>                    
+                        <a href="javascript:void(0)" id="btnClose" title="Close"></a>                    
+                </div>
+                <div class="dialogMidArea">
+                    <div class="configRow" id="tf1_selSvrName_div">
+                        <label>
+                            Service
+                        </label>
+                        <select name="ServiceName" id="tf1_selSvrName">
+                            
+                            <option value="ANY">ANY</option>
+                            
+                            <option value="HTTP">HTTP</option>
+                            
+                            <option value="DNS">DNS</option>
+                            
+                            <option value="FTP">FTP</option>
+                            
+                            <option value="HTTPS">HTTPS</option>
+                            
+                            <option value="ICQ">ICQ</option>
+                            
+                            <option value="IRC">IRC</option>
+                            
+                            <option value="IMAP2">IMAP2</option>
+                            
+                            <option value="IMAP3">IMAP3</option>
+                            
+                            <option value="NFS">NFS</option>
+                            
+                            <option value="POP3">POP3</option>
+                            
+                            <option value="PPTP">PPTP</option>
+                            
+                            <option value="REAL-AUDIO">REAL-AUDIO</option>
+                            
+                            <option value="SSH">SSH</option>
+                            
+                            <option value="TELNET">TELNET</option>
+                            
+                            <option value="TFTP">TFTP</option>
+                            
+                            <option value="RIP">RIP</option>
+                            
+                            <option value="SIP-UDP">SIP-UDP</option>
+                            
+                            <option value="SIP-TCP">SIP-TCP</option>
+                            
+                            <option value="DNS-TCP">DNS-TCP</option>
+                            
+                        </select>
+                    </div>
+                    <div class="break" id="break_selSvrName_div">
+                        &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_selFwAction_div">
+                        <label>
+                            Action
+                        </label>
+                        <select name="Action" id="tf1_selFwAction">
+                            <option value="DROP">Block Always</option>
+                            <option value="ACCEPT">Allow Always</option>
+                        </select>
+                    </div>
+                    <div class="break" id="break_selFwAction_div">
+                        &nbsp;
+                    </div>
+
+                    <div class="configRow" id="tf1_schedules_div">
+                        <label>
+                            Schedule
+                        </label>
+                        <select size="1" id="tf1_schedules" name="ScheduleName">
+                            
+                            <option value="No Schedule">No Schedule</option>
+                            
+                        </select>
+                    </div>
+                    <div class="break" id="break_schedules_div">
+                        &nbsp;
+                    </div>
+                   
+                    <div class="configRow" id="tf1_addFwSrcUser_div">
+                        <label>
+                            Source Hosts
+                        </label>
+                        <select size="1" name="SourceAddressType" onchange="dropFieldSelectSrc ()" id="tf1_addFwSrcUser">
+                            <option value="0">Any</option>
+                            <option value="1">Single Address</option>
+                            <option value="2">Address Range</option>
+                        </select>
+                    </div>
+                    <div class="break" id="break_addFwSrcUser_div">
+                        &nbsp;
+                    </div>
+                    <div class="hide" id="tf1_txtFwSrcUserStart_div">
+                        <label id="tf1_lblsourceStart">
+                            IP Address
+                        </label>
+                        <input name="SourceAddressStart" value="" id="tf1_txtFwSrcUserStart" maxlength="15" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" disabled="" type="text">
+                    </div>
+                    <div class="hide" id="break_txtFwSrcUserStart_div">
+                        &nbsp;
+                    </div>
+                    <div class="hide" id="tf1_txtFwSrcUserFinish_div">
+                        <label id="tf1_lblsourceEnd">
+                            IP Address
+                        </label>
+                        <input name="SourceAddressEnd" value="" maxlength="15" id="tf1_txtFwSrcUserFinish" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" disabled="" type="text">
+                    </div>
+                    <div class="hide" id="break_txtFwSrcUserFinish_div">
+                        &nbsp;
+                    </div>
+                    <div class="configRow" id="tf1_destinationHost_div">
+                        <label>
+                            Destination Hosts
+                        </label>
+                        <select size="1" name="DestinationAddressType" onchange="destinationHostSelect ()" id="tf1_destinationHost">
+                            <option value="0">Any</option>
+                            <option value="1">Single Address</option>
+                            <option value="2">Address Range</option>
+                        </select>
+                    </div>
+                    <div class="break" id="break_destinationHost_div">
+                        &nbsp;
+                    </div>
+                    <div class="hide" id="tf1_destinationHostStart_div">
+                        <label id="tf1_lblDestStart">
+                            IP Address
+                        </label>
+                        <input name="DestinationAddressStart" value="" id="tf1_destinationHostStart" maxlength="15" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" disabled="" type="text">
+                    </div>
+                    <div class="hide" id="break_destinationHostStart_div">
+                        &nbsp;
+                    </div>
+                    <div class="hide" id="tf1_destinationHostFinish_div">
+                        <label id="tf1_lblDestEnd">
+                            IP Address
+                        </label>
+                        <input name="DestinationAddressEnd" value="" maxlength="15" id="tf1_destinationHostFinish" onkeypress="return numericValueCheck (event, '.')" onkeydown="if (event.keyCode == 9) { return ipv4AddrValidate (this, 'IP', false, true, 'Invalid IP address.', 'for octet ', true); }" disabled="" type="text">
+                    </div>
+                    <div class="hide" id="break_destinationHostFinish_div">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="dialogSubmitRow">
+                    <input name="button.config.firewallRules.firewallRules.-1" class="btnSubmit" value="Save" onclick="return fwRuleValidate()" type="submit">                    
+                    </div>
+                   
+                   <!-- loading onload form scripts -->
+                    
+                <!-- (end) add or edit form -->
+
+</div>
   </form>
   <!-- Section for Pop up dialog ends -->
   <!-- Right click Div Start -->
@@ -56,208 +209,210 @@
         <td class="header" valign="top" align="center">
           <!--webbot bot="Include" u-include="header.html" tag="BODY" startspan -->
   <div align="center">
-    <table border="0" cellpadding="0" cellspacing="0" width="980px">	
-      <tr>
-        <td class="header" valign="top" align="center">
-          <div align="center">
-            <div class="midWidth">
-              <div class="logo FL">&nbsp;</div>
-              <div class="FR headerRight">
-                <table border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td valign="top"><h4 class="FR">Logged in as:</h4></td>
-                    <td valign="top"><h5 class="FR"><label id="lblLoggedinUser" title="admin">admin</label>(admin)</h5></td>
-                    <td valign="top"><a class="btnLogout" href="index.html"><div><div>Logout </div></div></a></td>
-                  </tr>
-                  <tr>
-                    <td valign="top"><h4 class="FR">Firmware Version:</h4></td>
-                    <td valign="top" colspan="2"><h5 class="FR">FHMTF1_JCO300_R1.4</h5></td>
-                  </tr>
-                  <tr>
-                    <td valign="top"><h4 class="FR">Serial Number:</h4></td>
-                    <td valign="top" colspan="2"><h5 class="FR">RWUOTEC6FF9B9A0</h5></td>
-                  </tr>
-                </table>
-              </div>
-              <div class="menuBg">
+    <div class="midWidth">
+      <div class="logo FL">&nbsp;</div>
+      <div class="FR headerRight">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td valign="top"><h4 class="FR">Logged in as:</h4></td>
+            <td valign="top"><h5 class="FR"><label id="lblLoggedinUser" title="admin">admin</label>(admin)</h5></td>
+            <td valign="top">
+              <a class="btnLogout" href="index.html">
                 <div>
-                  <nav id="topNav">
-                    <ul>
-                      <li class="main start"><a class="nolink" href="javascript:void(0)" id="mainMenu1">Status<span></span></a>
-                        <ul class="menuone">
-                          <li><a href="dashboard.html" >Dashboard</a></li>
-                          <li><a href="deviceStatus.html" >Device Status</a></li>
-                          <li><a href="deviceStatistics.html" >Device Statistics</a></li>
-                          <li class="submain"><a href="javascript:void(0)" class="nolink">LAN Clients <span></span></a>
-                            <ul class="two">
-                              <li><a href="lanDhcpLeasedClients.html">Active LAN Clients</a></li>
-                              <li><a href="lanDhcpV6LeasedClients.html">DHCPv6</a> </li> 
-                            </ul>
-                          </li>
-                          <li><a href="wirelessStatistics.html" >WLAN Statistics</a></li>
-                          <li><a href="wirelessClients.html" >WLAN Clients</a></li>
-                        </ul>
-                      </li>
-                      <li class="main"><a class="nolink" href="javascript:void(0)" id="mainMenu2">Network<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain"><a class="nolink" href="javascript:void(0)">LAN<span></span></a>
-                            <ul class="two">
-                              <li><a href="lanIPv4Config.html" >LAN IPv4 Configuration</a> </li>
-                              <li><a href="lanIPv4ReservedIPs.html" >LAN IPv4 Reserved IPs</a> </li>
-                              <li><a href="lanIPv6Config.html" >LAN IPv6 Configuration</a> </li>
-                              <li><a href="vlanSettings.html" >Available VLANs</a> </li>
-                              <li><a href="portVlan.html" >VLAN Membership</a> </li>
-                            </ul>									
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">WAN<span></span></a>
-                            <ul class="two">
-                              <li><a href="wanIPv4Config.html" >WAN IPv4 Configuration</a> </li>
-                              <li><a href="wanIpv6Config.html" >WAN IPv6 Configuration</a> </li>
-                              <li><a href="eogre.html" >EoGRE</a> </li>
-                            </ul>
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Wireless<span></span></a>
-                            <ul class="two">
-                              <li><a href="accessPoints.html" >Access Points</a></li>
-                              <li><a href="profiles.html" >Profiles</a></li>
-                              <li><a href="wps.html" >WPS</a></li>
-                            </ul>
-                          </li>
-                          <li class="submain"><a class="nolink" href="javascript:void(0)">IPv6<span></span></a>
-                            <ul class="two">
-                              <li><a href="ipMode.html" >IP Mode</a></li>
-                            </ul>
-                          </li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Routing<span></span></a>
-                            <ul class="two">
-                              <li><a href="routingMode.html" >Routing Mode</a></li>
-                              <li><a href="staticRouting.html" >Static Routing</a></li>
-                              <li><a href="ipv6Routing.html" >IPv6 Routing</a> </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="main">
-                        <a class="nolink" href="javascript:void(0)" id="mainMenu4">Security<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Firewall<span></span></a>
-                            <ul class="two">
-                              <li><a href="defaultPolicy.html" >Default Policy</a></li>
-                              <li><a href="firewallRules.html" >Firewall Rules</a></li>
-                              <li><a href="customServices.html" >Custom Services</a></li>
-                              <li><a href="portForwarding.html" >Port Forwarding</a></li>
-                              <li><a href="clientAccessControl.html" >Client Access Control</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="alg.html">ALG</a></li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Content Filtering<span></span></a>
-                            <ul class="two">
-                              <li><a href="contentFiltering.html" >Content Filtering</a></li>
-                              <li><a href="blockedKeywords.html" >Blocked Keywords</a></li>
-                              <li><a href="approvedUrls.html" >Approved URLs</a></li>
-                              <li><a href="exportWebFilter.html" >Export Web Filter</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="vpnPassthrough.html">VPN Passthrough</a></li>
-                          <li class="submain">
-                            <a class="nolink" href="javascript:void(0)">Attack Checks<span></span></a>
-                            <ul class="two">
-                              <li><a href="specificAttacks.html" >Specific Attacks</a></li>
-                              <li><a href="dosDDoSPrevention.html" >DoS / DDoS Preventions</a></li>
-                              <li><a href="p2pSessionLimitation.html" >P2P Session Limitation</a></li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="main">
-                        <a class="nolink" href="javascript:void(0)" id="mainMenu5">Administration<span></span></a>
-                        <ul class="menuone">
-                          <li class="submain">
-                            <a href="users.html">Users</a></li>
-                            <li><a href="remoteManagement.html" >Remote Management</a></li>
-                            <li><a href="webManagement.html" >Web Management</a></li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Maintenance<span></span></a>
-                              <ul class="two">
-                                <li><a href="backupRestore.html">Backup / Restore</a></li>
-                                <li><a href="upgradeViaNetwork.html">Upgrade Via Network</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="diagnostics.html">Diagnostics</a></li>
-                            <li><a href="dateAndTime.html">Date &amp; Time</a></li>									
-                          </ul>
-                        </li>
-                        <li class="main"> <a class="nolink" href="javascript:void(0)" id="mainMenu7">Advanced<span></span></a>
-                          <ul class="menuone">
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Status <span></span></a>
-                              <ul class="two">
-                                <li><a href="accountingStatus.html" >Accounting Status</a></li>
-                                <li><a href="maptAvailablePorts.html" >MAP-T Available Ports</a></li>
-                                <li><a href="maptPortStats.html" >MAP-T Port Statistics </a></li>
-                              </ul>
-                            </li>
-                            <li><a href="serverSettings.html">DMS Server Settings</a></li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Network <span></span></a>
-                              <ul class="two">
-                                <li><a href="maptConfiguration.html" >MAP-T Configuration</a></li>
-                                <li><a href="bridgeMode.html" >Bridge Mode</a></li>
-                                <li><a href="upnpConfig.html" >UPnP Configuration</a></li>
-                                <li><a href="igmpProxySetup.html" >IGMP Proxy Setup</a></li>
-                                <li><a href="dmzHost.html" >DMZ Host</a></li>
-                              </ul>
-                            </li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Security <span></span></a>
-                              <ul class="two">
-                                <li><a href="unauthorizedUsage.html" >Unauthorized Usage</a></li>
-                              </ul>
-                            </li>
-                            <li class="submain">
-                              <a class="nolink" href="javascript:void(0)">Administration <span></span></a>
-                              <ul class="two">
-                                <li><a href="remoteSysLogSetup.html" >Remote Syslog Setup</a></li>
-                                <li><a href="disks.html">Storage Devices</a></li>
-                                <li><a href="accounting.html">Accounting</a></li>
-                                <li><a href="radiusConfig.html" >Radius Server Configuration</a></li>
-                                <li><a href="userAccessPortalSession.html" >Users Access Portal Session</a></li>
-                                <li><a href="userAccessPortalSetup.html">Users Access Portal Setup</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="bandwidthProfiles.html" >Bandwidth Profiles</a></li>
-                            <li><a href="trafficSelectors.html" >Traffic Selectors</a></li>
-                            <li><a href="schedules.html" >Schedules</a></li>
-                            <li><a href="ftpServer.html" >FTP Server</a></li>
-                          </ul>
-                        </li>
-                        <li class="main end">&nbsp;</li>
+                  <div>Logout </div>
+                </div>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td valign="top"><h4 class="FR">Firmware Version:</h4></td>
+            <td valign="top" colspan="2"><h5 class="FR">FHMTF1_JCO300_R1.4</h5></td>
+          </tr>
+          <tr>
+            <td valign="top"><h4 class="FR">Serial Number:</h4></td>
+            <td valign="top" colspan="2"><h5 class="FR">RWUOTEC6FF9B9A0</h5></td>
+          </tr>
+        </table>
+      </div>
+      <div class="menuBg">
+        <div>
+          <nav id="topNav">
+            <ul>
+              <li class="main start"><a class="nolink" href="javascript:void(0)" id="mainMenu1">Status<span></span></a>
+                <ul class="menuone">
+                  <li><a href="dashboard.html" >Dashboard</a></li>
+                  <li><a href="deviceStatus.html" >Device Status</a></li>
+                  <li><a href="deviceStatistics.html" >Device Statistics</a></li>
+                  <li class="submain"><a href="javascript:void(0)" class="nolink">LAN Clients <span></span></a>
+                    <ul class="two">
+                      <li><a href="lanDhcpLeasedClients.html">Active LAN Clients</a></li>
+                      <li><a href="lanDhcpV6LeasedClients.html">DHCPv6</a> </li> 
+                    </ul>
+                  </li>
+                  <li><a href="wirelessStatistics.html" >WLAN Statistics</a></li>
+                  <li><a href="wirelessClients.html" >WLAN Clients</a></li>
+                </ul>
+              </li>
+              <li class="main"><a class="nolink" href="javascript:void(0)" id="mainMenu2">Network<span></span></a>
+                <ul class="menuone">
+                  <li class="submain"><a class="nolink" href="javascript:void(0)">LAN<span></span></a>
+                    <ul class="two">
+                      <li><a href="lanIPv4Config.html" >LAN IPv4 Configuration</a> </li>
+                      <li><a href="lanIPv4ReservedIPs.html" >LAN IPv4 Reserved IPs</a> </li>
+                      <li><a href="lanIPv6Config.html" >LAN IPv6 Configuration</a> </li>
+                      <li><a href="vlanSettings.html" >Available VLANs</a> </li>
+                      <li><a href="portVlan.html" >VLAN Membership</a> </li>
+                    </ul>									
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">WAN<span></span></a>
+                    <ul class="two">
+                      <li><a href="wanIPv4Config.html" >WAN IPv4 Configuration</a> </li>
+                      <li><a href="wanIpv6Config.html" >WAN IPv6 Configuration</a> </li>
+                      <li><a href="eogre.html" >EoGRE</a> </li>
+                    </ul>
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Wireless<span></span></a>
+                    <ul class="two">
+                      <li><a href="accessPoints.html" >Access Points</a></li>
+                      <li><a href="profiles.html" >Profiles</a></li>
+                      <li><a href="wps.html" >WPS</a></li>
+                    </ul>
+                  </li>
+                  <li class="submain"><a class="nolink" href="javascript:void(0)">IPv6<span></span></a>
+                    <ul class="two">
+                      <li><a href="ipMode.html" >IP Mode</a></li>
+                    </ul>
+                  </li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Routing<span></span></a>
+                    <ul class="two">
+                      <li><a href="routingMode.html" >Routing Mode</a></li>
+                      <li><a href="staticRouting.html" >Static Routing</a></li>
+                      <li><a href="ipv6Routing.html" >IPv6 Routing</a> </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="main">
+                <a class="nolink" href="javascript:void(0)" id="mainMenu4">Security<span></span></a>
+                <ul class="menuone">
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Firewall<span></span></a>
+                    <ul class="two">
+                      <li><a href="defaultPolicy.html" >Default Policy</a></li>
+                      <li><a href="firewallRules.html" >Firewall Rules</a></li>
+                      <li><a href="customServices.html" >Custom Services</a></li>
+                      <li><a href="portForwarding.html" >Port Forwarding</a></li>
+                      <li><a href="clientAccessControl.html" >Client Access Control</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="alg.html">ALG</a></li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Content Filtering<span></span></a>
+                    <ul class="two">
+                      <li><a href="contentFiltering.html" >Content Filtering</a></li>
+                      <li><a href="blockedKeywords.html" >Blocked Keywords</a></li>
+                      <li><a href="approvedUrls.html" >Approved URLs</a></li>
+                      <li><a href="exportWebFilter.html" >Export Web Filter</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="vpnPassthrough.html">VPN Passthrough</a></li>
+                  <li class="submain">
+                    <a class="nolink" href="javascript:void(0)">Attack Checks<span></span></a>
+                    <ul class="two">
+                      <li><a href="specificAttacks.html" >Specific Attacks</a></li>
+                      <li><a href="dosDDoSPrevention.html" >DoS / DDoS Preventions</a></li>
+                      <li><a href="p2pSessionLimitation.html" >P2P Session Limitation</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="main">
+                <a class="nolink" href="javascript:void(0)" id="mainMenu5">Administration<span></span></a>
+                <ul class="menuone">
+                  <li class="submain">
+                    <a href="users.html">Users</a></li>
+                    <li><a href="remoteManagement.html" >Remote Management</a></li>
+                    <li><a href="webManagement.html" >Web Management</a></li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Maintenance<span></span></a>
+                      <ul class="two">
+                        <li><a href="backupRestore.html">Backup / Restore</a></li>
+                        <li><a href="upgradeViaNetwork.html">Upgrade Via Network</a></li>
                       </ul>
-                    </nav>
-                  </div>			 
-                  <div class="FR rilSearch">
-                    <input id="menu1" class="rilSearchText" size="200" name="rilSearch" value="Menu Search..." onfocus="watermark('menu1','Menu Search...');" onblur="watermark('menu1','Menu Search...');" />
-                    <div id="menuList" class="menuSearchTf1">
-                    </div>
-                  </div>			 
-                </div>
-                <div class="breadCrumb">
-                  <div id="breadCrumb">
-                  </div>
-                  <div class="help">
-                    <a id="link" HREF="javascript:void(0)" style="visibility:hidden;position:absolute;"></a>
-                    <a class="helpButton" href="javascript:void(0)"><div><div>Help </div></div></a></div>
-                  </div>
-                </div>
-              </div>
-              <input type="hidden"  id="tf1_hidden_hgwModelName" value="1"> 
+                    </li>
+                    <li><a href="diagnostics.html">Diagnostics</a></li>
+                    <li><a href="dateAndTime.html">Date &amp; Time</a></li>									
+                  </ul>
+                </li>
+                <li class="main"> <a class="nolink" href="javascript:void(0)" id="mainMenu7">Advanced<span></span></a>
+                  <ul class="menuone">
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Status <span></span></a>
+                      <ul class="two">
+                        <li><a href="accountingStatus.html" >Accounting Status</a></li>
+                        <li><a href="maptAvailablePorts.html" >MAP-T Available Ports</a></li>
+                        <li><a href="maptPortStats.html" >MAP-T Port Statistics </a></li>
+                      </ul>
+                    </li>
+                    <li><a href="serverSettings.html">DMS Server Settings</a></li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Network <span></span></a>
+                      <ul class="two">
+                        <li><a href="maptConfiguration.html" >MAP-T Configuration</a></li>
+                        <li><a href="bridgeMode.html" >Bridge Mode</a></li>
+                        <li><a href="upnpConfig.html" >UPnP Configuration</a></li>
+                        <li><a href="igmpProxySetup.html" >IGMP Proxy Setup</a></li>
+                        <li><a href="dmzHost.html" >DMZ Host</a></li>
+                      </ul>
+                    </li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Security <span></span></a>
+                      <ul class="two">
+                        <li><a href="unauthorizedUsage.html" >Unauthorized Usage</a></li>
+                      </ul>
+                    </li>
+                    <li class="submain">
+                      <a class="nolink" href="javascript:void(0)">Administration <span></span></a>
+                      <ul class="two">
+                        <li><a href="remoteSysLogSetup.html" >Remote Syslog Setup</a></li>
+                        <li><a href="disks.html">Storage Devices</a></li>
+                        <li><a href="accounting.html">Accounting</a></li>
+                        <li><a href="radiusConfig.html" >Radius Server Configuration</a></li>
+                        <li><a href="userAccessPortalSession.html" >Users Access Portal Session</a></li>
+                        <li><a href="userAccessPortalSetup.html">Users Access Portal Setup</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="bandwidthProfiles.html" >Bandwidth Profiles</a></li>
+                    <li><a href="trafficSelectors.html" >Traffic Selectors</a></li>
+                    <li><a href="schedules.html" >Schedules</a></li>
+                    <li><a href="ftpServer.html" >FTP Server</a></li>
+                  </ul>
+                </li>
+                <li class="main end">&nbsp;</li>
+              </ul>
+            </nav>
+          </div>			 
+          <div class="FR rilSearch">
+            <input id="menu1" class="rilSearchText" size="200" name="rilSearch" value="Menu Search..." onfocus="watermark('menu1','Menu Search...');" onblur="watermark('menu1','Menu Search...');" />
+            <div id="menuList" class="menuSearchTf1">
             </div>
-          <!--webbot bot="Include" i-checksum="61167" endspan -->
+          </div>			 
+        </div>
+        <div class="breadCrumb">
+          <div id="breadCrumb">
+          </div>
+          <div class="help">
+            <a id="link" HREF="javascript:void(0)" style="visibility:hidden;position:absolute;"></a>
+            <a class="helpButton" href="javascript:void(0)"><div><div>Help </div></div></a></div>
+          </div>
+        </div>
+      </div>
+      <input type="hidden"  id="tf1_hidden_hgwModelName" value="1"> 
+      <input type="hidden"  id="tf1_hidden_gponStatus" value="1"> 
+    <!--webbot bot="Include" i-checksum="9267" endspan -->
         </td>
       </tr>
       <tr>
@@ -293,144 +448,143 @@
                     </thead>                                            
                     
                     <tr class="gradeA" id="firewallRules1" status="1">
-                      <td class="gradeA">Enabled</td>
-                      <td class="gradeA">ANY</td>
-                      <td class="gradeA">Allow Always</td>
-                      <td class="gradeA">No Schedule</td>
-                      <td class="gradeA">ANY</td>
-                      <td class="gradeA">ANY</td>
+                      <td>Enabled</td>
+                      <td>ANY</td>
+                      <td>Allow Always</td>
+                      <td>No Schedule</td>
+                      <td>ANY</td>
+                      <td>ANY</td>
                     </tr>
                     
                     <tr class="gradeA" id="firewallRules2" status="1">
-                      <td class="gradeA">Enabled</td>
-                      <td class="gradeA">FTP</td>
-                      <td class="gradeA">Allow Always</td>
-                      <td class="gradeA">No Schedule</td>
-                      <td class="gradeA">192.168.61.16</td>
-                      <td class="gradeA">ANY</td>
+                      <td>Enabled</td>
+                      <td>FTP</td>
+                      <td>Allow Always</td>
+                      <td>No Schedule</td>
+                      <td>192.168.61.16</td>
+                      <td>ANY</td>
                     </tr>
                     
                     <tr class="gradeA" id="firewallRules3" status="1">
-                      <td class="gradeA">Enabled</td>
-                      <td class="gradeA">PPTP</td>
-                      <td class="gradeA">Block Always</td>
-                      <td class="gradeA">No Schedule</td>
-                      <td class="gradeA">192.168.16.105-192.168.16.123</td>
-                      <td class="gradeA">ANY</td>
+                      <td>Enabled</td>
+                      <td>PPTP</td>
+                      <td>Block Always</td>
+                      <td>No Schedule</td>
+                      <td>192.168.16.105-192.168.16.123</td>
+                      <td>ANY</td>
                     </tr>
                     
                     <tr class="gradeA" id="firewallRules4" status="1">
-                      <td class="gradeA">Enabled</td>
-                      <td class="gradeA">POP3</td>
-                      <td class="gradeA">Block Always</td>
-                      <td class="gradeA">No Schedule</td>
-                      <td class="gradeA">192.168.12.145</td>
-                      <td class="gradeA">192.168.12.155-192.168.12.180</td>
+                      <td>Enabled</td>
+                      <td>POP3</td>
+                      <td>Block Always</td>
+                      <td>No Schedule</td>
+                      <td>192.168.12.145</td>
+                      <td>192.168.12.155-192.168.12.180</td>
                     </tr>
                     <tr class="gradeA" id="firewallRules5" status="0">
-                                            <td class="gradeA">Disabled</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Disabled</td>
+                                            <td>ANY</td>
+                                            <td>Allow Always</td>
+                                            <td>No Schedule</td>
+                                            <td>ANY</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules6" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">FTP</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">192.168.29.61</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Enabled</td>
+                                            <td>FTP</td>
+                                            <td>Allow Always</td>
+                                            <td>No Schedule</td>
+                                            <td>192.168.29.61</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules7" status="0">
-                                            <td class="gradeA">Disabled</td>
-                                            <td class="gradeA">PPTP</td>
-                                            <td class="gradeA">Block Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">192.168.29.105-192.168.29.123</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Disabled</td>
+                                            <td>PPTP</td>
+                                            <td>Block Always</td>
+                                            <td>No Schedule</td>
+                                            <td>192.168.29.105-192.168.29.123</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules8" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">POP3</td>
-                                            <td class="gradeA">Block Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">192.168.29.145</td>
-                                            <td class="gradeA">192.168.29.155-192.168.29.180</td>
+                                            <td>Enabled</td>
+                                            <td>POP3</td>
+                                            <td>Block Always</td>
+                                            <td>No Schedule</td>
+                                            <td>192.168.29.145</td>
+                                            <td>192.168.29.155-192.168.29.180</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules9" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">JioLabs</td>
-                                            <td class="gradeA">Block Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Enabled</td>
+                                            <td>JioLabs</td>
+                                            <td>Block Always</td>
+                                            <td>No Schedule</td>
+                                            <td>ANY</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules10" status="0">
-                                            <td class="gradeA">Disabled</td>
-                                            <td class="gradeA">admin</td>
-                                            <td class="gradeA">Block Always</td>
-                                            <td class="gradeA">testLabs</td>
-                                            <td class="gradeA">192.168.29.160</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Disabled</td>
+                                            <td>admin</td>
+                                            <td>Block Always</td>
+                                            <td>testLabs</td>
+                                            <td>192.168.29.160</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules11" status="0">
-                                            <td class="gradeA">Disabled</td>
-                                            <td class="gradeA">hrGroup</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">hrGroup</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">192.168.29.120</td>
+                                            <td>Disabled</td>
+                                            <td>hrGroup</td>
+                                            <td>Allow Always</td>
+                                            <td>hrGroup</td>
+                                            <td>ANY</td>
+                                            <td>192.168.29.120</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules12" status="0">
-                                            <td class="gradeA">Disabled</td>
-                                            <td class="gradeA">TFTP</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">192.168.29.106</td>
-                                            <td class="gradeA">192.168.29.110</td>
+                                            <td>Disabled</td>
+                                            <td>TFTP</td>
+                                            <td>Allow Always</td>
+                                            <td>No Schedule</td>
+                                            <td>192.168.29.106</td>
+                                            <td>192.168.29.110</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules13" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">NFS</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">ANY</td>
+                                            <td>Enabled</td>
+                                            <td>NFS</td>
+                                            <td>Allow Always</td>
+                                            <td>No Schedule</td>
+                                            <td>ANY</td>
+                                            <td>ANY</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules14" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">TELNET</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">meeting 12 PM</td>
-                                            <td class="gradeA">192.168.29.185-192.168.29.190</td>
-                                            <td class="gradeA">192.168.29.126</td>
+                                            <td>Enabled</td>
+                                            <td>TELNET</td>
+                                            <td>Allow Always</td>
+                                            <td>meeting 12 PM</td>
+                                            <td>192.168.29.185-192.168.29.190</td>
+                                            <td>192.168.29.126</td>
                                           </tr>
                                               
                                             <tr class="gradeA" id="firewallRules15" status="1">
-                                            <td class="gradeA">Enabled</td>
-                                            <td class="gradeA">SIP-UDP</td>
-                                            <td class="gradeA">Allow Always</td>
-                                            <td class="gradeA">No Schedule</td>
-                                            <td class="gradeA">ANY</td>
-                                            <td class="gradeA">192.168.29.131-192.168.29.188</td>
+                                            <td>Enabled</td>
+                                            <td>SIP-UDP</td>
+                                            <td>Allow Always</td>
+                                            <td>No Schedule</td>
+                                            <td>ANY</td>
+                                            <td>192.168.29.131-192.168.29.188</td>
                                           </tr>
                   </table>
                 </div>
               </div>
               <div class="buttonsRow" id="tf1_btnShowModal">
-                <input type="button" name="button.add.firewallRules.firewallRules.-1" class="btnSubmit" title="Add" value="Add New IPv4 Firewall Rule
-                " id="btAdd" onClick="openForm('button.add.firewallRules.firewallRules','-1','tf1_dialog','firewallRules','firewallRules.html');">                                    
+                <input type="button" name="button.add.firewallRules.firewallRules.-1" class="btnSubmit" title="Add" value="Add New IPv4 Firewall Rule" id="btAdd" onClick="openForm('button.add.firewallRules.firewallRules','-1','tf1_dialog','firewallRules','firewallRules.html');">                                    
               </div>
               <div class="break">
                 &nbsp;
@@ -533,9 +687,9 @@
     <div class="msgInfoLoading loadingDialog" id="tf1_pageLoadingMask">
       <p> Loading Please wait..! </p>
     </div>
-    <script src="js/loadingStatus.js">
+    <script type="text/javascript" language="javascript" src="js/loadingStatus.js">
     </script>
-    <script  charset="utf-8">
+    <script type="text/javascript" language="javascript"  charset="utf-8">
     $(document).ready(function() {
       window.onresize = function(event){
         var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;
@@ -564,18 +718,19 @@
 <![endif]-->
 <!--webbot bot="Include" i-checksum="4293" endspan -->
   
-  <script src="js/jquery.dataTables.min.js"></script>
-  <script src="js/contextMenu.js"></script>
-  <script src="js/mis.js"></script>
-  <script src="js/menu.js"></script>   
-  <script src="js/textValidations.js"></script>
-  <script src="js/ipv4AddrValidations.js"></script>
-  <script src="js/mgmt.js"></script>      
-  <script src="js/firewallRules.js"></script>
-  <script src="js/menuSearchList.js"></script>
-  <script src="js/menuSearch.js"></script>
-  <script  charset="utf-8">
-  $(document).ready(function(){            
+  <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" language="javascript" src="js/contextMenu.js"></script>
+  <script type="text/javascript" language="javascript" src="js/mis.js"></script>
+  <script type="text/javascript" language="javascript" src="js/menu.js"></script>   
+  <script type="text/javascript" language="javascript" src="js/textValidations.js"></script>
+  <script type="text/javascript" language="javascript" src="js/ipv4AddrValidations.js"></script>
+  <script type="text/javascript" language="javascript" src="js/mgmt.js"></script>      
+  <script type="text/javascript" language="javascript" src="js/firewallRules.js"></script>
+  <script type="text/javascript" language="javascript" src="js/menuSearchList.js"></script>
+  <script type="text/javascript" language="javascript" src="js/menuSearch.js"></script>
+  <script type="text/javascript" language="javascript"  charset="utf-8">
+  $(document).ready(function(){  
+        
     $('.gradeA').contextMenu('contextMenu', {
       bindings: {
         'editMenu': function(t, e, rowId){
@@ -599,9 +754,9 @@
         }
         return menu;
       }
-      
+     
     });
-    
+   
     oTable = $('#recordsData').dataTable({
       "bJQueryUI": true,
       "sPaginationType": "full_numbers",
@@ -623,7 +778,7 @@
     menuLoading();
     mmSel("mainMenu4");
     getBreadCrumb(31);
-    
+    dataRightClick(true);  
     
   });         </script>
 </body>

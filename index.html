@@ -6,18 +6,20 @@
   <!--
   Copyright (c) 2012 - 2013 TeamF1, Inc. (www.TeamF1.com)
   All rights reserved.
-  -->
+-->
+
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" type="text/css" href="css/buttons.css" />
 <link rel="stylesheet" type="text/css" href="css/menu.css" />
-<script src="js/jquery-1.8.0.min.js"></script>
-<script src="js/mis.js"></script>
-<script src="js/textValidations.js"></script>
-<script  charset="utf-8">
+<script type="text/javascript" language="javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" language="javascript" src="js/mis.js"></script>
+<script type="text/javascript" language="javascript" src="js/textValidations.js"></script>
+<script type="text/javascript" language="javascript"  charset="utf-8">
 
-function loginValidate(){
+function loginValidate()
+{
   var txtFieldIdArr = new Array ();
   txtFieldIdArr[0] = "tf1_userName,Please enter a valid Username";
   txtFieldIdArr[1] = "tf1_password,Please enter a valid password";
@@ -28,7 +30,8 @@ function loginValidate(){
   return true;
 }
 
-function loginInit (){
+function loginInit ()
+{
   var usrObj = document.getElementById ('tf1_userName');
   if (!usrObj) return;
   usrObj.focus ();
@@ -38,13 +41,16 @@ $(document).ready(function(){
   
   /* Onload hide the status message if content is empty */	
   
-  if ($(".midBg div.msgInfo p").length > 0 && $(".midBg div.msgInfo p").html() == '')  {
+  if ($(".midBg div.msgInfo p").length > 0 && $(".midBg div.msgInfo p").html() == '')
+  {
     $(".midBg div.msgInfo").hide();
   }
-  if ($(".midBg div.msgError p").length > 0 && $(".midBg div.msgError p").html() == '')  {
+  if ($(".midBg div.msgError p").length > 0 && $(".midBg div.msgError p").html() == '')
+  {
     $(".midBg div.msgError").hide();
   }
-  if ($(".midBg div.msgSuccess p").length > 0 && $(".midBg div.msgSuccess p").html() == '')  {
+  if ($(".midBg div.msgSuccess p").length > 0 && $(".midBg div.msgSuccess p").html() == '')
+  {
     $(".midBg div.msgSuccess").hide();
   }
   
@@ -229,9 +235,9 @@ if(self == top) {
     <div class="msgInfoLoading loadingDialog" id="tf1_pageLoadingMask">
       <p> Loading Please wait..! </p>
     </div>
-    <script src="js/loadingStatus.js">
+    <script type="text/javascript" language="javascript" src="js/loadingStatus.js">
     </script>
-    <script  charset="utf-8">
+    <script type="text/javascript" language="javascript"  charset="utf-8">
     $(document).ready(function() {
       window.onresize = function(event){
         var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;

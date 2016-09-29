@@ -56,4 +56,3 @@ function diagnosticsValidate(action){
     }
     return true;
 }
-

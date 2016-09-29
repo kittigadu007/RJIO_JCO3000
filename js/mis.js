@@ -518,23 +518,50 @@ function detectIE() {
 
 /* Help default variable */
 
-var helpSection = "deviceStatistics";
+//var helpSection = "deviceStatistics";
 
-var helpConfigFile = "helpStatus.txt";
+//var helpConfigFile = "helpStatus.txt";
 
 
-function helpPop (helpSection,helpConfigFile)
-{
+function helpPop (helpSection,helpConfigFile){
+ 
 
 	/* For all browsers */
 	
-	var url = "platform.cgi?page=showHelp.html&help="+helpSection+"&helpfile="+helpConfigFile;
+	var url = "showHelp.html";
 	
 	/*Overwrite if it is Opera browser */
 	
 	if ( navigator.appName.indexOf ('Opera') != -1 ) {
 	
-			url = "platform.cgi?page=showHelp.html&help="+helpSection+"&helpfile="+helpConfigFile;
+			url = "showHelp.html";
+			
+		}
+  var isIE = detectIE(); 
+	if (isIE)  {    // If Internet Explorer, return version number
+       gotoIE(url);
+   }
+   else
+   {
+	
+	helpwindow=window.open(url,'name','height=472,width=570,left=100,top=150,resizable=no,scrollbars=yes,toolbar=no,status=no');	
+	
+	if (window.focus) {helpwindow.focus()}
+}
+	
+}
+function helpPopOne (helpSection,helpConfigFile){
+ 
+
+	/* For all browsers */
+	
+	var url = "showHelpOne.html";
+	
+	/*Overwrite if it is Opera browser */
+	
+	if ( navigator.appName.indexOf ('Opera') != -1 ) {
+	
+			url = "showHelpOne.html";
 			
 		}
   var isIE = detectIE(); 
@@ -553,7 +580,7 @@ function helpPop (helpSection,helpConfigFile)
 /* IE help pop up starts */
 function gotoIE(url){
       var targetWindowName = "TestWindow";
-       var wnd = window.open("",targetWindowName,"height=472,width=560,left=200,top=150,resizable=no,scrollbars=yes,toolbar=no,status=no");
+      var wnd = window.open("",targetWindowName,"height=472,width=560,left=200,top=150,resizable=no,scrollbars=yes,toolbar=no,status=no");
        var link = document.getElementById("link");
        link.target = targetWindowName;
        link.href = url;
@@ -639,4 +666,35 @@ return ((a < b) ? 1 : ((a > b) ? -1 : 0));
 /* ip addresss sorting ends */
 
 
+}
+
+
+/* New function to show tool bar text for clear instructions */
+
+function dataRightClick(rBool, tabName){
+
+	var rightClickOn = 'Right click on record to get more options';
+	
+	var rightClickOff = 'No right click options';
+	
+	if(tabName)
+		var tableName=tabName;
+	else
+		var tableName="recordsData";
+	
+	if (rBool == true){
+	
+	$("#"+tableName+"_length label").append('<span class="ctoolbar">['+rightClickOn+']</span>');
+	
+	}
+	else {
+	
+	$("#"+tableName+"_length label").append('<span class="ctoolbar">['+rightClickOff+']</span>');
+	/* for No right click options cursor should be default instead of pointer starts */
+        $('#'+tableName).children('tbody').on("mouseenter", function() {
+                 // hover starts code here
+             $(this).find('tr').css('cursor','default');    });
+        /* for No right click options cursor should be default instead of pointer ends */
+	}
+	
 }

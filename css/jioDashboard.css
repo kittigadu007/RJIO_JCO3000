@@ -3,12 +3,11 @@
  All rights reserved.
  Created on 26th Feb 2014 - Bala Krishna G 
 */
-
+@import "fonts.css";
 @charset "utf-8";
 /* reset */
 a, article, audio, body, body, canvas, caption, dd, details, div, dl, dt, em, figcaption, figure, footer, form, h1, h2, h3, h4, h5, header, html, i, iframe, img, label, legend, li, mark, menu, nav, object, ol, p, q, samp, section, small, span, strong, sub, summary, table, tbody, td, textarea, tfoot, th, thead, time, tr, ul, var, video {
 	border: 0 none;
-	font-family: Trebuchet MS, Arial, Verdana, Helvetica, Sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -18,9 +17,9 @@ a, article, audio, body, body, canvas, caption, dd, details, div, dl, dt, em, fi
 
 body {
 	background-color: #F4F4F4;
-	/*border: 1px solid #CCCCCC;*/
 	color: #FFFFFF;
 	font-size: 14px;
+  font-family: HelveticaNeueW02-45Ligh, Meiryo, Arial, Tahoma, Sans-serif;
 }
 .dashboardMidArea {
 	margin: 0 auto;
@@ -43,7 +42,6 @@ body {
 .footer .container p {
 	color: #999999;
 	font-size: 11px;
-	font-family: Trebuchet MS, Arial, Verdana, Helvetica, Sans-serif;
 	letter-spacing: 1px;
 	line-height: 39px;
 	text-align: center;
@@ -111,7 +109,7 @@ h2 {
 	background: -ms-linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
 	background: linear-gradient(left top, #50A0F0 0%, #1464B4 100%);
 	height: 202px;
-	padding: 13px 0 0 13px;
+	padding: 6px 0 0 13px;
 }
 .deviceStatusOne {
 	background: #1464B4;
@@ -154,8 +152,8 @@ h2 {
 	background: -o-linear-gradient(left top, #96C833 0%, #50780A 100%);
 	background: -ms-linear-gradient(left top, #96C833 0%, #50780A 100%);
 	background: linear-gradient(left top, #96C833 0%, #50780A 100%);
-	height: 205px;
-	padding: 10px 0 0 13px;
+	height: 210px;
+	padding: 6px 0 0 13px;
 }
 .lanWanIcon {
 	background: url(../images/dashboardIcons.png) 0 -72px no-repeat;
@@ -172,7 +170,7 @@ h2 {
 	background: -ms-linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
 	background: linear-gradient(left top, #FAAF4B 0%, #C86432 100%);
 	height: 108px;
-	padding: 13px 0 0 13px;
+	padding: 6px 0 0 13px;
 }
 .securityOne {
 	background: #C86432;
@@ -221,8 +219,8 @@ h2 {
 	background: -o-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
 	background: -ms-linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
 	background: linear-gradient(left top, #C8A01E 0%, #7D6400 100%);
-	height: 294px;
-	padding: 15px 0 0 15px;
+	height: 304px;
+	padding: 6px 0 0 15px;
 }
 .rightBlock {
 	float: right;
@@ -244,7 +242,7 @@ h2 {
 	height: 108px;
 	float: left;
 	width: 245px;
-	padding: 13px 0 0 13px;
+	padding: 6px 0 0 13px;
 }
 .usersOne {
 	background: #641E0F;
@@ -275,7 +273,7 @@ h2 {
 	background: linear-gradient(left top, #F04B8C 0%, #A00A3C 100%);
 	border-bottom: 10px solid #FFFFFF;
 	color: #FFFFFF;
-	height: 309px;
+	height: 320px;
 	float: right;
 	text-align: center;
 	text-shadow: 1px 2px 0 #333333;
@@ -324,8 +322,8 @@ h2 {
 	background: -o-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
 	background: -ms-linear-gradient(left top, #9664c8 40%, #3C0078 180%);
 	background: linear-gradient(left top, #9664c8 40%, #3C0078 180%);
-	height: 81px;
-	padding: 13px 0 0 13px;
+	height: 106px;
+	padding: 6px 0 0 13px;
 }
 .attachedDisks {
 	background: #9664c8;
@@ -335,16 +333,18 @@ h2 {
 	background: -o-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
 	background: -ms-linear-gradient(left top, #9664c8 14%, #3C0078 100%);
 	background: linear-gradient(left top, #9664c8 14%, #3C0078 100%);
-	height: 202px;
-	padding: 13px 0 0 13px;
+	height: 198px;
+	padding: 0 0 0 13px;
 }
 .dashboardRow {
 	padding: 0px;
+	clear: both;
+    	margin: 2px 0 3px 0;
+   	overflow: hidden;
 }
 .dashboardRow label, .dashboardRow p {
 	color: #FFFFFF;
 	float: left;
-	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
 	font-size: 11px;
 	text-align: left;
 	line-height: 18px;
@@ -407,11 +407,13 @@ h2 {
 }
 .dashboardRow2 {
 	padding: 0px;
+	clear: both;
+    	margin: 2px 0 3px 0;
+   	overflow: hidden;
 }
 .dashboardRow2 label {
 	color: #FFFFFF;
 	float: left;
-	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
 	font-size: 11px;
 	line-height: 18px;
 	text-align: left;
@@ -420,7 +422,6 @@ h2 {
 .dashboardRow2 p {
 	color: #FFFFFF;
 	float: left;
-	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
 	font-size: 11px;
 	line-height: 18px;
 	text-align: left;
@@ -435,11 +436,13 @@ h2 {
 }
 .dashboardRow3 {
 	padding: 0px;
+	clear: both;
+    	margin: 2px 0 3px 0;
+   	overflow: hidden;
 }
 .dashboardRow3 label {
 	color: #FFFFFF;
 	float: left;
-	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
 	font-size: 11px;
 	text-align: left;
 	line-height: 17px;
@@ -448,7 +451,6 @@ h2 {
 .dashboardRow3 p {
 	color: #FFFFFF;
 	float: left;
-	font-family: "Trebuchet MS", Arial, Verdana, Helvetica, Sans-serif;
 	font-size: 11px;
 	font-weight: bold;
 	font-style: italic;

@@ -112,6 +112,16 @@ function menuLoading() {
 						helpPop (helpSection,helpConfigFile);
 	
 	});
+
+$(".helpButton1").live("click", function(e){
+    
+  /*Prevent the anchor action or donot append the # to URL */						
+          e.preventDefault();
+          
+          /*Open the help file */
+          helpPopOne (helpSection,helpConfigFile);
+
+});
 	
 	/* Onload hide the status message if content is empty */	
 
@@ -185,4 +195,3 @@ $('html').click(function() {
     });	
 
 }
-

@@ -920,7 +920,7 @@ function lineGraphInit() {
 
 	for ( scale = maxVal; scale >= minVal; scale -= stepSize) {
 		var y = colHead + (yScalar * count * stepSize);
-		ctx.fillText(scale+" %", margin + 5, y + margin + 4);
+		ctx.fillText(scale+" %", margin + 5, y + margin + 5);
 		ctx.moveTo(rowHead + 5, y)
 		tmpWidth = can.width - 35;
 		ctx.lineTo(tmpWidth, y);
@@ -1139,4 +1139,3 @@ function getMemory() {
 	});
 
 }
-

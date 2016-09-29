@@ -115,7 +115,7 @@ function createListObject(fldObj){
     listObj.setAttribute("id", 'menuLi' + indexVal);
     indexVal++;
     var anchorObj = document.createElement("a");
-    anchorObj.setAttribute("href", "platform.cgi?page="+fldObj.hrefAttrLink);
+    anchorObj.setAttribute("href", fldObj.hrefAttrLink);
     anchorObj.innerHTML = fldObj.mainMenu + ' <span class="menuSpanArrow">&#187;</span> ' + fldObj.secondLevelMenu;
     anchorObj.onclick = function(){
         return clickOnLink(fldObj.secondLevelMenu);

@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/menu.css" />
 <link rel="stylesheet" type="text/css" href="css/table.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-1.8.4.custom.css" />
-<script src="js/jquery-1.8.0.min.js"></script>  
+<script type="text/javascript" language="javascript" src="js/jquery-1.8.0.min.js"></script>  
 <meta http-equiv="X-Frame-Options" content="deny">
 
 </head>
@@ -23,8 +23,7 @@
     <table border="0" cellpadding="0" cellspacing="0" width="980px">
       <tr>
         <td class="header" valign="top" align="center">
-          <!--webbot bot="Include" u-include="header.html" tag="BODY" startspan -->
-  <div align="center">
+   <div align="center">
     <table border="0" cellpadding="0" cellspacing="0" width="980px">	
       <tr>
         <td class="header" valign="top" align="center">
@@ -220,13 +219,14 @@
                   </div>
                   <div class="help">
                     <a id="link" HREF="javascript:void(0)" style="visibility:hidden;position:absolute;"></a>
-                    <a class="helpButton" href="javascript:void(0)"><div><div>Help </div></div></a></div>
+                  <a class="helpButton1" href="javascript:void(0)" onclick=""><div><div>Help </div></div></a>
+</div> 
                   </div>
                 </div>
               </div>
               <input type="hidden"  id="tf1_hidden_hgwModelName" value="1"> 
+              <input type="hidden"  id="tf1_hidden_gponStatus" value="1"> 
             </div>
-          <!--webbot bot="Include" i-checksum="61167" endspan -->
         </td>
       </tr>
       <tr>
@@ -288,10 +288,6 @@
                         IPv4 Address
                       </label><p class="display">0.0.0.0 / 0.0.0.0</p>
                     </div>
-                    <div class="break">
-                      &nbsp;
-                    </div>
-                    
                     <div class="break">
                       &nbsp;
                     </div>
@@ -556,11 +552,11 @@
                     <tr class="gradeA">
                       <td><p class="display">JioFiber-mRWyg</p>
                       </td>
-                      <td><p class="display">WPA+WPA2</p>
+                      <td><p class="display">OPEN</p>
                       </td>
-                      <td><p class="display">TKIP+CCMP</p>
+                      <td><p class="display">None</p>
                       </td>
-                      <td><p class="display">PSK</p>
+                      <td><p class="display">None</p>
                       </td>
                     </tr>
                     
@@ -568,11 +564,11 @@
                     <tr class="gradeA">
                       <td><p class="display">Jio_2</p>
                       </td>
-                      <td><p class="display">WPA+WPA2</p>
+                      <td><p class="display">OPEN</p>
                       </td>
-                      <td><p class="display">TKIP+CCMP</p>
+                      <td><p class="display">None</p>
                       </td>
-                      <td><p class="display">PSK</p>
+                      <td><p class="display">None</p>
                       </td>
                     </tr>
                     
@@ -616,14 +612,84 @@
                     <tr class="gradeA">
                       <td><p class="display">Jio_3</p>
                       </td>
-                      <td><p class="display">WPA+WPA2</p>
+                      <td><p class="display">OPEN</p>
                       </td>
-                      <td><p class="display">TKIP+CCMP</p>
+                      <td><p class="display">None</p>
                       </td>
-                      <td><p class="display">PSK</p>
+                      <td><p class="display">None</p>
                       </td>
                     </tr>
-                    
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_4</p>
+                        </td>
+                        <td><p class="display">OPEN</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_4</p>
+                        </td>
+                        <td><p class="display">OPEN</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_5</p>
+                        </td>
+                        <td><p class="display">WPA+WPA2</p>
+                        </td>
+                        <td><p class="display">TKIP+CCMP</p>
+                        </td>
+                        <td><p class="display">PSK</p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_5</p>
+                        </td>
+                        <td><p class="display">WPA+WPA2</p>
+                        </td>
+                        <td><p class="display">TKIP+CCMP</p>
+                        </td>
+                        <td><p class="display">PSK</p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_6</p>
+                        </td>
+                        <td><p class="display">WPA+WPA2</p>
+                        </td>
+                        <td><p class="display">TKIP+CCMP</p>
+                        </td>
+                        <td><p class="display">PSK</p>
+                        </td>
+                      </tr>
+                      
+                      
+                      <tr class="gradeA">
+                        <td><p class="display">Jio_6</p>
+                        </td>
+                        <td><p class="display">OPEN</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                        <td><p class="display">None</p>
+                        </td>
+                      </tr>
+                      
                   </table>
                 </div>
               </div>
@@ -730,9 +796,9 @@
     <div class="msgInfoLoading loadingDialog" id="tf1_pageLoadingMask">
       <p> Loading Please wait..! </p>
     </div>
-    <script src="js/loadingStatus.js">
+    <script type="text/javascript" language="javascript" src="js/loadingStatus.js">
     </script>
-    <script  charset="utf-8">
+    <script type="text/javascript" language="javascript"  charset="utf-8">
     $(document).ready(function() {
       window.onresize = function(event){
         var leftPx = $(window).innerWidth()/2 - $(".configDialog").width()/2;
@@ -760,16 +826,16 @@
 </script>
 <![endif]-->
 <!--webbot bot="Include" i-checksum="4293" endspan -->
-      <script src="js/jquery.dataTables.min.js"></script>
-      <script src="js/contextMenu.js"></script>
-      <script src="js/mis.js"></script>
-      <script src="js/menu.js"></script>    
-      <script src="js/textValidations.js"></script>
-      <script src="js/ipv4AddrValidations.js"></script>
-      <script src="js/mgmt.js"></script>
-      <script src="js/menuSearchList.js"></script>
-      <script src="js/menuSearch.js"></script>
-      <script  charset="utf-8">
+      <script type="text/javascript" language="javascript" src="js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" language="javascript" src="js/contextMenu.js"></script>
+      <script type="text/javascript" language="javascript" src="js/mis.js"></script>
+      <script type="text/javascript" language="javascript" src="js/menu.js"></script>    
+      <script type="text/javascript" language="javascript" src="js/textValidations.js"></script>
+      <script type="text/javascript" language="javascript" src="js/ipv4AddrValidations.js"></script>
+      <script type="text/javascript" language="javascript" src="js/mgmt.js"></script>
+      <script type="text/javascript" language="javascript" src="js/menuSearchList.js"></script>
+      <script type="text/javascript" language="javascript" src="js/menuSearch.js"></script>
+      <script type="text/javascript" language="javascript"  charset="utf-8">
       $(document).ready(function(){
         
         oTable = $('#recordsData').dataTable({
